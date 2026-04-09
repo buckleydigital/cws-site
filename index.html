@@ -22,14 +22,14 @@
   gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');
 </script>
 
-<!-- Meta Pixel (replace PIXEL_ID) -->
+<!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
 n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','PIXEL_ID'); fbq('track','PageView');
+fbq('init','1692791048547338'); fbq('track','PageView');
 </script>
 
 <!-- Structured Data -->
@@ -1184,10 +1184,8 @@ footer{
 
 <!-- ═══ JAVASCRIPT ═══ -->
 <script>
-/* ── CONFIG — replace these with your real values ── */
-var WEBHOOK_URL   = 'https://hook.eu2.make.com/YOUR_HOOK_ID';
-var SUPABASE_URL  = 'https://YOURPROJECT.supabase.co';
-var SUPABASE_KEY  = 'YOUR_SUPABASE_ANON_KEY';
+/* ── CONFIG ── */
+var WEBHOOK_URL   = 'https://hook.eu2.make.com/qw1gnas56z5s6vd4uc0wvi0pudw6pgkw';
 var MATCHED_BUYER = 'SunPeak Energy'; /* swap per geo/campaign as needed */
 var TOTAL_STEPS   = 5;
 
@@ -1320,38 +1318,14 @@ window.submitForm = async function() {
     gtag('event', 'generate_lead', { event_category:'quote_form', event_label:'clearwatt_submitted' });
   }
 
-  /* ── Fire webhook + Supabase in parallel ── */
-  var webhookP = fetch(WEBHOOK_URL, {
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(formData)
-  }).catch(function(e){ console.warn('Webhook:', e); });
-
-  var supaP = fetch(SUPABASE_URL + '/rest/v1/leads', {
-    method:'POST',
-    headers:{
-      'Content-Type':'application/json',
-      'apikey': SUPABASE_KEY,
-      'Authorization':'Bearer ' + SUPABASE_KEY,
-      'Prefer':'return=minimal'
-    },
-    body:JSON.stringify({
-      first_name:    formData.firstName,
-      last_name:     formData.lastName,
-      email:         formData.email,
-      phone:         formData.phone,
-      postcode:      formData.postcode,
-      is_homeowner:  formData.is_homeowner,
-      avg_quarterly_bill: formData.avg_quarterly_bill,
-      purchase_timeline:  formData.purchase_timeline,
-      matched_buyer: MATCHED_BUYER,
-      source:        formData.source,
-      campaign:      formData.campaign || null,
-      submitted_at:  formData.submitted_at
-    })
-  }).catch(function(e){ console.warn('Supabase:', e); });
-
-  try { await Promise.all([webhookP, supaP]); } catch(e) { /* silent */ }
+  /* ── Fire webhook to Make ── */
+  try {
+    await fetch(WEBHOOK_URL, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(formData)
+    });
+  } catch(e) { console.warn('Webhook:', e); }
 
   document.getElementById('overlay').classList.remove('show');
 
