@@ -897,6 +897,10 @@ footer{
             <div class="err-msg" id="err-postcode">Please enter a valid 4-digit postcode</div>
           </div>
 
+          <div id="postcode-error" style="display:none; background:rgba(229,62,62,0.08); border-left:4px solid #e53e3e; border-radius:10px; padding:12px 14px; margin-bottom:16px;">
+            <p style="font-size:0.8rem; color:#e53e3e; line-height:1.5;">Sorry, we don't currently have an installer covering that postcode. Please try a different postcode or <a href="mailto:contact@clearwattsolar.com.au" style="color:#e53e3e;text-decoration:underline">contact us directly</a>.</p>
+          </div>
+
           <button class="btn-next" id="postcodeNextBtn" onclick="lookupPostcode()">
             Find My Local Installer →
           </button>
@@ -913,7 +917,7 @@ footer{
 
           <div class="match-notice" id="buyerMatchNotice">
             <span class="mn-icon">🎯</span>
-            <p>We've matched you with <strong id="buyerNameDisplay">SunPeak Energy</strong> — a pre-vetted, CEC-accredited installer covering your area. Enter your details for your free quote.</p>
+            <p>We've matched you with <strong id="buyerNameDisplay">your local installer</strong> — a pre-vetted, CEC-accredited installer covering your area. Enter your details for your free quote.</p>
           </div>
 
           <div class="field-row">
@@ -944,7 +948,7 @@ footer{
           <div class="consent-wrap">
             <input type="checkbox" id="consent" onchange="validateContact()">
             <label for="consent">
-              I agree to be matched with a CEC-accredited installer by <strong id="consentBuyerName">SunPeak Energy</strong> for an obligation-free quote. My details will only be shared with my matched installer. I've read the <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-of-use">Terms of Use</a>.
+              I agree to be matched with a CEC-accredited installer by <strong id="consentBuyerName">your matched installer</strong> for an obligation-free quote. My details will only be shared with my matched installer. I've read the <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-of-use">Terms of Use</a>.
             </label>
           </div>
 
@@ -1186,10 +1190,11 @@ footer{
 <script>
 /* ── CONFIG ── */
 var WEBHOOK_URL   = 'https://hook.eu2.make.com/qw1gnas56z5s6vd4uc0wvi0pudw6pgkw';
-var MATCHED_BUYER = 'SunPeak Energy'; /* swap per geo/campaign as needed */
+var SUPABASE_FUNCTION_URL = 'https://wmegoygrancfwxagqskh.supabase.co/functions/v1/postcode-lookup';
 var TOTAL_STEPS   = 5;
 
 var formData = { source: 'clearwattsolar.com.au' };
+var matchedBuyerName = '';
 
 /* ── PROGRESS ── */
 function updateProgress(step) {
@@ -1248,7 +1253,7 @@ window.pickTimeline = function(el, val) {
 };
 
 /* ── STEP 4: POSTCODE ── */
-window.lookupPostcode = function() {
+window.lookupPostcode = async function() {
   var pcInput = document.getElementById('postcode');
   var pc = pcInput.value.trim().replace(/\D/g, '');
   if (!/^\d{4}$/.test(pc)) {
@@ -1258,11 +1263,41 @@ window.lookupPostcode = function() {
   }
   pcInput.classList.remove('err-field');
   document.getElementById('err-postcode').style.display = 'none';
+  document.getElementById('postcode-error').style.display = 'none';
+
+  var btn = document.getElementById('postcodeNextBtn');
+  btn.disabled = true;
+  btn.textContent = 'Finding your installer…';
+
   formData.postcode = pc;
-  formData.matched_buyer = MATCHED_BUYER;
-  document.getElementById('buyerNameDisplay').textContent = MATCHED_BUYER;
-  document.getElementById('consentBuyerName').textContent = MATCHED_BUYER;
-  goToStep(4, 5);
+
+  try {
+    var resp = await fetch(SUPABASE_FUNCTION_URL + '?postcode=' + encodeURIComponent(pc));
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    var data = await resp.json();
+
+    if (data.buyer_name) {
+      matchedBuyerName = data.buyer_name;
+      formData.matched_buyer = data.buyer_name;
+      if (data.buyer_id) formData.matched_buyer_id = data.buyer_id;
+
+      document.getElementById('buyerNameDisplay').textContent = data.buyer_name;
+      document.getElementById('consentBuyerName').textContent = data.buyer_name;
+
+      btn.disabled = false;
+      btn.textContent = 'Find My Local Installer →';
+      goToStep(4, 5);
+    } else {
+      document.getElementById('postcode-error').style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Find My Local Installer →';
+    }
+  } catch(e) {
+    console.error('Postcode lookup error:', e);
+    document.getElementById('postcode-error').style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Find My Local Installer →';
+  }
 };
 
 /* ── STEP 5: CONTACT VALIDATION ── */
