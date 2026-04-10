@@ -764,75 +764,66 @@ footer{
         <!-- STEP 1: OWNERSHIP -->
         <div class="step active" id="step1">
           <div id="step1-inner">
-            <div class="step-label">Step 1 of 5 · Eligibility</div>
+            <div class="step-label">Step 1 of 5</div>
             <h3>Do You Own Your Home?</h3>
             <div class="choice-grid">
               <div class="choice-card" onclick="pickOwner(true, this)">
                 <span class="cc-icon">🏠</span>
-                <div class="cc-title">Yes, I own it</div>
+                <div class="cc-title">Yes, I Own It</div>
                 <div class="cc-sub">Freehold or mortgage</div>
               </div>
-              <div class="choice-card" onclick="pickOwner(true, this)">
-                <span class="cc-icon">🏢</span>
-                <div class="cc-title">Investment property</div>
-                <div class="cc-sub">I own, tenant lives there</div>
-              </div>
-            </div>
-            <div class="choice-grid one-col" style="margin-bottom:0">
               <div class="choice-card disq-card" onclick="pickOwner(false, this)">
                 <span class="cc-icon">🔑</span>
-                <div class="cc-title">No, I rent</div>
-                <div class="cc-sub">Tenant — I don't own the property</div>
+                <div class="cc-title">No, I Rent</div>
+                <div class="cc-sub">Tenant or other</div>
               </div>
             </div>
           </div>
           <div id="renter-msg">
             <div class="renter-icon">😔</div>
-            <div class="renter-msg-title">Solar quotes are for homeowners</div>
-            <p style="font-size:0.82rem;color:var(--muted);line-height:1.65;margin-bottom:8px">Unfortunately we can only connect homeowners with solar installers. If your situation changes, we'd love to help.</p>
-            <div class="renter-box">⚡ <strong style="color:var(--cyan)">Buying soon?</strong> Bookmark this page — solar is one of the best first upgrades for new Australian homeowners.</div>
+            <div class="renter-msg-title">Sorry, We Can't Help Right Now</div>
+            <p style="font-size:0.82rem;color:var(--muted);line-height:1.65;margin-bottom:8px">Solar quotes are only available to homeowners. If your situation changes, we'd love to help you in the future!</p>
+            <div class="renter-box">💡 <strong style="color:var(--cyan)">Buying soon?</strong> Bookmark this page &mdash; solar is one of the best first upgrades for new homeowners in Australia.</div>
           </div>
         </div>
 
         <!-- STEP 2: BILL -->
         <div class="step" id="step2">
-          <div class="step-label">Step 2 of 5 · Energy Usage</div>
-          <h3>What's Your Average Quarterly Power Bill?</h3>
+          <div class="step-label">Step 2 of 5</div>
+          <h3>What's Your Average Quarterly Electricity Bill?</h3>
           <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
-            <div class="choice-h" onclick="pickBill(this,'Under $200')">
+            <div class="choice-h" onclick="pickBill(this,'Under $300')">
               <span class="ch-icon">💡</span>
               <div class="ch-body">
-                <div class="ch-title">Under $200</div>
-                <div class="ch-sub">Low usage household</div>
+                <div class="ch-title">Under $300</div>
+                <div class="ch-sub">Low usage</div>
               </div>
             </div>
-            <div class="choice-h" onclick="pickBill(this,'$200–$350')">
+            <div class="choice-h" onclick="pickBill(this,'$300–$500')">
               <span class="ch-icon">🔌</span>
               <div class="ch-body">
-                <div class="ch-title">$200 – $350</div>
-                <div class="ch-sub">Average Australian home</div>
+                <div class="ch-title">$300 – $500</div>
+                <div class="ch-sub">Average household</div>
               </div>
             </div>
-            <div class="choice-h" onclick="pickBill(this,'$350–$600')">
+            <div class="choice-h" onclick="pickBill(this,'$500–$800')">
               <span class="ch-icon">⚡</span>
               <div class="ch-body">
-                <div class="ch-title">$350 – $600</div>
-                <div class="ch-sub">Above average usage</div>
+                <div class="ch-title">$500 – $800</div>
+                <div class="ch-sub">High usage</div>
               </div>
-              <span class="ch-badge">BEST ROI</span>
             </div>
-            <div class="choice-h" onclick="pickBill(this,'$600+')">
+            <div class="choice-h" onclick="pickBill(this,'$800+')">
               <span class="ch-icon">📈</span>
               <div class="ch-body">
-                <div class="ch-title">$600+</div>
-                <div class="ch-sub">High usage — solar pays off fastest</div>
+                <div class="ch-title">$800+</div>
+                <div class="ch-sub">Very high usage</div>
               </div>
-              <span class="ch-badge">TOP ROI</span>
             </div>
           </div>
           <div class="insight">
-            <span class="insight-icon">⚡</span>
-            <p>At $350+ per quarter, most Australian homeowners see <strong>full payback in under 4 years</strong> — then enjoy effectively free power for 20+ years.</p>
+            <span class="insight-icon">💡</span>
+            <p>The higher your bill, the faster solar pays off. At $500/qtr, most Australian homeowners see <strong>full payback in under 4 years.</strong></p>
           </div>
           <button class="btn-back" onclick="goToStep(2,1)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -842,41 +833,41 @@ footer{
 
         <!-- STEP 3: TIMELINE -->
         <div class="step" id="step3">
-          <div class="step-label">Step 3 of 5 · Your Timeline</div>
+          <div class="step-label">Step 3 of 5</div>
           <h3>When Are You Looking To Get Solar?</h3>
           <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
-            <div class="choice-h" onclick="pickTimeline(this,'ASAP – within 1 month')">
+            <div class="choice-h" onclick="pickTimeline(this,'ASAP')">
               <span class="ch-icon">🚀</span>
               <div class="ch-body">
-                <div class="ch-title">ASAP — within 1 month</div>
-                <div class="ch-sub">Ready to move fast</div>
+                <div class="ch-title">ASAP</div>
+                <div class="ch-sub">Within 1 month</div>
               </div>
             </div>
-            <div class="choice-h" onclick="pickTimeline(this,'1–3 Months')">
+            <div class="choice-h" onclick="pickTimeline(this,'1-3 Months')">
               <span class="ch-icon">📅</span>
               <div class="ch-body">
-                <div class="ch-title">1–3 months</div>
-                <div class="ch-sub">Comparing options first</div>
-              </div>
-            </div>
-            <div class="choice-h" onclick="pickTimeline(this,'3–6 Months')">
-              <span class="ch-icon">🗓️</span>
-              <div class="ch-body">
-                <div class="ch-title">3–6 months</div>
+                <div class="ch-title">1–3 Months</div>
                 <div class="ch-sub">Planning ahead</div>
               </div>
             </div>
-            <div class="choice-h" onclick="pickTimeline(this,'Just Researching')">
+            <div class="choice-h" onclick="pickTimeline(this,'3-6 Months')">
+              <span class="ch-icon">🗓️</span>
+              <div class="ch-body">
+                <div class="ch-title">3–6 Months</div>
+                <div class="ch-sub">Just researching</div>
+              </div>
+            </div>
+            <div class="choice-h" onclick="pickTimeline(this,'Just Exploring')">
               <span class="ch-icon">🔍</span>
               <div class="ch-body">
-                <div class="ch-title">Just researching</div>
-                <div class="ch-sub">No pressure — information gathering</div>
+                <div class="ch-title">Exploring</div>
+                <div class="ch-sub">No rush yet</div>
               </div>
             </div>
           </div>
           <div class="insight">
-            <span class="insight-icon">🏷️</span>
-            <p>No rush at all — <strong>getting a quote now locks in today's rebate levels</strong> whether you install next month or in 6 months.</p>
+            <span class="insight-icon">⏳</span>
+            <p>No pressure — whether you're ready tomorrow or in 6 months, <strong>getting a quote now locks in today's rebate levels.</strong></p>
           </div>
           <button class="btn-back" onclick="goToStep(3,2)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -886,12 +877,12 @@ footer{
 
         <!-- STEP 4: POSTCODE -->
         <div class="step" id="step4">
-          <div class="step-label">Step 4 of 5 · Your Location</div>
+          <div class="step-label">Step 4 of 5</div>
           <h3>What's Your Postcode?</h3>
 
           <div class="match-notice">
             <span class="mn-icon">📍</span>
-            <p>We use your postcode to <strong>match you with your nearest CEC-accredited installer</strong> — the one best suited to your area and roof type.</p>
+            <p>We use your postcode to <strong>match you with your nearest pre-vetted local installer.</strong></p>
           </div>
 
           <div class="field-wrap">
@@ -915,12 +906,12 @@ footer{
 
         <!-- STEP 5: CONTACT -->
         <div class="step" id="step5">
-          <div class="step-label">Step 5 of 5 · Almost Done</div>
-          <h3>Where Do We Send Your Quote?</h3>
+          <div class="step-label">Step 5 of 5 &mdash; Almost There!</div>
+          <h3>Where Should We Send Your Quote?</h3>
 
           <div class="match-notice" id="buyerMatchNotice">
             <span class="mn-icon">🎯</span>
-            <p>We've matched you with <strong id="buyerNameDisplay">your local installer</strong> — a pre-vetted, CEC-accredited installer covering your area. Enter your details for your free quote.</p>
+            <p>Great news! We've matched you with <strong id="buyerNameDisplay">your local installer</strong> — a pre-vetted, licensed installer in your area. Enter your details below to receive your free quote.</p>
           </div>
 
           <div class="field-row">
@@ -948,23 +939,17 @@ footer{
             <div class="err-msg" id="err-email">Enter a valid email</div>
           </div>
 
-          <div class="consent-wrap">
-            <input type="checkbox" id="consent" onchange="validateContact()">
-            <label for="consent">
-              I agree to be matched with a CEC-accredited installer by <strong id="consentBuyerName">your matched installer</strong> for an obligation-free quote. My details will only be shared with my matched installer. I've read the <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms-of-use">Terms of Use</a>.
-            </label>
-          </div>
 
           <div id="turnstile-wrap" style="display:flex;justify-content:center;margin-bottom:14px">
             <div class="cf-turnstile" data-sitekey="0x4AAAAAAC2q3rtE5KaDSTRs" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired" data-theme="dark"></div>
           </div>
 
           <button class="btn-next" id="submitBtn" disabled onclick="submitForm()">
-            ⚡ Get My Free Quote →
+            🎯 Get My Free Matched Quote →
           </button>
           <div class="priv-note">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.77l-6.18 3.25L7 13.14 2 8.27l6.91-1.01L12 1z"/></svg>
-            100% secure — your details stay with your matched installer only
+            By submitting, you consent to <strong id="consentBuyerName">your matched installer</strong> contacting you regarding your solar quote. 100% secure — we never share your details beyond your matched installer.
           </div>
           <button class="btn-back" style="margin-top:14px" onclick="goToStep(5,4)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -1319,10 +1304,9 @@ function validateContact() {
   var ln  = document.getElementById('lastName').value.trim();
   var em  = document.getElementById('email').value.trim();
   var ph  = document.getElementById('phone').value.trim().replace(/\s/g,'');
-  var con = document.getElementById('consent').checked;
   var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
   var phoneOk = /^04\d{8}$/.test(ph);
-  document.getElementById('submitBtn').disabled = !(fn && ln && emailOk && phoneOk && con && turnstileToken);
+  document.getElementById('submitBtn').disabled = !(fn && ln && emailOk && phoneOk && turnstileToken);
 }
 
 function fv(id, test) {
