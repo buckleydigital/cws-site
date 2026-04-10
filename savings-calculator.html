@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solar Savings Calculator Australia 2026 | ClearWatt Solar</title>
+<meta name="description" content="Calculate how much solar could save you on your Australian electricity bill. Free instant estimate — system size, annual savings, payback period, and 10-year return." />
+<link rel="canonical" href="https://clearwattsolar.com.au/savings-calculator" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Solar Savings Calculator 2026 | ClearWatt Solar" />
+<meta property="og:description" content="Instantly estimate your solar savings, system size, and payback period. Free, no sign-up required." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Google Tag (replace G-XXXXXXXX) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1692791048547338'); fbq('track','PageView');
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:        #070d1a;
+  --surface:   #0d1526;
+  --surface2:  #111e35;
+  --border:    rgba(0,212,255,0.12);
+  --border2:   rgba(0,212,255,0.22);
+  --cyan:      #00d4ff;
+  --cyan-dark: #0099cc;
+  --cyan-pale: rgba(0,212,255,0.07);
+  --gold:      #f5c842;
+  --gold-dark: #d4a017;
+  --white:     #f0f8ff;
+  --muted:     #7a9ab5;
+  --muted2:    #4a6a85;
+  --green:     #22d47a;
+  --red:       #ff4757;
+  --radius:    16px;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--white);background:var(--bg);overflow-x:hidden}
+
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% -10%, rgba(0,212,255,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at -10% 80%, rgba(0,153,204,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 110%, rgba(245,200,66,0.04) 0%, transparent 60%);
+  pointer-events:none;z-index:0;
+}
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity:0.4;pointer-events:none;z-index:0;
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;background:rgba(7,13,26,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:36px;height:36px;position:relative;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.logo-mark::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(0,212,255,0.05));border:1px solid rgba(0,212,255,0.3);border-radius:8px;animation:markPulse 3s ease-in-out infinite}
+@keyframes markPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,212,255,0.15)}50%{box-shadow:0 0 0 8px rgba(0,212,255,0)}}
+.logo-mark svg{width:20px;height:20px;position:relative;z-index:1}
+.logo-text{font-family:'Exo 2',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-0.02em}
+.logo-text span{color:var(--cyan)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-badge{display:flex;align-items:center;gap:6px;background:rgba(34,212,122,0.1);border:1px solid rgba(34,212,122,0.25);border-radius:50px;padding:5px 13px;font-size:0.72rem;font-weight:700;color:#22d47a;letter-spacing:0.04em}
+.nav-badge::before{content:'';width:6px;height:6px;background:#22d47a;border-radius:50%;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.nav-cta{background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:var(--bg);font-weight:700;font-size:0.82rem;padding:9px 20px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(0,212,255,0.25);transition:transform 0.2s,box-shadow 0.2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(0,212,255,0.38)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:transform 0.3s,opacity 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-nav{display:none;position:fixed;inset:0;background:var(--bg);z-index:90;padding:80px 6vw 40px;flex-direction:column}
+.mob-nav.open{display:flex}
+.mob-nav ul{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--border)}
+.mob-nav ul li a{display:block;font-family:'Exo 2',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--border);transition:color 0.2s}
+.mob-nav ul li a:hover{color:var(--cyan)}
+.mob-cta{margin-top:28px}
+.mob-cta a{display:block;text-align:center;background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:var(--bg);font-family:'Exo 2',sans-serif;font-weight:800;font-size:1rem;padding:16px;border-radius:50px;text-decoration:none}
+@media(max-width:640px){.nav-right .nav-cta{display:none}.hamburger{display:flex}nav{padding:14px 5vw}}
+
+/* PAGE HERO */
+.page-hero{padding:130px 6vw 50px;position:relative;z-index:1;text-align:center}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border2);border-radius:50px;padding:6px 16px;margin-bottom:20px;font-size:0.72rem;font-weight:700;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;background:var(--cyan-pale)}
+.page-h1{font-family:'Exo 2',sans-serif;font-weight:900;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.05;letter-spacing:-0.04em;color:var(--white);max-width:760px;margin:0 auto 18px}
+.page-h1 span{background:linear-gradient(90deg,var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-sub{font-size:clamp(0.9rem,1.8vw,1.05rem);color:var(--muted);line-height:1.75;max-width:560px;margin:0 auto}
+
+/* CALCULATOR WRAP */
+.calc-section{padding:48px 6vw 80px;position:relative;z-index:1}
+.calc-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media(max-width:740px){.calc-inner{grid-template-columns:1fr}}
+
+/* CALC INPUTS */
+.calc-card{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:20px;padding:32px 28px;
+  box-shadow:0 24px 60px rgba(0,0,0,0.4),0 0 80px rgba(0,212,255,0.03);
+}
+.calc-card h2{font-family:'Exo 2',sans-serif;font-weight:800;font-size:1.15rem;color:var(--white);letter-spacing:-0.02em;margin-bottom:24px}
+
+.field-group{margin-bottom:22px}
+.field-group label{display:block;font-size:0.7rem;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px}
+.field-group .field-note{font-size:0.7rem;color:var(--muted2);margin-top:5px}
+
+select, input[type=range]{width:100%}
+select{
+  background:rgba(255,255,255,0.04);
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:10px;padding:12px 14px;
+  font-family:'Nunito Sans',sans-serif;font-size:0.92rem;color:var(--white);
+  outline:none;transition:border-color 0.2s;
+  -webkit-appearance:none;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237a9ab5' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;background-size:16px;
+  padding-right:36px;cursor:pointer;
+}
+select:focus{border-color:rgba(0,212,255,0.5)}
+select option{background:var(--surface);color:var(--white)}
+
+/* RANGE SLIDER */
+.range-wrap{position:relative;padding-bottom:4px}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:6px;border-radius:6px;
+  background:rgba(255,255,255,0.08);outline:none;cursor:pointer;
+}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;width:20px;height:20px;border-radius:50%;
+  background:var(--cyan);cursor:pointer;
+  box-shadow:0 0 0 3px rgba(0,212,255,0.2);
+  transition:box-shadow 0.2s;
+}
+input[type=range]::-webkit-slider-thumb:hover{box-shadow:0 0 0 6px rgba(0,212,255,0.2)}
+.range-labels{display:flex;justify-content:space-between;margin-top:6px}
+.range-labels span{font-size:0.68rem;color:var(--muted2)}
+.range-value{
+  display:inline-block;font-family:'Exo 2',sans-serif;font-weight:800;
+  font-size:1.3rem;color:var(--cyan);letter-spacing:-0.04em;
+  margin-bottom:8px;
+}
+.range-unit{font-size:0.75rem;color:var(--muted);font-weight:500;margin-left:3px}
+
+/* CALC RESULTS */
+.results-card{
+  background:var(--surface);border:1px solid var(--border2);
+  border-radius:20px;padding:32px 28px;
+  box-shadow:0 24px 60px rgba(0,0,0,0.4),0 0 80px rgba(0,212,255,0.03);
+  position:sticky;top:90px;
+}
+.results-card h2{font-family:'Exo 2',sans-serif;font-weight:800;font-size:1.15rem;color:var(--white);letter-spacing:-0.02em;margin-bottom:22px}
+
+.result-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 0;border-bottom:1px solid var(--border);
+  gap:12px;
+}
+.result-row:last-of-type{border-bottom:none}
+.result-label{font-size:0.8rem;color:var(--muted);line-height:1.4;max-width:170px}
+.result-val{font-family:'Exo 2',sans-serif;font-weight:900;font-size:1.45rem;color:var(--cyan);letter-spacing:-0.04em;text-align:right;flex-shrink:0}
+.result-val.green{color:var(--green)}
+.result-val.gold{color:var(--gold)}
+.result-val small{font-size:0.72rem;font-weight:600;display:block;color:var(--muted2);letter-spacing:0;line-height:1.3}
+
+/* 10yr savings bar */
+.savings-bar-wrap{margin:18px 0 22px}
+.savings-bar-label{font-size:0.72rem;color:var(--muted2);margin-bottom:7px;display:flex;justify-content:space-between}
+.savings-bar-outer{height:10px;background:rgba(255,255,255,0.06);border-radius:6px;overflow:hidden}
+.savings-bar-inner{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--cyan),var(--gold));transition:width 0.6s cubic-bezier(0.4,0,0.2,1);width:0%}
+
+.disclaimer-note{font-size:0.66rem;color:var(--muted2);line-height:1.55;margin-top:16px}
+
+.btn-quote{
+  display:block;width:100%;border:none;border-radius:50px;
+  padding:16px 20px;margin-top:22px;font-family:'Exo 2',sans-serif;
+  font-size:1rem;font-weight:800;cursor:pointer;
+  background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));
+  color:var(--bg);letter-spacing:-0.01em;
+  box-shadow:0 6px 28px rgba(0,212,255,0.3);
+  transition:all 0.25s;text-decoration:none;text-align:center;
+}
+.btn-quote:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(0,212,255,0.42)}
+
+/* HOW IT WORKS STRIP */
+.how-strip{
+  background:rgba(0,212,255,0.03);border-top:1px solid var(--border);
+  padding:60px 6vw;position:relative;z-index:1;
+}
+.how-inner{max-width:900px;margin:0 auto}
+.section-eyebrow{display:inline-block;font-size:0.68rem;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:0.14em;margin-bottom:10px}
+.section-h2{font-family:'Exo 2',sans-serif;font-weight:900;font-size:clamp(1.5rem,2.8vw,2rem);color:var(--white);letter-spacing:-0.04em;line-height:1.1;margin-bottom:36px;text-align:center}
+.how-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.how-item{text-align:center;padding:24px 16px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius)}
+.how-icon{font-size:1.8rem;margin-bottom:12px}
+.how-item h4{font-family:'Exo 2',sans-serif;font-weight:800;font-size:0.9rem;color:var(--white);margin-bottom:7px}
+.how-item p{font-size:0.76rem;color:var(--muted);line-height:1.6}
+
+/* CTA STRIP */
+.cta-strip{background:linear-gradient(135deg,rgba(0,212,255,0.08),rgba(0,153,204,0.05));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:56px 20px;text-align:center;position:relative;z-index:1;overflow:hidden}
+.cta-strip::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:200px;background:radial-gradient(ellipse,rgba(0,212,255,0.07) 0%,transparent 70%);pointer-events:none}
+.cta-strip h3{font-family:'Exo 2',sans-serif;font-weight:900;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--white);letter-spacing:-0.04em;margin-bottom:10px;position:relative;z-index:1}
+.cta-strip p{font-size:0.9rem;color:var(--muted);margin-bottom:24px;position:relative;z-index:1}
+.cta-btn{display:inline-block;position:relative;z-index:1;background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:var(--bg);font-family:'Exo 2',sans-serif;font-weight:800;font-size:0.95rem;padding:15px 38px;border-radius:50px;text-decoration:none;box-shadow:0 6px 28px rgba(0,212,255,0.3);transition:all 0.2s;letter-spacing:-0.01em}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(0,212,255,0.42)}
+
+/* FOOTER */
+footer{background:rgba(0,0,0,0.4);border-top:1px solid var(--border);padding:40px 6vw 28px;position:relative;z-index:1}
+.footer-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+.footer-brand p{font-size:0.82rem;color:var(--muted2);margin-top:10px;max-width:220px;line-height:1.6}
+.footer-col h5{font-size:0.65rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col a{text-decoration:none;font-size:0.82rem;color:var(--muted);transition:color 0.2s;font-weight:500}
+.footer-col a:hover{color:var(--cyan)}
+.footer-bottom{max-width:1000px;margin:20px auto 0;font-size:0.68rem;color:var(--muted2);text-align:center;line-height:1.8}
+
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="rgba(0,212,255,0.9)" stroke-width="2" stroke-linecap="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+    </div>
+    <span class="logo-text">Clear<span>Watt</span> Solar</span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-badge">Free Calculator</div>
+    <a href="/" class="nav-cta">Get Free Quote →</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMob()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <ul>
+    <li><a href="/" onclick="closeMob()">Get a Free Quote</a></li>
+    <li><a href="/rebate-guide" onclick="closeMob()">Rebate Guide</a></li>
+    <li><a href="/savings-calculator" onclick="closeMob()">Savings Calculator</a></li>
+    <li><a href="/privacy-policy" onclick="closeMob()">Privacy Policy</a></li>
+  </ul>
+  <div class="mob-cta"><a href="/" onclick="closeMob()">Get My Free Quote →</a></div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-eyebrow">⚡ Instant Estimate · No Sign-Up</div>
+  <h1 class="page-h1">Solar <span>Savings Calculator</span></h1>
+  <p class="page-sub">Enter a few details and see your estimated annual savings, recommended system size, and payback period — instantly.</p>
+</div>
+
+<!-- CALCULATOR -->
+<section class="calc-section">
+  <div class="calc-inner">
+
+    <!-- INPUTS -->
+    <div class="calc-card">
+      <h2>📋 Your Details</h2>
+
+      <div class="field-group">
+        <label>State / Territory</label>
+        <select id="stateSelect" onchange="calculate()">
+          <option value="NSW">New South Wales (NSW)</option>
+          <option value="VIC">Victoria (VIC)</option>
+          <option value="QLD">Queensland (QLD)</option>
+          <option value="SA">South Australia (SA)</option>
+          <option value="WA">Western Australia (WA)</option>
+          <option value="ACT">Australian Capital Territory (ACT)</option>
+          <option value="TAS">Tasmania (TAS)</option>
+          <option value="NT">Northern Territory (NT)</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label>Quarterly Electricity Bill</label>
+        <div class="range-value" id="billDisplay">$350<span class="range-unit">/qtr</span></div>
+        <div class="range-wrap">
+          <input type="range" id="billSlider" min="150" max="1200" step="50" value="350" oninput="updateBillDisplay();calculate()">
+          <div class="range-labels"><span>$150</span><span>$1,200</span></div>
+        </div>
+        <p class="field-note">Your average electricity bill per quarter (before solar)</p>
+      </div>
+
+      <div class="field-group">
+        <label>Number of People in Household</label>
+        <select id="occupants" onchange="calculate()">
+          <option value="1">1 person</option>
+          <option value="2">2 people</option>
+          <option value="3" selected>3 people</option>
+          <option value="4">4 people</option>
+          <option value="5">5+ people</option>
+        </select>
+      </div>
+
+      <div class="field-group">
+        <label>Roof Orientation</label>
+        <select id="orientation" onchange="calculate()">
+          <option value="north" selected>North-facing (best)</option>
+          <option value="northeast">North-East / North-West</option>
+          <option value="east">East or West-facing</option>
+          <option value="south">South-facing (least ideal)</option>
+        </select>
+        <p class="field-note">North-facing roofs generate ~15–20% more solar than east/west in Australia</p>
+      </div>
+
+      <div class="field-group">
+        <label>Daytime Usage Pattern</label>
+        <select id="daytime" onchange="calculate()">
+          <option value="high">High — home during the day (retirees, WFH)</option>
+          <option value="medium" selected>Medium — some appliances running</option>
+          <option value="low">Low — mostly out during the day</option>
+        </select>
+        <p class="field-note">The more solar you use directly (self-consume), the better your returns</p>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results-card" id="resultsCard">
+      <h2>⚡ Your Estimated Savings</h2>
+
+      <div class="result-row">
+        <div class="result-label">Recommended System Size</div>
+        <div class="result-val" id="sysSize">—<small>kW</small></div>
+      </div>
+      <div class="result-row">
+        <div class="result-label">Estimated System Cost<br><span style="font-size:0.68rem;color:var(--muted2)">(after federal STC rebate)</span></div>
+        <div class="result-val gold" id="sysCost">—</div>
+      </div>
+      <div class="result-row">
+        <div class="result-label">Estimated Annual Saving</div>
+        <div class="result-val green" id="annualSaving">—</div>
+      </div>
+      <div class="result-row">
+        <div class="result-label">Estimated Payback Period</div>
+        <div class="result-val" id="payback">—</div>
+      </div>
+      <div class="result-row">
+        <div class="result-label">Estimated 10-Year Return</div>
+        <div class="result-val green" id="tenYear">—</div>
+      </div>
+
+      <div class="savings-bar-wrap">
+        <div class="savings-bar-label">
+          <span>System Cost</span>
+          <span id="barLabel">10-Year Savings</span>
+        </div>
+        <div class="savings-bar-outer">
+          <div class="savings-bar-inner" id="savingsBar"></div>
+        </div>
+      </div>
+
+      <p class="disclaimer-note">* Estimates only. Actual savings depend on your specific roof, tariff, usage patterns, system chosen, and installer pricing. A free quote from a matched local installer will give you accurate figures.</p>
+
+      <a href="/" class="btn-quote">🎯 Get My Accurate Free Quote →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<div class="how-strip">
+  <div class="how-inner">
+    <div style="text-align:center;margin-bottom:36px">
+      <div class="section-eyebrow">Next Steps</div>
+      <h2 class="section-h2">Turn Your Estimate Into a Real Quote</h2>
+    </div>
+    <div class="how-grid">
+      <div class="how-item">
+        <div class="how-icon">📋</div>
+        <h4>Your Estimate is Ready</h4>
+        <p>This calculator gives you a reliable ballpark based on your state, usage, and roof type.</p>
+      </div>
+      <div class="how-item">
+        <div class="how-icon">🎯</div>
+        <h4>Get a Free Matched Quote</h4>
+        <p>A free, accurate quote from your matched CEC-accredited local installer takes under 60 seconds to request.</p>
+      </div>
+      <div class="how-item">
+        <div class="how-icon">💰</div>
+        <h4>Lock in Your Savings</h4>
+        <p>Your installer confirms exact costs, all available rebates, and your real payback date. No surprises.</p>
+      </div>
+      <div class="how-item">
+        <div class="how-icon">✅</div>
+        <h4>Zero Obligation</h4>
+        <p>One quote, no pressure, no follow-ups if you say no. Australia's most transparent solar matching service.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-strip">
+  <h3>Ready for an accurate, personalised quote?</h3>
+  <p>Your estimate above is a starting point — your real quote could be even better.</p>
+  <a href="/" class="cta-btn">Get My Free Matched Quote →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" style="text-decoration:none">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(0,212,255,0.9)" stroke-width="2" stroke-linecap="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <span class="logo-text">Clear<span>Watt</span> Solar</span>
+      </a>
+      <p>Australia's trusted solar quote matching service — connecting homeowners with the best local installers since 2020.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/how-it-works">How It Works</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="/rebate-guide">Rebate Guide</a></li>
+        <li><a href="/savings-calculator">Savings Calculator</a></li>
+        <li><a href="/faq">Full FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/terms-of-use">Terms of Use</a></li>
+        <li><a href="/disclaimer">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 ClearWatt Solar · clearwattsolar.com.au · Australian-owned &amp; operated<br>
+    *All calculator figures are estimates only. Not financial advice. Rebate availability subject to federal and state eligibility criteria. ClearWatt Solar is a referral matching service.
+  </div>
+</footer>
+
+<script>
+/* ── STATE DATA ── */
+var STATE_DATA = {
+  NSW: { solarFactor: 1.00, tariff: 0.30, fit: 0.07, stcMultiplier: 1.00 },
+  VIC: { solarFactor: 0.88, tariff: 0.28, fit: 0.07, stcMultiplier: 0.90 },
+  QLD: { solarFactor: 1.08, tariff: 0.27, fit: 0.07, stcMultiplier: 1.05 },
+  SA:  { solarFactor: 1.05, tariff: 0.37, fit: 0.06, stcMultiplier: 1.02 },
+  WA:  { solarFactor: 1.10, tariff: 0.29, fit: 0.025,stcMultiplier: 1.08 },
+  ACT: { solarFactor: 0.95, tariff: 0.26, fit: 0.06, stcMultiplier: 0.97 },
+  TAS: { solarFactor: 0.80, tariff: 0.26, fit: 0.065,stcMultiplier: 0.80 },
+  NT:  { solarFactor: 1.15, tariff: 0.27, fit: 0.08, stcMultiplier: 1.10 }
+};
+
+/* kWh per kWp per year, baseline NSW = 1430 */
+var BASE_KWH_PER_KWP = 1430;
+
+/* orientation factor */
+var ORIENT = { north: 1.00, northeast: 0.93, east: 0.82, south: 0.70 };
+
+/* daytime self-consumption (fraction of gen used directly vs exported) */
+var DAYTIME = { high: 0.60, medium: 0.45, low: 0.30 };
+
+function updateBillDisplay() {
+  var v = document.getElementById('billSlider').value;
+  document.getElementById('billDisplay').innerHTML = '$' + v + '<span class="range-unit">/qtr</span>';
+}
+
+function fmt(n) { return '$' + n.toLocaleString('en-AU', {maximumFractionDigits:0}); }
+
+function calculate() {
+  var state       = document.getElementById('stateSelect').value;
+  var billQtr     = parseInt(document.getElementById('billSlider').value);
+  var occupants   = parseInt(document.getElementById('occupants').value);
+  var orientation = document.getElementById('orientation').value;
+  var daytime     = document.getElementById('daytime').value;
+
+  var sd = STATE_DATA[state];
+  var annualBill = billQtr * 4;
+
+  /* ─ Annual kWh consumption estimate ─ */
+  var kwhPerYear = annualBill / sd.tariff;
+
+  /* ─ System size recommendation ─ */
+  /* Target covering ~80% of consumption, adjusted for occupants & roof */
+  var baseSize = (kwhPerYear * 0.80) / (BASE_KWH_PER_KWP * sd.solarFactor * ORIENT[orientation]);
+  /* Minimum 3kW, practical cap 13.3kW for residential */
+  var sysKW = Math.min(Math.max(Math.round(baseSize * 2) / 2, 3.0), 13.3);
+
+  /* ─ Generation ─ */
+  var annualGenKwh = sysKW * BASE_KWH_PER_KWP * sd.solarFactor * ORIENT[orientation];
+
+  /* ─ Savings ─ */
+  var selfConsume = annualGenKwh * DAYTIME[daytime];
+  var exported    = annualGenKwh - selfConsume;
+  var savedFromGrid   = selfConsume * sd.tariff;
+  var fitEarnings     = exported * sd.fit;
+  var annualSaving    = Math.round(savedFromGrid + fitEarnings);
+
+  /* ─ System cost (after STC) ─ */
+  /* Rough $/W installed before STC: $1.30/W; STC saving ~$390/kW * stcMultiplier */
+  var grossCost   = sysKW * 1300;
+  var stcSaving   = Math.round(sysKW * 390 * sd.stcMultiplier);
+  var netCost     = Math.round(grossCost - stcSaving);
+
+  /* ─ Payback ─ */
+  var paybackYrs  = annualSaving > 0 ? netCost / annualSaving : 99;
+  var paybackStr  = paybackYrs < 20 ? paybackYrs.toFixed(1) + ' yrs' : '20+ yrs';
+
+  /* ─ 10-year return ─ */
+  /* Account for 3% annual electricity price rise */
+  var tenYearSavings = 0;
+  for (var y = 1; y <= 10; y++) {
+    tenYearSavings += annualSaving * Math.pow(1.03, y - 1);
+  }
+  tenYearSavings = Math.round(tenYearSavings);
+  var tenYearNet = tenYearSavings - netCost;
+
+  /* ─ Progress bar ─ */
+  var barPct = Math.min((tenYearSavings / (netCost * 2)) * 100, 100);
+
+  /* ─ Update DOM ─ */
+  document.getElementById('sysSize').innerHTML    = sysKW.toFixed(1) + '<small>kW</small>';
+  document.getElementById('sysCost').innerHTML    = fmt(netCost) + '<small>after STC rebate</small>';
+  document.getElementById('annualSaving').innerHTML = fmt(annualSaving) + '<small>per year</small>';
+  document.getElementById('payback').innerHTML    = paybackStr + '<small>estimated payback</small>';
+  document.getElementById('tenYear').innerHTML    = fmt(tenYearNet > 0 ? tenYearNet : 0) + '<small>net 10-yr return</small>';
+  document.getElementById('savingsBar').style.width = barPct + '%';
+  document.getElementById('barLabel').textContent  = '10-yr Savings: ' + fmt(tenYearSavings);
+}
+
+function toggleMob() {
+  var h = document.getElementById('hamburger');
+  var m = document.getElementById('mobNav');
+  h.classList.toggle('open'); m.classList.toggle('open');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+}
+function closeMob() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobNav').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* Run on load */
+document.addEventListener('DOMContentLoaded', function() {
+  updateBillDisplay();
+  calculate();
+
+  /* Track calculator interactions */
+  var tracked = false;
+  ['billSlider','stateSelect','occupants','orientation','daytime'].forEach(function(id) {
+    document.getElementById(id).addEventListener('change', function() {
+      if (!tracked) {
+        if (typeof gtag !== 'undefined') gtag('event', 'calculator_interact', { event_category:'savings_calculator' });
+        tracked = true;
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

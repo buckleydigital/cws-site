@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClearWatt Solar Sydney – Free Solar Quote | NSW Solar Savings</title>
+<meta name="description" content="Get a free, obligation-free solar quote matched with a CEC-accredited Sydney installer. Sydney homeowners save an average of $2,900/year. No cowboys, no call centres." />
+<link rel="canonical" href="https://clearwattsolar.com.au/sydney-quotes" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="ClearWatt Solar Sydney – Crystal Clear Solar Quotes for NSW" />
+<meta property="og:description" content="Free obligation-free solar quotes for Sydney homeowners. CEC-accredited local installers only. Takes 60 seconds." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Google Tag (replace G-XXXXXXXX) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');
+</script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1692791048547338'); fbq('track','PageView');
+</script>
+
+<!-- Cloudflare Turnstile -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad" async defer></script>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"Service",
+  "name":"Free Solar Quotes Sydney",
+  "provider":{"@type":"Organization","name":"ClearWatt Solar","url":"https://clearwattsolar.com.au","areaServed":{"@type":"City","name":"Sydney"}},
+  "serviceType":"Solar Installation Quote",
+  "offers":{"@type":"Offer","price":"0","priceCurrency":"AUD","description":"Free, obligation-free solar quotes from CEC-accredited Sydney installers."}
+}
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:        #070d1a;
+  --surface:   #0d1526;
+  --surface2:  #111e35;
+  --border:    rgba(0,212,255,0.12);
+  --border2:   rgba(0,212,255,0.22);
+  --cyan:      #00d4ff;
+  --cyan-dark: #0099cc;
+  --cyan-glow: rgba(0,212,255,0.18);
+  --cyan-pale: rgba(0,212,255,0.07);
+  --gold:      #f5c842;
+  --gold-dark: #d4a017;
+  --white:     #f0f8ff;
+  --muted:     #7a9ab5;
+  --muted2:    #4a6a85;
+  --green:     #22d47a;
+  --red:       #ff4757;
+  --radius:    16px;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito Sans',sans-serif;
+  color:var(--white);
+  background:var(--bg);
+  overflow-x:hidden;
+}
+
+/* ═══ ANIMATED BACKGROUND ═══ */
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% -10%, rgba(0,212,255,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at -10% 80%, rgba(0,153,204,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 110%, rgba(245,200,66,0.04) 0%, transparent 60%);
+  pointer-events:none;z-index:0;
+}
+
+/* ═══ NOISE TEXTURE OVERLAY ═══ */
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  opacity:0.4;pointer-events:none;z-index:0;
+}
+
+/* ═══ NAV ═══ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 6vw;
+  background:rgba(7,13,26,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{
+  width:36px;height:36px;position:relative;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.logo-mark::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(0,212,255,0.2), rgba(0,212,255,0.05));
+  border:1px solid rgba(0,212,255,0.3);border-radius:8px;
+  animation:markPulse 3s ease-in-out infinite;
+}
+@keyframes markPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(0,212,255,0.15)}
+  50%{box-shadow:0 0 0 8px rgba(0,212,255,0)}
+}
+.logo-mark svg{width:20px;height:20px;position:relative;z-index:1}
+.logo-text{font-family:'Exo 2',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-0.02em}
+.logo-text span{color:var(--cyan)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-badge{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(34,212,122,0.1);border:1px solid rgba(34,212,122,0.25);
+  border-radius:50px;padding:5px 13px;font-size:0.72rem;font-weight:700;
+  color:#22d47a;letter-spacing:0.04em;
+}
+.nav-badge::before{content:'';width:6px;height:6px;background:#22d47a;border-radius:50%;animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.nav-cta{
+  background:linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+  color:var(--bg);font-weight:700;font-size:0.82rem;
+  padding:9px 20px;border-radius:50px;text-decoration:none;
+  box-shadow:0 4px 20px rgba(0,212,255,0.25);
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(0,212,255,0.38)}
+
+/* ═══ HERO ═══ */
+.hero{
+  min-height:100vh;padding:120px 6vw 80px;
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+
+/* Grid lines decoration */
+.hero-lines{
+  position:absolute;inset:0;pointer-events:none;overflow:hidden;
+  background-image:
+    linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+  background-size:60px 60px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--border2);border-radius:50px;
+  padding:7px 18px;margin-bottom:22px;font-size:0.75rem;font-weight:700;
+  color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;
+  background:var(--cyan-pale);
+  animation:fadeSlideUp 0.6s ease forwards;
+}
+.hero-eyebrow .divider{width:1px;height:12px;background:var(--border2)}
+
+.hero-h1{
+  font-family:'Exo 2',sans-serif;font-weight:900;
+  font-size:clamp(2.4rem, 5.5vw, 4.2rem);
+  line-height:1.05;letter-spacing:-0.04em;
+  text-align:center;max-width:820px;
+  margin-bottom:20px;
+  animation:fadeSlideUp 0.7s ease 0.1s both;
+}
+.hero-h1 .line1{display:block;color:var(--white)}
+.hero-h1 .line2{
+  display:block;
+  background:linear-gradient(90deg, var(--cyan), var(--gold));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-style:italic;
+}
+
+.hero-sub{
+  text-align:center;font-size:clamp(0.95rem, 2vw, 1.1rem);
+  color:var(--muted);line-height:1.75;max-width:560px;
+  margin-bottom:32px;
+  animation:fadeSlideUp 0.7s ease 0.2s both;
+}
+.hero-sub strong{color:var(--white);font-weight:600}
+
+/* TRUST PILLS ROW */
+.trust-row{
+  display:flex;justify-content:center;gap:10px;flex-wrap:wrap;
+  margin-bottom:44px;
+  animation:fadeSlideUp 0.7s ease 0.3s both;
+}
+.trust-pill{
+  display:flex;align-items:center;gap:6px;
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);
+  border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:600;color:var(--muted);
+}
+.trust-pill svg{width:13px;height:13px;color:var(--green);flex-shrink:0}
+
+/* STAT TICKER */
+.stat-row{
+  display:flex;justify-content:center;gap:40px;flex-wrap:wrap;
+  animation:fadeSlideUp 0.7s ease 0.35s both;margin-bottom:52px;
+}
+.stat-item{text-align:center}
+.stat-num{
+  display:block;font-family:'Exo 2',sans-serif;font-weight:900;
+  font-size:2rem;letter-spacing:-0.04em;color:var(--cyan);line-height:1;
+}
+.stat-sep{color:rgba(0,212,255,0.3);font-size:1.8rem;display:flex;align-items:center}
+.stat-label{font-size:0.68rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.09em;margin-top:3px}
+
+@keyframes fadeSlideUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ═══ SURVEY CARD ═══ */
+.survey-wrap{
+  width:100%;max-width:620px;
+  animation:fadeSlideUp 0.8s ease 0.45s both;
+  position:relative;z-index:5;
+}
+.survey-card{
+  background:var(--surface);
+  border:1px solid var(--border2);
+  border-radius:20px;
+  box-shadow:
+    0 0 0 1px rgba(0,212,255,0.06),
+    0 24px 60px rgba(0,0,0,0.5),
+    0 0 80px rgba(0,212,255,0.04);
+  overflow:hidden;
+}
+
+/* CARD TOP BAR */
+.card-topbar{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 20px;
+  background:rgba(0,212,255,0.04);
+  border-bottom:1px solid var(--border);
+}
+.tb-dot{width:10px;height:10px;border-radius:50%}
+.tb-dot.r{background:#ff5f57}.tb-dot.y{background:#febc2e}.tb-dot.g{background:#28c840}
+.tb-label{
+  margin-left:8px;font-family:'Exo 2',sans-serif;font-weight:700;
+  font-size:0.78rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;
+}
+.tb-right{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:0.7rem;color:var(--muted2);font-weight:600}
+.tb-right svg{width:12px;height:12px;color:var(--green)}
+
+/* PROGRESS */
+.prog-outer{height:3px;background:rgba(255,255,255,0.06)}
+.prog-inner{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,var(--cyan),var(--gold));
+  transition:width 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* STEP DOTS */
+.dot-row{display:flex;justify-content:center;align-items:center;gap:7px;padding:14px 0 0}
+.sdot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(255,255,255,0.1);transition:all 0.3s ease;
+}
+.sdot.active{background:var(--cyan);transform:scale(1.35);box-shadow:0 0 8px rgba(0,212,255,0.5)}
+.sdot.done{background:var(--green)}
+
+/* CARD BODY */
+.card-body{padding:28px 32px 30px}
+@media(max-width:480px){.card-body{padding:22px 18px 24px}}
+
+/* STEPS */
+.step{display:none}
+.step.active{display:block;animation:stepIn 0.35s ease}
+@keyframes stepIn{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+
+.step-label{
+  font-size:0.65rem;font-weight:700;color:var(--cyan);
+  text-transform:uppercase;letter-spacing:0.14em;margin-bottom:7px;
+}
+.step h3{
+  font-family:'Exo 2',sans-serif;font-weight:800;
+  font-size:1.25rem;color:var(--white);
+  letter-spacing:-0.02em;margin-bottom:22px;line-height:1.2;
+}
+
+/* ── CHOICE GRID ── */
+.choice-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.choice-grid.one-col{grid-template-columns:1fr}
+@media(max-width:440px){.choice-grid{grid-template-columns:1fr}}
+
+.choice-card{
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:14px;padding:18px 14px;
+  cursor:pointer;transition:all 0.2s ease;
+  background:rgba(255,255,255,0.03);
+  position:relative;overflow:hidden;
+  user-select:none;
+}
+.choice-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(0,212,255,0.06), rgba(0,212,255,0.02));
+  opacity:0;transition:opacity 0.2s;
+}
+.choice-card:hover{border-color:rgba(0,212,255,0.4);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.choice-card:hover::before{opacity:1}
+.choice-card.selected{
+  border-color:var(--cyan);
+  background:rgba(0,212,255,0.08);
+  box-shadow:0 0 0 1px rgba(0,212,255,0.2), 0 8px 28px rgba(0,0,0,0.3);
+}
+.choice-card.selected::before{opacity:1}
+.choice-card.selected::after{
+  content:'✓';position:absolute;top:9px;right:11px;
+  width:20px;height:20px;background:var(--cyan);color:var(--bg);
+  border-radius:50%;font-size:0.65rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;line-height:20px;
+}
+
+/* Renter / disqualify card style */
+.choice-card.disq-card:hover{border-color:rgba(255,71,87,0.5)}
+.choice-card.disq-card.selected{border-color:var(--red);background:rgba(255,71,87,0.08)}
+.choice-card.disq-card.selected::after{background:var(--red)}
+
+.cc-icon{font-size:2rem;margin-bottom:10px;display:block}
+.cc-title{font-weight:700;font-size:0.92rem;color:var(--white);margin-bottom:3px}
+.cc-sub{font-size:0.72rem;color:var(--muted)}
+
+/* Horizontal choice for bill/timeline */
+.choice-h{
+  display:flex;align-items:center;gap:14px;
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:14px;padding:15px 16px;
+  cursor:pointer;transition:all 0.2s ease;
+  background:rgba(255,255,255,0.03);
+  position:relative;overflow:hidden;user-select:none;
+}
+.choice-h:hover{border-color:rgba(0,212,255,0.4);transform:translateY(-2px)}
+.choice-h.selected{border-color:var(--cyan);background:rgba(0,212,255,0.08);box-shadow:0 0 0 1px rgba(0,212,255,0.2)}
+.choice-h.selected::after{
+  content:'✓';position:absolute;top:50%;right:14px;transform:translateY(-50%);
+  width:20px;height:20px;background:var(--cyan);color:var(--bg);
+  border-radius:50%;font-size:0.65rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;line-height:20px;
+}
+.ch-icon{font-size:1.5rem;flex-shrink:0}
+.ch-body{flex:1}
+.ch-title{font-weight:700;font-size:0.92rem;color:var(--white)}
+.ch-sub{font-size:0.72rem;color:var(--muted);margin-top:2px}
+.ch-badge{
+  background:rgba(245,200,66,0.12);border:1px solid rgba(245,200,66,0.25);
+  border-radius:50px;padding:3px 10px;font-size:0.65rem;font-weight:700;
+  color:var(--gold);white-space:nowrap;flex-shrink:0;margin-right:26px;
+}
+
+/* ── INSIGHT BOX ── */
+.insight{
+  display:flex;gap:11px;align-items:flex-start;
+  background:rgba(0,212,255,0.05);
+  border:1px solid rgba(0,212,255,0.12);
+  border-radius:12px;padding:13px 15px;margin-bottom:20px;
+}
+.insight-icon{font-size:1.2rem;flex-shrink:0;line-height:1.2}
+.insight p{font-size:0.78rem;color:var(--muted);line-height:1.55}
+.insight strong{color:var(--cyan);font-weight:700}
+
+/* ── POSTCODE / MATCH ── */
+.match-notice{
+  display:flex;gap:12px;align-items:flex-start;
+  background:rgba(34,212,122,0.06);
+  border:1px solid rgba(34,212,122,0.15);
+  border-radius:12px;padding:14px 16px;margin-bottom:20px;
+}
+.match-notice .mn-icon{font-size:1.5rem;flex-shrink:0}
+.match-notice p{font-size:0.78rem;color:var(--muted);line-height:1.55}
+.match-notice strong{color:var(--green);font-weight:700}
+
+/* ── FORM FIELDS ── */
+.field-wrap{margin-bottom:14px}
+.field-wrap label{display:block;font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
+.field-wrap input{
+  width:100%;background:rgba(255,255,255,0.04);
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:10px;padding:12px 14px;
+  font-family:'Nunito Sans',sans-serif;font-size:0.92rem;color:var(--white);
+  outline:none;transition:border-color 0.2s,box-shadow 0.2s;
+}
+.field-wrap input::placeholder{color:var(--muted2)}
+.field-wrap input:focus{border-color:rgba(0,212,255,0.5);box-shadow:0 0 0 3px rgba(0,212,255,0.08)}
+.field-wrap input.err-field{border-color:rgba(255,71,87,0.6)}
+.err-msg{color:var(--red);font-size:0.7rem;margin-top:4px;display:none}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:460px){.field-row{grid-template-columns:1fr}}
+
+/* CONSENT */
+.consent-wrap{
+  display:flex;gap:10px;align-items:flex-start;margin:14px 0 18px;
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);
+  border-radius:10px;padding:12px 14px;
+}
+.consent-wrap input[type=checkbox]{
+  width:16px;height:16px;flex-shrink:0;margin-top:1px;
+  accent-color:var(--cyan);cursor:pointer;
+}
+.consent-wrap label{font-size:0.73rem;color:var(--muted);line-height:1.55;cursor:pointer}
+.consent-wrap a{color:var(--cyan);text-decoration:none;opacity:0.8}
+.consent-wrap a:hover{opacity:1}
+
+/* ── BTN ── */
+.btn-next{
+  width:100%;border:none;border-radius:50px;
+  padding:16px 28px;font-family:'Exo 2',sans-serif;
+  font-size:1rem;font-weight:800;cursor:pointer;
+  background:linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+  color:var(--bg);letter-spacing:-0.01em;
+  box-shadow:0 6px 28px rgba(0,212,255,0.3);
+  transition:all 0.25s ease;position:relative;overflow:hidden;
+}
+.btn-next::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+  opacity:0;transition:opacity 0.2s;
+}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(0,212,255,0.42)}
+.btn-next:hover::before{opacity:1}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:0 4px 18px rgba(0,212,255,0.15)}
+.btn-back{
+  display:flex;align-items:center;gap:5px;margin-top:11px;
+  background:none;border:none;color:var(--muted2);font-family:'Nunito Sans',sans-serif;
+  font-size:0.78rem;font-weight:600;cursor:pointer;padding:0;
+  transition:color 0.2s;
+}
+.btn-back:hover{color:var(--muted)}
+.btn-back svg{width:13px;height:13px}
+
+/* privacy note */
+.priv-note{text-align:center;font-size:0.68rem;color:var(--muted2);margin-top:12px;display:flex;align-items:center;justify-content:center;gap:5px}
+.priv-note svg{width:11px;height:11px;color:var(--green)}
+
+/* ═══ RENTER MESSAGE ═══ */
+#renter-msg{display:none;text-align:center;padding:16px 0 8px}
+.renter-icon{font-size:3rem;margin-bottom:14px}
+.renter-msg-title{font-family:'Exo 2',sans-serif;font-weight:800;font-size:1.1rem;color:var(--white);margin-bottom:10px;letter-spacing:-0.02em}
+.renter-box{background:rgba(0,212,255,0.05);border:1px solid var(--border);border-radius:12px;padding:14px;margin-top:16px;font-size:0.78rem;color:var(--muted);line-height:1.6}
+
+/* ═══ BELOW THE FOLD ═══ */
+
+/* HOW IT WORKS */
+.hiw-section{padding:80px 6vw;position:relative;z-index:1}
+.section-head{text-align:center;max-width:560px;margin:0 auto 48px}
+.section-eyebrow{
+  display:inline-block;font-size:0.68rem;font-weight:700;
+  color:var(--cyan);text-transform:uppercase;letter-spacing:0.14em;
+  margin-bottom:12px;
+}
+.section-h2{
+  font-family:'Exo 2',sans-serif;font-weight:900;
+  font-size:clamp(1.6rem,3vw,2.2rem);color:var(--white);
+  letter-spacing:-0.04em;line-height:1.1;margin-bottom:10px;
+}
+.section-sub{font-size:0.95rem;color:var(--muted);line-height:1.7}
+
+.hiw-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;max-width:900px;margin:0 auto;
+}
+.hiw-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 22px;
+  position:relative;overflow:hidden;
+  transition:transform 0.25s,border-color 0.25s;
+}
+.hiw-card:hover{transform:translateY(-4px);border-color:var(--border2)}
+.hiw-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--cyan),var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.35s;
+}
+.hiw-card:hover::before{transform:scaleX(1)}
+.hiw-num{
+  font-family:'Exo 2',sans-serif;font-size:3rem;font-weight:900;
+  color:rgba(0,212,255,0.08);line-height:1;margin-bottom:14px;
+  letter-spacing:-0.06em;
+}
+.hiw-card h4{font-family:'Exo 2',sans-serif;font-weight:800;font-size:0.97rem;color:var(--white);margin-bottom:8px}
+.hiw-card p{font-size:0.8rem;color:var(--muted);line-height:1.6}
+
+/* FACTS SECTION */
+.facts-section{
+  background:linear-gradient(180deg, rgba(0,212,255,0.03) 0%, transparent 100%);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:80px 6vw;position:relative;z-index:1;
+}
+.facts-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;max-width:960px;margin:0 auto;
+}
+.fact-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px 20px;
+}
+.fact-icon{font-size:1.7rem;margin-bottom:12px;display:block}
+.fact-card h4{font-family:'Exo 2',sans-serif;font-weight:700;font-size:0.92rem;color:var(--cyan);margin-bottom:7px}
+.fact-card p{font-size:0.78rem;color:var(--muted);line-height:1.6}
+.fact-asterisk{font-size:0.65rem;color:var(--muted2);margin-top:7px;display:block}
+
+/* REVIEWS */
+.reviews-section{padding:80px 6vw;position:relative;z-index:1}
+.reviews-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:18px;max-width:1000px;margin:0 auto;
+}
+.review-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;
+  transition:transform 0.25s,border-color 0.25s;
+}
+.review-card:hover{transform:translateY(-3px);border-color:var(--border2)}
+.review-stars{color:var(--gold);font-size:0.9rem;letter-spacing:2px;margin-bottom:12px}
+.review-text{font-size:0.86rem;color:var(--muted);line-height:1.7;margin-bottom:16px;font-style:italic}
+.reviewer{display:flex;align-items:center;gap:10px}
+.reviewer-av{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Exo 2',sans-serif;font-weight:800;font-size:0.78rem;color:var(--bg);
+}
+.reviewer-name{font-weight:700;font-size:0.82rem;color:var(--white)}
+.reviewer-loc{font-size:0.7rem;color:var(--muted2)}
+
+/* CTA STRIP */
+.cta-strip{
+  background:linear-gradient(135deg, rgba(0,212,255,0.08), rgba(0,153,204,0.05));
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:56px 20px;text-align:center;position:relative;z-index:1;overflow:hidden;
+}
+.cta-strip::before{
+  content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:600px;height:200px;
+  background:radial-gradient(ellipse, rgba(0,212,255,0.07) 0%, transparent 70%);
+  pointer-events:none;
+}
+.cta-strip h3{
+  font-family:'Exo 2',sans-serif;font-weight:900;
+  font-size:clamp(1.3rem,3vw,1.9rem);color:var(--white);
+  letter-spacing:-0.04em;margin-bottom:18px;position:relative;z-index:1;
+}
+.cta-btn{
+  display:inline-block;position:relative;z-index:1;
+  background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));
+  color:var(--bg);font-family:'Exo 2',sans-serif;font-weight:800;
+  font-size:0.95rem;padding:15px 38px;border-radius:50px;text-decoration:none;
+  box-shadow:0 6px 28px rgba(0,212,255,0.3);transition:all 0.2s;letter-spacing:-0.01em;
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(0,212,255,0.42)}
+
+/* FAQ */
+.faq-section{padding:60px 20px 80px;max-width:700px;margin:0 auto;position:relative;z-index:1}
+.faq-item{border-bottom:1px solid var(--border);padding:20px 0}
+.faq-q{
+  font-family:'Exo 2',sans-serif;font-size:0.97rem;font-weight:700;
+  color:var(--white);cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+  letter-spacing:-0.01em;
+}
+.faq-q svg{flex-shrink:0;width:18px;height:18px;color:var(--cyan);transition:transform 0.3s}
+.faq-a{font-size:0.86rem;color:var(--muted);line-height:1.7;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.2s}
+.faq-item.open .faq-a{max-height:220px;padding-top:10px}
+.faq-item.open .faq-q svg{transform:rotate(45deg)}
+
+/* FOOTER */
+footer{
+  background:rgba(0,0,0,0.4);border-top:1px solid var(--border);
+  padding:40px 6vw 28px;position:relative;z-index:1;
+}
+.footer-inner{
+  max-width:1000px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:flex-start;
+  flex-wrap:wrap;gap:32px;padding-bottom:28px;border-bottom:1px solid var(--border);
+}
+.footer-brand p{font-size:0.82rem;color:var(--muted2);margin-top:10px;max-width:220px;line-height:1.6}
+.footer-col h5{font-size:0.65rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col a{text-decoration:none;font-size:0.82rem;color:var(--muted);transition:color 0.2s;font-weight:500}
+.footer-col a:hover{color:var(--cyan)}
+.footer-bottom{
+  max-width:1000px;margin:20px auto 0;
+  font-size:0.68rem;color:var(--muted2);text-align:center;line-height:1.8;
+}
+
+/* LOADING OVERLAY */
+.overlay{
+  display:none;position:fixed;inset:0;z-index:999;
+  background:rgba(7,13,26,0.95);
+  align-items:center;justify-content:center;flex-direction:column;gap:16px;
+  backdrop-filter:blur(8px);
+}
+.overlay.show{display:flex}
+.spinner{
+  width:44px;height:44px;
+  border:3px solid rgba(0,212,255,0.15);
+  border-top-color:var(--cyan);
+  border-radius:50%;animation:spin 0.75s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.overlay p{font-family:'Exo 2',sans-serif;font-weight:700;color:var(--white);font-size:0.95rem;letter-spacing:-0.01em}
+
+/* HAMBURGER / MOB NAV */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:transform 0.3s,opacity 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-nav{display:none;position:fixed;inset:0;background:var(--bg);z-index:90;padding:80px 6vw 40px;flex-direction:column}
+.mob-nav.open{display:flex}
+.mob-nav ul{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--border)}
+.mob-nav ul li a{display:block;font-family:'Exo 2',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--border);transition:color 0.2s}
+.mob-nav ul li a:hover{color:var(--cyan)}
+.mob-cta{margin-top:28px}
+.mob-cta a{display:block;text-align:center;background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:var(--bg);font-family:'Exo 2',sans-serif;font-weight:800;font-size:1rem;padding:16px;border-radius:50px;text-decoration:none}
+
+@media(max-width:640px){
+  .nav-right .nav-cta{display:none}
+  .hamburger{display:flex}
+  nav{padding:14px 5vw}
+  .hero{padding:100px 5vw 60px}
+  .cta-strip h3{font-size:1.3rem}
+  .stat-sep{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- LOADING OVERLAY -->
+<div class="overlay" id="overlay">
+  <div class="spinner"></div>
+  <p>Locating your installer…</p>
+</div>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="rgba(0,212,255,0.9)" stroke-width="2" stroke-linecap="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+    </div>
+    <span class="logo-text">Clear<span>Watt</span> Solar</span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-badge">CEC Accredited Network</div>
+    <a href="#quote" class="nav-cta">Free Quote →</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMob()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <ul>
+    <li><a href="#quote" onclick="closeMob()">Get a Free Quote</a></li>
+    <li><a href="#how" onclick="closeMob()">How It Works</a></li>
+    <li><a href="#reviews" onclick="closeMob()">Reviews</a></li>
+    <li><a href="#faq" onclick="closeMob()">FAQ</a></li>
+    <li><a href="/privacy-policy" onclick="closeMob()">Privacy Policy</a></li>
+  </ul>
+  <div class="mob-cta"><a href="#quote" onclick="closeMob()">Get My Free Quote →</a></div>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="quote">
+  <div class="hero-lines" aria-hidden="true"></div>
+
+  <div class="hero-eyebrow">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    <span>🏙️ Sydney, NSW</span>
+    <div class="divider"></div>
+    <span>CEC-Accredited Only</span>
+    <div class="divider"></div>
+    <span>Zero Obligation</span>
+  </div>
+
+  <h1 class="hero-h1">
+    <span class="line1">Sydney: Stop Overpaying.</span>
+    <span class="line2">Go Solar. Pay Less. Forever.</span>
+  </h1>
+
+  <p class="hero-sub">
+    We match Sydney homeowners with their <strong>#1 local CEC-accredited installer</strong> for an obligation-free quote — no cowboys, no call centres, no pressure. Ever.
+  </p>
+
+  <div class="trust-row">
+    <div class="trust-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      100% Free
+    </div>
+    <div class="trust-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Licensed &amp; Insured
+    </div>
+    <div class="trust-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      No Sales Pressure
+    </div>
+    <div class="trust-pill">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      4.9★ Average Rating
+    </div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-item">
+      <span class="stat-num">3,200+</span>
+      <span class="stat-label">Sydney Homeowners Matched</span>
+    </div>
+    <div class="stat-sep">·</div>
+    <div class="stat-item">
+      <span class="stat-num">$2,900</span>
+      <span class="stat-label">Avg. Annual Saving</span>
+    </div>
+    <div class="stat-sep">·</div>
+    <div class="stat-item">
+      <span class="stat-num">3.5yr</span>
+      <span class="stat-label">Avg. Payback Period</span>
+    </div>
+  </div>
+
+  <!-- ═══ SURVEY CARD ═══ -->
+  <div class="survey-wrap">
+    <div class="survey-card">
+
+      <div class="card-topbar">
+        <div class="tb-dot r"></div>
+        <div class="tb-dot y"></div>
+        <div class="tb-dot g"></div>
+        <span class="tb-label">Solar Quote — Sydney, NSW</span>
+        <div class="tb-right">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+          Secure &amp; Private
+        </div>
+      </div>
+
+      <div class="prog-outer"><div class="prog-inner" id="progFill"></div></div>
+
+      <div style="padding:12px 24px 0;display:flex;justify-content:center">
+        <div class="dot-row">
+          <div class="sdot active" id="dot1"></div>
+          <div class="sdot" id="dot2"></div>
+          <div class="sdot" id="dot3"></div>
+          <div class="sdot" id="dot4"></div>
+          <div class="sdot" id="dot5"></div>
+        </div>
+      </div>
+
+      <div class="card-body">
+
+        <!-- STEP 1: OWNERSHIP -->
+        <div class="step active" id="step1">
+          <div id="step1-inner">
+            <div class="step-label">Step 1 of 5</div>
+            <h3>Do You Own Your Home?</h3>
+            <div class="choice-grid">
+              <div class="choice-card" onclick="pickOwner(true, this)">
+                <span class="cc-icon">🏠</span>
+                <div class="cc-title">Yes, I Own It</div>
+                <div class="cc-sub">Freehold or mortgage</div>
+              </div>
+              <div class="choice-card disq-card" onclick="pickOwner(false, this)">
+                <span class="cc-icon">🔑</span>
+                <div class="cc-title">No, I Rent</div>
+                <div class="cc-sub">Tenant or other</div>
+              </div>
+            </div>
+          </div>
+          <div id="renter-msg">
+            <div class="renter-icon">😔</div>
+            <div class="renter-msg-title">Sorry, We Can't Help Right Now</div>
+            <p style="font-size:0.82rem;color:var(--muted);line-height:1.65;margin-bottom:8px">Solar quotes are only available to homeowners. If your situation changes, we'd love to help you in the future!</p>
+            <div class="renter-box">💡 <strong style="color:var(--cyan)">Buying soon?</strong> Bookmark this page &mdash; solar is one of the best first upgrades for new homeowners in Sydney.</div>
+          </div>
+        </div>
+
+        <!-- STEP 2: BILL -->
+        <div class="step" id="step2">
+          <div class="step-label">Step 2 of 5</div>
+          <h3>What's Your Average Quarterly Electricity Bill?</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
+            <div class="choice-h" onclick="pickBill(this,'Under $300')">
+              <span class="ch-icon">💡</span>
+              <div class="ch-body">
+                <div class="ch-title">Under $300</div>
+                <div class="ch-sub">Low usage</div>
+              </div>
+            </div>
+            <div class="choice-h" onclick="pickBill(this,'$300–$500')">
+              <span class="ch-icon">🔌</span>
+              <div class="ch-body">
+                <div class="ch-title">$300 – $500</div>
+                <div class="ch-sub">Average household</div>
+              </div>
+            </div>
+            <div class="choice-h" onclick="pickBill(this,'$500–$800')">
+              <span class="ch-icon">⚡</span>
+              <div class="ch-body">
+                <div class="ch-title">$500 – $800</div>
+                <div class="ch-sub">High usage</div>
+              </div>
+            </div>
+            <div class="choice-h" onclick="pickBill(this,'$800+')">
+              <span class="ch-icon">📈</span>
+              <div class="ch-body">
+                <div class="ch-title">$800+</div>
+                <div class="ch-sub">Very high usage</div>
+              </div>
+            </div>
+          </div>
+          <div class="insight">
+            <span class="insight-icon">💡</span>
+            <p>Sydney electricity rates are among the highest in NSW. At $500/qtr, most Sydney homeowners see <strong>full payback in under 3.5 years.</strong></p>
+          </div>
+          <button class="btn-back" onclick="goToStep(2,1)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+          </button>
+        </div>
+
+        <!-- STEP 3: TIMELINE -->
+        <div class="step" id="step3">
+          <div class="step-label">Step 3 of 5</div>
+          <h3>When Are You Looking To Get Solar?</h3>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
+            <div class="choice-h" onclick="pickTimeline(this,'ASAP')">
+              <span class="ch-icon">🚀</span>
+              <div class="ch-body">
+                <div class="ch-title">ASAP</div>
+                <div class="ch-sub">Within 1 month</div>
+              </div>
+            </div>
+            <div class="choice-h" onclick="pickTimeline(this,'1-3 Months')">
+              <span class="ch-icon">📅</span>
+              <div class="ch-body">
+                <div class="ch-title">1–3 Months</div>
+                <div class="ch-sub">Planning ahead</div>
+              </div>
+            </div>
+            <div class="choice-h" onclick="pickTimeline(this,'3-6 Months')">
+              <span class="ch-icon">🗓️</span>
+              <div class="ch-body">
+                <div class="ch-title">3–6 Months</div>
+                <div class="ch-sub">Just researching</div>
+              </div>
+            </div>
+            <div class="choice-h" onclick="pickTimeline(this,'Just Exploring')">
+              <span class="ch-icon">🔍</span>
+              <div class="ch-body">
+                <div class="ch-title">Exploring</div>
+                <div class="ch-sub">No rush yet</div>
+              </div>
+            </div>
+          </div>
+          <div class="insight">
+            <span class="insight-icon">⏳</span>
+            <p>No pressure — whether you're ready tomorrow or in 6 months, <strong>getting a quote now locks in today's NSW rebate levels.</strong></p>
+          </div>
+          <button class="btn-back" onclick="goToStep(3,2)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+          </button>
+        </div>
+
+        <!-- STEP 4: POSTCODE -->
+        <div class="step" id="step4">
+          <div class="step-label">Step 4 of 5</div>
+          <h3>What's Your Postcode?</h3>
+
+          <div class="match-notice">
+            <span class="mn-icon">📍</span>
+            <p>We use your postcode to <strong>match you with your nearest pre-vetted Sydney installer.</strong></p>
+          </div>
+
+          <div class="field-wrap">
+            <label>Postcode</label>
+            <input type="text" id="postcode" placeholder="e.g. 2000" maxlength="4" inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'').slice(0,4)">
+            <div class="err-msg" id="err-postcode">Please enter a valid 4-digit postcode</div>
+          </div>
+
+          <div id="postcode-error" style="display:none; background:rgba(229,62,62,0.08); border-left:4px solid #e53e3e; border-radius:10px; padding:12px 14px; margin-bottom:16px;">
+            <p style="font-size:0.8rem; color:#e53e3e; line-height:1.5;">Sorry, we don't currently have an installer covering that postcode. Please try a different postcode or <a href="mailto:contact@clearwattsolar.com.au" style="color:#e53e3e;text-decoration:underline">contact us directly</a>.</p>
+          </div>
+
+          <button class="btn-next" id="postcodeNextBtn" onclick="lookupPostcode()">
+            Find My Local Installer →
+          </button>
+          <button class="btn-back" onclick="goToStep(4,3)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+          </button>
+        </div>
+
+        <!-- STEP 5: CONTACT -->
+        <div class="step" id="step5">
+          <div class="step-label">Step 5 of 5 &mdash; Almost There!</div>
+          <h3>Where Should We Send Your Quote?</h3>
+
+          <div class="match-notice" id="buyerMatchNotice">
+            <span class="mn-icon">🎯</span>
+            <p>Great news! We've matched you with <strong id="buyerNameDisplay">your local installer</strong> — a pre-vetted, licensed installer in your area. Enter your details below to receive your free quote.</p>
+          </div>
+
+          <div class="field-row">
+            <div class="field-wrap">
+              <label>First Name</label>
+              <input type="text" id="firstName" placeholder="e.g. Sarah" autocomplete="given-name" oninput="validateContact()">
+              <div class="err-msg" id="err-firstName">Required</div>
+            </div>
+            <div class="field-wrap">
+              <label>Last Name</label>
+              <input type="text" id="lastName" placeholder="e.g. Johnson" autocomplete="family-name" oninput="validateContact()">
+              <div class="err-msg" id="err-lastName">Required</div>
+            </div>
+          </div>
+
+          <div class="field-wrap">
+            <label>Mobile Number</label>
+            <input type="tel" id="phone" placeholder="04XX XXX XXX" inputmode="numeric" autocomplete="tel" oninput="validateContact()">
+            <div class="err-msg" id="err-phone">Enter a valid Australian mobile</div>
+          </div>
+
+          <div class="field-wrap">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="you@example.com" autocomplete="email" oninput="validateContact()">
+            <div class="err-msg" id="err-email">Enter a valid email</div>
+          </div>
+
+          <div id="turnstile-wrap" style="display:flex;justify-content:center;margin-bottom:14px">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAC2q3rtE5KaDSTRs" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired" data-theme="dark"></div>
+          </div>
+
+          <button class="btn-next" id="submitBtn" disabled onclick="submitForm()">
+            🎯 Get My Free Matched Quote →
+          </button>
+          <div class="priv-note">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.77l-6.18 3.25L7 13.14 2 8.27l6.91-1.01L12 1z"/></svg>
+            By submitting, you consent to <strong id="consentBuyerName">your matched installer</strong> contacting you regarding your solar quote. 100% secure — we never share your details beyond your matched installer.
+          </div>
+          <button class="btn-back" style="margin-top:14px" onclick="goToStep(5,4)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Back
+          </button>
+        </div>
+
+      </div><!-- /card-body -->
+    </div><!-- /survey-card -->
+  </div><!-- /survey-wrap -->
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="hiw-section" id="how">
+  <div class="section-head">
+    <div class="section-eyebrow">How It Works</div>
+    <h2 class="section-h2">From curious to solar-powered in 4 steps</h2>
+    <p class="section-sub">No fluff. No cowboys. No pressure. Just a transparent, fast path to lower Sydney power bills.</p>
+  </div>
+  <div class="hiw-grid">
+    <div class="hiw-card">
+      <div class="hiw-num">01</div>
+      <h4>Answer 5 Quick Questions</h4>
+      <p>Takes under 60 seconds. No lengthy forms, no jargon.</p>
+    </div>
+    <div class="hiw-card">
+      <div class="hiw-num">02</div>
+      <h4>Get Instantly Matched</h4>
+      <p>We find your top-rated, CEC-accredited Sydney installer — vetted, insured, and reviewed.</p>
+    </div>
+    <div class="hiw-card">
+      <div class="hiw-num">03</div>
+      <h4>Receive Your Free Quote</h4>
+      <p>Your installer contacts you once with a clear, obligation-free quote. No pressure, ever.</p>
+    </div>
+    <div class="hiw-card">
+      <div class="hiw-num">04</div>
+      <h4>Start Saving</h4>
+      <p>Say yes (or don't — zero obligation). If you go ahead, your savings start from day one.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FACTS ═══ -->
+<section class="facts-section">
+  <div class="section-head">
+    <div class="section-eyebrow">Why Solar In Sydney</div>
+    <h2 class="section-h2">The numbers make it a no-brainer</h2>
+  </div>
+  <div class="facts-grid">
+    <div class="fact-card">
+      <span class="fact-icon">☀️</span>
+      <h4>Sydney's Exceptional Solar Resource</h4>
+      <p>Sydney averages over 4.8 peak sun hours per day — one of the best solar resources of any major city in the world.</p>
+    </div>
+    <div class="fact-card">
+      <span class="fact-icon">💸</span>
+      <h4>NSW Feed-In Tariffs</h4>
+      <p>Export surplus solar power back to the NSW grid and earn credits that chip away at your electricity bill every quarter.</p>
+    </div>
+    <div class="fact-card">
+      <span class="fact-icon">🏷️</span>
+      <h4>Government Rebates May Apply*</h4>
+      <p>The federal STC scheme can significantly reduce your upfront solar cost. Your matched Sydney installer will confirm your eligibility.</p>
+      <span class="fact-asterisk">*Subject to eligibility criteria at time of installation. Ask your installer for details.</span>
+    </div>
+    <div class="fact-card">
+      <span class="fact-icon">📈</span>
+      <h4>3–5 Year Payback in Sydney</h4>
+      <p>Most Sydney homeowners recoup their investment within 3–5 years, then enjoy 20+ years of effectively free electricity.</p>
+    </div>
+    <div class="fact-card">
+      <span class="fact-icon">🔋</span>
+      <h4>Battery = True Independence</h4>
+      <p>Add a home battery and power your Sydney home at night — slashing peak tariff costs and reducing grid dependency.</p>
+    </div>
+    <div class="fact-card">
+      <span class="fact-icon">🏡</span>
+      <h4>Boost Your Sydney Home's Value</h4>
+      <p>Studies show solar can add $20,000–$40,000 to resale value — a major advantage in Sydney's competitive property market.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ REVIEWS ═══ -->
+<section class="reviews-section" id="reviews">
+  <div class="section-head">
+    <div class="section-eyebrow">Real Sydney Homeowners, Real Results</div>
+    <h2 class="section-h2">What Sydney homeowners are saying</h2>
+    <p class="section-sub">Matched through ClearWatt Solar from across Greater Sydney.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"No nonsense, no cowboys. Filled the form on Monday, had a quote by Tuesday morning and panels on the roof within three weeks. Power bill went from $560 to $38 a quarter."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">JK</div>
+        <div><div class="reviewer-name">Julie K.</div><div class="reviewer-loc">Parramatta, NSW</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"The Sydney installer they matched us with was incredible — explained everything, no hard sell, and the price was significantly better than the two quotes we'd already collected ourselves."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">ML</div>
+        <div><div class="reviewer-name">Michael L.</div><div class="reviewer-loc">Sutherland, NSW</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Added battery storage at the same time. Our home in Castle Hill is now nearly off-grid and the STC rebate made a massive dent in the upfront cost. Can't recommend enough."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">TR</div>
+        <div><div class="reviewer-name">Tim R.</div><div class="reviewer-loc">Castle Hill, NSW</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Was sceptical about another solar matching site — but ClearWatt connected me with a brilliant local crew in the Hills District. Saving $2,900 a year. Absolutely worth it."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">AP</div>
+        <div><div class="reviewer-name">Amanda P.</div><div class="reviewer-loc">Baulkham Hills, NSW</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"One call, one quote, done. The installer answered all my questions without any sales pressure. Installed a 10kW system on the Northern Beaches. Seriously impressed."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">DW</div>
+        <div><div class="reviewer-name">Dan W.</div><div class="reviewer-loc">Manly, NSW</div></div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Went solar + battery after using ClearWatt. Our home in Penrith generates more than we use in summer. The feed-in credits are a great bonus on top of the massive bill savings."</p>
+      <div class="reviewer">
+        <div class="reviewer-av">SC</div>
+        <div><div class="reviewer-name">Sarah C.</div><div class="reviewer-loc">Penrith, NSW</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA STRIP ═══ -->
+<section class="cta-strip">
+  <h3>Ready to stop overpaying for power in Sydney?</h3>
+  <a href="#quote" class="cta-btn" onclick="document.querySelector('.survey-card').scrollIntoView({behavior:'smooth'});return false;">
+    Get My Free Quote — No Obligation →
+  </a>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<div class="section-head" style="padding-top:72px;position:relative;z-index:1">
+  <div class="section-eyebrow">FAQ</div>
+  <h2 class="section-h2">Your questions, answered clearly</h2>
+</div>
+<div class="faq-section" id="faq">
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">How much does solar cost in Sydney in 2026?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    <div class="faq-a">A quality 6.6kW system in Sydney typically costs $4,500–$7,000 after federal STC rebates in 2026, depending on your suburb, panel brand, and installer. Adding a 10kWh battery typically adds $8,000–$14,000. Use our free matching service to get a personalised quote for your Sydney home.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Is solar worth it in Sydney in 2026?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    <div class="faq-a">Absolutely. Sydney's high electricity tariffs and excellent solar resource make solar one of the best financial decisions for homeowners. The average payback on a quality 6.6kW system is 3–5 years, with annual savings of $2,000–$2,900 depending on usage and orientation. Panel warranties run 25 years — meaning 20+ years of effectively free electricity after payback.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">What is a CEC-accredited solar installer?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    <div class="faq-a">A CEC (Clean Energy Council) accredited installer has completed approved training, complies with Australian installation standards, and is authorised to install systems qualifying for the federal solar rebate (STCs). You must use a CEC-accredited installer to access government rebates. Every installer in the ClearWatt Sydney network is CEC-accredited and fully insured.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Is this service really free? What's the catch?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    <div class="faq-a">Genuinely free. We may earn a referral fee from the installer if and when you choose to proceed with an installation — but only then, and it never affects your quoted price. The matching service is completely free with zero obligation, ever.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">How are your Sydney installers vetted?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    <div class="faq-a">Every installer in our Sydney network must hold current CEC accreditation, carry appropriate insurance, maintain verifiable 4★+ customer reviews, and meet our quality standards. We audit the network regularly and remove underperformers immediately.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Will I be hassled by sales calls?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    <div class="faq-a">No. Your matched installer contacts you once to deliver a quote. If you're not interested, say so — our network guidelines require them to respect that immediately with no follow-ups. We take this seriously and will remove installers who don't comply.</div>
+  </div>
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" style="text-decoration:none">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(0,212,255,0.9)" stroke-width="2" stroke-linecap="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <span class="logo-text">Clear<span>Watt</span> Solar</span>
+      </a>
+      <p>Australia's trusted solar quote matching service — connecting Sydney homeowners with the best local installers since 2020.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/how-it-works">How It Works</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="/solar-rebates">Rebate Guide</a></li>
+        <li><a href="/solar-calculator">Savings Calculator</a></li>
+        <li><a href="/faq">Full FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/terms-of-use">Terms of Use</a></li>
+        <li><a href="/disclaimer">Disclaimer</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 ClearWatt Solar · clearwattsolar.com.au · Australian-owned &amp; operated<br>
+    *Rebate availability subject to federal and state government eligibility criteria and scheme availability at time of installation. Not all homeowners will qualify. ClearWatt Solar is a referral matching service and does not provide installation services directly. All installers are independently licensed and insured.
+  </div>
+</footer>
+
+<!-- ═══ JAVASCRIPT ═══ -->
+<script>
+/* ── CONFIG ── */
+var WEBHOOK_URL   = 'https://hook.eu2.make.com/qw1gnas56z5s6vd4uc0wvi0pudw6pgkw';
+var SUPABASE_FUNCTION_URL = 'https://wmegoygrancfwxagqskh.supabase.co/functions/v1/postcode-lookup';
+var TOTAL_STEPS   = 5;
+
+var formData = { source: 'sydney-quotes' };
+var matchedBuyerName = '';
+var turnstileToken = '';
+
+/* ── TURNSTILE CALLBACKS ── */
+window.onTurnstileLoad = function() { /* widget auto-renders */ };
+window.onTurnstileSuccess = function(token) { turnstileToken = token; validateContact(); };
+window.onTurnstileExpired = function() { turnstileToken = ''; validateContact(); };
+
+/* ── PROGRESS ── */
+function updateProgress(step) {
+  var pct = ((step - 1) / TOTAL_STEPS) * 100;
+  document.getElementById('progFill').style.width = pct + '%';
+  for (var i = 1; i <= TOTAL_STEPS; i++) {
+    var d = document.getElementById('dot' + i);
+    if (!d) continue;
+    d.className = 'sdot';
+    if (i < step)       d.classList.add('done');
+    else if (i === step) d.classList.add('active');
+  }
+}
+
+/* ── STEP NAVIGATION ── */
+function goToStep(from, to) {
+  document.getElementById('step' + from).classList.remove('active');
+  document.getElementById('step' + to).classList.add('active');
+  updateProgress(to);
+  var card = document.querySelector('.survey-card');
+  if (card.getBoundingClientRect().top < 60) {
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+/* ── STEP 1: OWNERSHIP ── */
+window.pickOwner = function(owns, el) {
+  document.querySelectorAll('#step1-inner .choice-card').forEach(function(c) { c.classList.remove('selected'); });
+  el.classList.add('selected');
+  formData.is_homeowner = owns;
+
+  if (!owns) {
+    setTimeout(function() {
+      document.getElementById('step1-inner').style.display = 'none';
+      document.getElementById('renter-msg').style.display = 'block';
+    }, 300);
+    return;
+  }
+  setTimeout(function() { goToStep(1, 2); }, 300);
+};
+
+/* ── STEP 2: BILL ── */
+window.pickBill = function(el, val) {
+  document.querySelectorAll('#step2 .choice-h').forEach(function(b) { b.classList.remove('selected'); });
+  el.classList.add('selected');
+  formData.avg_quarterly_bill = val;
+  setTimeout(function() { goToStep(2, 3); }, 280);
+};
+
+/* ── STEP 3: TIMELINE ── */
+window.pickTimeline = function(el, val) {
+  document.querySelectorAll('#step3 .choice-h').forEach(function(b) { b.classList.remove('selected'); });
+  el.classList.add('selected');
+  formData.purchase_timeline = val;
+  setTimeout(function() { goToStep(3, 4); }, 280);
+};
+
+/* ── STEP 4: POSTCODE ── */
+window.lookupPostcode = async function() {
+  var pcInput = document.getElementById('postcode');
+  var pc = pcInput.value.trim().replace(/\D/g, '');
+  if (!/^\d{4}$/.test(pc)) {
+    pcInput.classList.add('err-field');
+    document.getElementById('err-postcode').style.display = 'block';
+    return;
+  }
+  pcInput.classList.remove('err-field');
+  document.getElementById('err-postcode').style.display = 'none';
+  document.getElementById('postcode-error').style.display = 'none';
+
+  var btn = document.getElementById('postcodeNextBtn');
+  btn.disabled = true;
+  btn.textContent = 'Finding your installer…';
+
+  formData.postcode = pc;
+
+  try {
+    var resp = await fetch(SUPABASE_FUNCTION_URL + '?postcode=' + encodeURIComponent(pc));
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    var data = await resp.json();
+
+    if (data.buyer_name) {
+      matchedBuyerName = data.buyer_name;
+      formData.matched_buyer = data.buyer_name;
+      if (data.buyer_id) formData.matched_buyer_id = data.buyer_id;
+
+      document.getElementById('buyerNameDisplay').textContent = data.buyer_name;
+      document.getElementById('consentBuyerName').textContent = data.buyer_name;
+
+      btn.disabled = false;
+      btn.textContent = 'Find My Local Installer →';
+      goToStep(4, 5);
+    } else {
+      document.getElementById('postcode-error').style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'Find My Local Installer →';
+    }
+  } catch(e) {
+    console.error('Postcode lookup error:', e);
+    document.getElementById('postcode-error').style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Find My Local Installer →';
+  }
+};
+
+/* ── STEP 5: CONTACT VALIDATION ── */
+function validateContact() {
+  var fn  = document.getElementById('firstName').value.trim();
+  var ln  = document.getElementById('lastName').value.trim();
+  var em  = document.getElementById('email').value.trim();
+  var ph  = document.getElementById('phone').value.trim().replace(/\s/g,'');
+  var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+  var phoneOk = /^04\d{8}$/.test(ph);
+  document.getElementById('submitBtn').disabled = !(fn && ln && emailOk && phoneOk && turnstileToken);
+}
+
+function fv(id, test) {
+  var el  = document.getElementById(id);
+  var err = document.getElementById('err-' + id);
+  var ok  = test(el.value.trim());
+  el.classList.toggle('err-field', !ok);
+  if (err) err.style.display = ok ? 'none' : 'block';
+  return ok;
+}
+
+/* ── SUBMIT ── */
+window.submitForm = async function() {
+  var ok = true;
+  ok = fv('firstName', function(v){ return v.length > 1; }) && ok;
+  ok = fv('lastName',  function(v){ return v.length > 1; }) && ok;
+  ok = fv('phone',     function(v){ return /^04\d{8}$/.test(v.replace(/\s/g,'')); }) && ok;
+  ok = fv('email',     function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }) && ok;
+  if (!ok) return;
+
+  var fn = document.getElementById('firstName').value.trim();
+  var ln = document.getElementById('lastName').value.trim();
+
+  formData.firstName    = fn;
+  formData.lastName     = ln;
+  formData.name         = fn + ' ' + ln;
+  formData.email        = document.getElementById('email').value.trim();
+  formData.phone        = document.getElementById('phone').value.trim().replace(/\s/g,'');
+  formData.submitted_at = new Date().toISOString();
+  formData['cf-turnstile-response'] = turnstileToken;
+
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Matching you now…';
+  btn.disabled = true;
+  document.getElementById('overlay').classList.add('show');
+
+  /* ── Tracking events ── */
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', { content_name:'Solar Quote Sydney', content_category:'Solar', value:0, currency:'AUD' });
+  }
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'generate_lead', { event_category:'quote_form', event_label:'sydney_submitted' });
+  }
+
+  /* ── Fire webhook to Make ── */
+  try {
+    await fetch(WEBHOOK_URL, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(formData)
+    });
+  } catch(e) { console.warn('Webhook:', e); }
+
+  /* ── Reset Turnstile ── */
+  turnstileToken = '';
+  try { if (typeof turnstile !== 'undefined') turnstile.reset(); } catch(e) { /* ignore */ }
+
+  document.getElementById('overlay').classList.remove('show');
+
+  /* ── Show inline success ── */
+  document.getElementById('step5').classList.remove('active');
+  document.querySelector('.prog-outer').style.display = 'none';
+  document.querySelector('.dot-row').parentElement.style.display = 'none';
+
+  var successEl = document.createElement('div');
+  successEl.style.cssText = 'text-align:center;padding:28px 0 20px;animation:stepIn 0.4s ease';
+  successEl.innerHTML = [
+    '<div style="font-size:3.2rem;margin-bottom:16px;animation:stepIn 0.5s ease">⚡</div>',
+    '<h3 style="font-family:Exo 2,sans-serif;font-weight:900;font-size:1.3rem;color:var(--white);letter-spacing:-0.03em;margin-bottom:10px">You\'re matched! Quote incoming.</h3>',
+    '<p style="font-size:0.84rem;color:var(--muted);line-height:1.65;max-width:320px;margin:0 auto 22px">Expect a call or email from your matched Sydney installer within 24 hours. Zero pressure — just a clear, honest quote.</p>',
+    '<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">',
+    '<span style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:700;color:var(--cyan)">✓ CEC Verified</span>',
+    '<span style="background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:700;color:var(--cyan)">✓ Zero Obligation</span>',
+    '<span style="background:rgba(34,212,122,0.08);border:1px solid rgba(34,212,122,0.2);border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:700;color:var(--green)">✓ 100% Free</span>',
+    '</div>'
+  ].join('');
+
+  document.querySelector('.card-body').appendChild(successEl);
+};
+
+/* ── FAQ ── */
+function toggleFaq(el) {
+  var item   = el.parentElement;
+  var isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ── HAMBURGER ── */
+function toggleMob() {
+  var h = document.getElementById('hamburger');
+  var m = document.getElementById('mobNav');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+}
+function closeMob() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobNav').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ── SCROLL REVEAL ── */
+document.addEventListener('DOMContentLoaded', function() {
+  /* Phone input — digits only */
+  var ph = document.getElementById('phone');
+  if (ph) ph.addEventListener('input', function(){ this.value = this.value.replace(/[^\d\s]/g,''); });
+
+  /* Intersection observer for cards */
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.style.opacity  = '1';
+        e.target.style.transform = 'translateY(0)';
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.07 });
+
+  document.querySelectorAll('.hiw-card, .fact-card, .review-card').forEach(function(el, i) {
+    el.style.opacity   = '0';
+    el.style.transform = 'translateY(22px)';
+    el.style.transition = 'opacity 0.55s ease ' + (i * 0.06) + 's, transform 0.55s ease ' + (i * 0.06) + 's';
+    io.observe(el);
+  });
+
+  /* UTM params → formData */
+  var params = new URLSearchParams(window.location.search);
+  ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k) {
+    if (params.get(k)) formData[k] = params.get(k);
+  });
+  if (params.get('utm_campaign')) formData.campaign = params.get('utm_campaign');
+});
+</script>
+</body>
+</html>
