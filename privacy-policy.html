@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | ClearWatt Solar</title>
+<meta name="description" content="ClearWatt Solar's Privacy Policy. How we collect, use, store, and protect your personal information in accordance with the Australian Privacy Act 1988." />
+<link rel="canonical" href="https://clearwattsolar.com.au/privacy-policy" />
+<meta name="robots" content="noindex" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Google Tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');
+</script>
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#070d1a;--surface:#0d1526;--surface2:#111e35;
+  --border:rgba(0,212,255,0.12);--border2:rgba(0,212,255,0.22);
+  --cyan:#00d4ff;--cyan-dark:#0099cc;--cyan-pale:rgba(0,212,255,0.07);
+  --gold:#f5c842;--white:#f0f8ff;--muted:#7a9ab5;--muted2:#4a6a85;
+  --green:#22d47a;--radius:16px;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;color:var(--white);background:var(--bg);overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 70% -10%,rgba(0,212,255,0.07) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at -10% 80%,rgba(0,153,204,0.05) 0%,transparent 60%);pointer-events:none;z-index:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;background:rgba(7,13,26,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:36px;height:36px;position:relative;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.logo-mark::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,212,255,0.2),rgba(0,212,255,0.05));border:1px solid rgba(0,212,255,0.3);border-radius:8px;animation:markPulse 3s ease-in-out infinite}
+@keyframes markPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,212,255,0.15)}50%{box-shadow:0 0 0 8px rgba(0,212,255,0)}}
+.logo-mark svg{width:20px;height:20px;position:relative;z-index:1}
+.logo-text{font-family:'Exo 2',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-0.02em}
+.logo-text span{color:var(--cyan)}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-cta{background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:var(--bg);font-weight:700;font-size:0.82rem;padding:9px 20px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(0,212,255,0.25);transition:transform 0.2s,box-shadow 0.2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(0,212,255,0.38)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:6px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:transform 0.3s,opacity 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mob-nav{display:none;position:fixed;inset:0;background:var(--bg);z-index:90;padding:80px 6vw 40px;flex-direction:column}
+.mob-nav.open{display:flex}
+.mob-nav ul{list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--border)}
+.mob-nav ul li a{display:block;font-family:'Exo 2',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--border);transition:color 0.2s}
+.mob-nav ul li a:hover{color:var(--cyan)}
+.mob-cta{margin-top:28px}
+.mob-cta a{display:block;text-align:center;background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:var(--bg);font-family:'Exo 2',sans-serif;font-weight:800;font-size:1rem;padding:16px;border-radius:50px;text-decoration:none}
+@media(max-width:640px){.nav-right .nav-cta{display:none}.hamburger{display:flex}nav{padding:14px 5vw}}
+
+/* PAGE HERO */
+.page-hero{padding:130px 6vw 48px;position:relative;z-index:1;text-align:center}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border2);border-radius:50px;padding:6px 16px;margin-bottom:20px;font-size:0.72rem;font-weight:700;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;background:var(--cyan-pale)}
+.page-h1{font-family:'Exo 2',sans-serif;font-weight:900;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.05;letter-spacing:-0.04em;color:var(--white);max-width:680px;margin:0 auto 14px}
+.page-sub{font-size:0.9rem;color:var(--muted);line-height:1.75;max-width:540px;margin:0 auto}
+
+/* CONTENT */
+.content-wrap{max-width:760px;margin:0 auto;padding:0 6vw 80px;position:relative;z-index:1}
+.last-updated{display:inline-flex;align-items:center;gap:7px;background:rgba(34,212,122,0.07);border:1px solid rgba(34,212,122,0.18);border-radius:50px;padding:6px 14px;font-size:0.71rem;font-weight:700;color:var(--green);margin-bottom:40px}
+.policy-section{margin-bottom:44px}
+.policy-section h2{font-family:'Exo 2',sans-serif;font-weight:900;font-size:1.2rem;color:var(--white);letter-spacing:-0.03em;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.policy-section h3{font-family:'Exo 2',sans-serif;font-weight:800;font-size:0.95rem;color:var(--cyan);letter-spacing:-0.01em;margin:20px 0 9px}
+.policy-section p{font-size:0.9rem;color:var(--muted);line-height:1.78;margin-bottom:12px}
+.policy-section p strong{color:var(--white);font-weight:600}
+.policy-section ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.policy-section ul li{display:flex;gap:10px;align-items:flex-start;font-size:0.88rem;color:var(--muted);line-height:1.6}
+.policy-section ul li::before{content:'→';color:var(--cyan);font-weight:700;flex-shrink:0;margin-top:1px}
+.policy-section a{color:var(--cyan);text-decoration:none}
+.policy-section a:hover{text-decoration:underline}
+
+/* FOOTER */
+footer{background:rgba(0,0,0,0.4);border-top:1px solid var(--border);padding:40px 6vw 28px;position:relative;z-index:1}
+.footer-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+.footer-brand p{font-size:0.82rem;color:var(--muted2);margin-top:10px;max-width:220px;line-height:1.6}
+.footer-col h5{font-size:0.65rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col a{text-decoration:none;font-size:0.82rem;color:var(--muted);transition:color 0.2s;font-weight:500}
+.footer-col a:hover{color:var(--cyan)}
+.footer-bottom{max-width:1000px;margin:20px auto 0;font-size:0.68rem;color:var(--muted2);text-align:center;line-height:1.8}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">
+    <div class="logo-mark">
+      <svg viewBox="0 0 24 24" fill="none" stroke="rgba(0,212,255,0.9)" stroke-width="2" stroke-linecap="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+    </div>
+    <span class="logo-text">Clear<span>Watt</span> Solar</span>
+  </a>
+  <div class="nav-right">
+    <a href="/" class="nav-cta">Get Free Quote →</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMob()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mob-nav" id="mobNav">
+  <ul>
+    <li><a href="/" onclick="closeMob()">Get a Free Quote</a></li>
+    <li><a href="/rebate-guide" onclick="closeMob()">Rebate Guide</a></li>
+    <li><a href="/savings-calculator" onclick="closeMob()">Savings Calculator</a></li>
+    <li><a href="/faq" onclick="closeMob()">Full FAQ</a></li>
+    <li><a href="/privacy-policy" onclick="closeMob()">Privacy Policy</a></li>
+  </ul>
+  <div class="mob-cta"><a href="/" onclick="closeMob()">Get My Free Quote →</a></div>
+</div>
+
+<div class="page-hero">
+  <div class="page-eyebrow">Legal</div>
+  <h1 class="page-h1">Privacy Policy</h1>
+  <p class="page-sub">How ClearWatt Solar collects, uses, and protects your personal information.</p>
+</div>
+
+<div class="content-wrap">
+  <div class="last-updated">Last updated: April 2026</div>
+
+  <div class="policy-section">
+    <h2>1. Introduction</h2>
+    <p>ClearWatt Solar ("<strong>we</strong>", "<strong>us</strong>", "<strong>our</strong>") operates the website clearwattsolar.com.au (the "<strong>Site</strong>"). We are committed to protecting the privacy of individuals who interact with our Site and services.</p>
+    <p>This Privacy Policy explains how we handle personal information in accordance with the <strong>Privacy Act 1988 (Cth)</strong> and the Australian Privacy Principles (APPs) contained in that Act.</p>
+    <p>By using our Site and submitting information through our quote request service, you consent to the collection, use, and disclosure of your personal information as described in this Policy.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>2. What Information We Collect</h2>
+    <p>We collect personal information that you voluntarily provide when requesting a solar quote through our Site. This may include:</p>
+    <ul>
+      <li>Your name and contact details (phone number, email address)</li>
+      <li>Your property address or postcode</li>
+      <li>Information about your electricity usage, roof type, and solar system preferences</li>
+      <li>Details about your property (ownership status, storey count, roof condition)</li>
+    </ul>
+    <p>We also automatically collect certain technical information when you visit our Site, including your IP address, browser type, referring URLs, and pages visited. This is collected through cookies and similar technologies.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>3. How We Use Your Information</h2>
+    <p>We use the personal information you provide to:</p>
+    <ul>
+      <li>Match you with a suitable CEC-accredited solar installer in your area</li>
+      <li>Transmit your contact details and requirements to your matched installer so they can prepare and deliver a quote</li>
+      <li>Communicate with you about your quote request</li>
+      <li>Improve our matching service and Site functionality</li>
+      <li>Comply with our legal obligations</li>
+    </ul>
+
+    <h3>Analytics and Advertising</h3>
+    <p>We use Google Analytics to understand how visitors use our Site. This may involve the collection of anonymised usage data. We also use the Meta (Facebook) Pixel and may use other advertising platforms to measure the effectiveness of our campaigns. These services have their own privacy policies.</p>
+    <p>We use Cloudflare Turnstile to protect our forms from automated abuse. Cloudflare processes certain technical data to verify you are human; see <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare's Privacy Policy</a> for details.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>4. Disclosure of Your Information</h2>
+    <p>We disclose your personal information to:</p>
+    <ul>
+      <li><strong>Matched solar installers</strong> — the CEC-accredited installer in our network matched to your postcode, who will contact you to provide a quote</li>
+      <li><strong>Technology service providers</strong> — including Supabase (postcode matching infrastructure), Make (workflow automation), and Cloudflare (security and CDN)</li>
+      <li><strong>Analytics providers</strong> — Google Analytics and Meta Pixel as described above</li>
+    </ul>
+    <p>We do not sell your personal information to third parties. We do not share your details with multiple installers or lead-aggregation platforms. Each quote request is matched to a single local installer.</p>
+    <p>We may disclose your information if required to do so by law or in response to a valid legal process.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>5. Data Storage and Security</h2>
+    <p>Your personal information is stored and processed using cloud-based infrastructure located in Australia and the United States. We take reasonable steps to protect your personal information from misuse, loss, unauthorised access, modification, or disclosure.</p>
+    <p>Our website is served via Cloudflare's global network with HTTPS encryption. Form submission data is transmitted securely via encrypted connections.</p>
+    <p>We retain your personal information only for as long as necessary to fulfil the purposes for which it was collected, or as required by law.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>6. Your Rights</h2>
+    <p>Under the Australian Privacy Act, you have the right to:</p>
+    <ul>
+      <li>Request access to the personal information we hold about you</li>
+      <li>Request correction of inaccurate or out-of-date personal information</li>
+      <li>Request deletion of your personal information (subject to legal retention obligations)</li>
+      <li>Complain about a breach of the Australian Privacy Principles</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us using the details in Section 9 below. We will respond to your request within a reasonable time.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>7. Cookies</h2>
+    <p>Our Site uses cookies — small text files stored on your device — to improve your browsing experience and enable analytics and advertising functionality. By continuing to use our Site, you consent to the use of cookies in accordance with this Policy.</p>
+    <p>You can control cookies through your browser settings. Disabling cookies may affect the functionality of certain parts of our Site.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>8. Third-Party Websites</h2>
+    <p>Our Site may contain links to third-party websites. This Privacy Policy applies only to clearwattsolar.com.au. We are not responsible for the privacy practices of any linked external sites, and we encourage you to review their respective privacy policies.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>9. Contact Us</h2>
+    <p>If you have questions, concerns, or requests regarding this Privacy Policy or the handling of your personal information, please contact us:</p>
+    <p><strong>ClearWatt Solar</strong><br>
+    Website: <a href="https://clearwattsolar.com.au">clearwattsolar.com.au</a><br>
+    For privacy enquiries, use the contact form on our website or email us at the address listed there.</p>
+    <p>If you are not satisfied with our response, you may lodge a complaint with the <strong>Office of the Australian Information Commissioner (OAIC)</strong> at <a href="https://www.oaic.gov.au" target="_blank" rel="noopener">oaic.gov.au</a>.</p>
+  </div>
+
+  <div class="policy-section">
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices or applicable law. We will post the updated policy on this page with a revised "Last updated" date. Continued use of our Site after any changes constitutes your acceptance of the updated Policy.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a href="/" class="logo" style="text-decoration:none">
+        <div class="logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(0,212,255,0.9)" stroke-width="2" stroke-linecap="round">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+        </div>
+        <span class="logo-text">Clear<span>Watt</span> Solar</span>
+      </a>
+      <p>Australia's trusted solar quote matching service — connecting homeowners with the best local installers since 2020.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Resources</h5>
+      <ul>
+        <li><a href="/rebate-guide">Rebate Guide</a></li>
+        <li><a href="/savings-calculator">Savings Calculator</a></li>
+        <li><a href="/faq">Full FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/terms">Terms of Use</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 ClearWatt Solar · clearwattsolar.com.au · Australian-owned &amp; operated<br>
+    ClearWatt Solar is a referral matching service and does not provide installation services directly. All installers are independently licensed and insured.
+  </div>
+</footer>
+
+<script>
+function toggleMob() {
+  var h = document.getElementById('hamburger');
+  var m = document.getElementById('mobNav');
+  h.classList.toggle('open'); m.classList.toggle('open');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
+}
+function closeMob() {
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobNav').classList.remove('open');
+  document.body.style.overflow = '';
+}
+</script>
+</body>
+</html>
