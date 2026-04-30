@@ -1180,7 +1180,6 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 <!-- ═══ JAVASCRIPT ═══ -->
 <script>
 /* ── CONFIG ── */
-var WEBHOOK_URL   = 'https://hook.eu2.make.com/qw1gnas56z5s6vd4uc0wvi0pudw6pgkw';
 var SUPABASE_FUNCTION_URL = 'https://wmegoygrancfwxagqskh.supabase.co/functions/v1/postcode-lookup';
 var TOTAL_STEPS   = 5;
 
@@ -1349,15 +1348,6 @@ window.submitForm = async function() {
   if (typeof gtag !== 'undefined') {
     gtag('event', 'generate_lead', { event_category:'quote_form', event_label:'sydney_submitted' });
   }
-
-  /* ── Fire webhook to Make ── */
-  try {
-    await fetch(WEBHOOK_URL, {
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(formData)
-    });
-  } catch(e) { console.warn('Webhook:', e); }
 
   /* ── Reset Turnstile ── */
   turnstileToken = '';
