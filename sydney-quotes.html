@@ -887,12 +887,8 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
             <div class="err-msg" id="err-postcode">Please enter a valid 4-digit postcode</div>
           </div>
 
-          <div id="postcode-error" style="display:none; background:rgba(229,62,62,0.08); border-left:4px solid #e53e3e; border-radius:10px; padding:12px 14px; margin-bottom:16px;">
-            <p style="font-size:0.8rem; color:#e53e3e; line-height:1.5;">Sorry, we don't currently have an installer covering that postcode. Please try a different postcode or <a href="mailto:contact@clearwattsolar.com.au" style="color:#e53e3e;text-decoration:underline">contact us directly</a>.</p>
-          </div>
-
-          <button class="btn-next" id="postcodeNextBtn" onclick="lookupPostcode()">
-            Find My Local Installer →
+          <button class="btn-next" id="postcodeNextBtn" onclick="submitPostcode()">
+            Next →
           </button>
           <button class="btn-back" onclick="goToStep(4,3)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -907,7 +903,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 
           <div class="match-notice" id="buyerMatchNotice">
             <span class="mn-icon">🎯</span>
-            <p>Great news! We've matched you with <strong id="buyerNameDisplay">your local installer</strong> — a pre-vetted, licensed installer in your area. Enter your details below to receive your free quote.</p>
+            <p>Great news! Enter your details below and a pre-vetted, licensed Sydney installer will be in touch with your free quote.</p>
           </div>
 
           <div class="field-row">
@@ -944,7 +940,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
           </button>
           <div class="priv-note">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.77l-6.18 3.25L7 13.14 2 8.27l6.91-1.01L12 1z"/></svg>
-            By submitting, you consent to <strong id="consentBuyerName">your matched installer</strong> contacting you regarding your solar quote. 100% secure — we never share your details beyond your matched installer.
+            By submitting, you consent to your matched installer contacting you regarding your solar quote. 100% secure — we never share your details beyond your matched installer.
           </div>
           <button class="btn-back" style="margin-top:14px" onclick="goToStep(5,4)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -1180,11 +1176,9 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 <!-- ═══ JAVASCRIPT ═══ -->
 <script>
 /* ── CONFIG ── */
-var SUPABASE_FUNCTION_URL = 'https://wmegoygrancfwxagqskh.supabase.co/functions/v1/postcode-lookup';
 var TOTAL_STEPS   = 5;
 
 var formData = { source: 'sydney-quotes' };
-var matchedBuyerName = '';
 var turnstileToken = '';
 
 /* ── TURNSTILE CALLBACKS ── */
@@ -1249,7 +1243,7 @@ window.pickTimeline = function(el, val) {
 };
 
 /* ── STEP 4: POSTCODE ── */
-window.lookupPostcode = async function() {
+window.submitPostcode = function() {
   var pcInput = document.getElementById('postcode');
   var pc = pcInput.value.trim().replace(/\D/g, '');
   if (!/^\d{4}$/.test(pc)) {
@@ -1259,41 +1253,8 @@ window.lookupPostcode = async function() {
   }
   pcInput.classList.remove('err-field');
   document.getElementById('err-postcode').style.display = 'none';
-  document.getElementById('postcode-error').style.display = 'none';
-
-  var btn = document.getElementById('postcodeNextBtn');
-  btn.disabled = true;
-  btn.textContent = 'Finding your installer…';
-
   formData.postcode = pc;
-
-  try {
-    var resp = await fetch(SUPABASE_FUNCTION_URL + '?postcode=' + encodeURIComponent(pc));
-    if (!resp.ok) throw new Error('HTTP ' + resp.status);
-    var data = await resp.json();
-
-    if (data.buyer_name) {
-      matchedBuyerName = data.buyer_name;
-      formData.matched_buyer = data.buyer_name;
-      if (data.buyer_id) formData.matched_buyer_id = data.buyer_id;
-
-      document.getElementById('buyerNameDisplay').textContent = data.buyer_name;
-      document.getElementById('consentBuyerName').textContent = data.buyer_name;
-
-      btn.disabled = false;
-      btn.textContent = 'Find My Local Installer →';
-      goToStep(4, 5);
-    } else {
-      document.getElementById('postcode-error').style.display = 'block';
-      btn.disabled = false;
-      btn.textContent = 'Find My Local Installer →';
-    }
-  } catch(e) {
-    console.error('Postcode lookup error:', e);
-    document.getElementById('postcode-error').style.display = 'block';
-    btn.disabled = false;
-    btn.textContent = 'Find My Local Installer →';
-  }
+  goToStep(4, 5);
 };
 
 /* ── STEP 5: CONTACT VALIDATION ── */
