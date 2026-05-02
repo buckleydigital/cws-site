@@ -32,9 +32,6 @@ document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1692791048547338'); fbq('track','PageView');
 </script>
 
-<!-- Cloudflare Turnstile -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad" async defer></script>
-
 <!-- Structured Data -->
 <script type="application/ld+json">
 {
@@ -932,10 +929,6 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
           </div>
 
 
-          <div id="turnstile-wrap" style="display:flex;justify-content:center;margin-bottom:14px">
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAC2q3rtE5KaDSTRs" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired" data-theme="dark"></div>
-          </div>
-
           <button class="btn-next" id="submitBtn" disabled onclick="submitForm()">
             🎯 Get My Free Matched Quote →
           </button>
@@ -1171,12 +1164,6 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 var TOTAL_STEPS   = 5;
 
 var formData = { source: 'clearwattsolar.com.au' };
-var turnstileToken = '';
-
-/* ── TURNSTILE CALLBACKS ── */
-window.onTurnstileLoad = function() { /* widget auto-renders */ };
-window.onTurnstileSuccess = function(token) { turnstileToken = token; validateContact(); };
-window.onTurnstileExpired = function() { turnstileToken = ''; validateContact(); };
 
 /* ── PROGRESS ── */
 function updateProgress(step) {
@@ -1249,15 +1236,25 @@ window.submitPostcode = function() {
   goToStep(4, 5);
 };
 
+/* ── AU mobile normalizer: accepts 04XXXXXXXX, +61XXXXXXXXX, 61XXXXXXXXX → returns E.164 +61XXXXXXXXX, or null ── */
+function normalizeAuMobile(raw) {
+  var s = (raw || '').replace(/[\s\-().]/g,'');
+  s = s.replace(/\+/g,'');
+  if (!/^\d+$/.test(s)) return null;
+  if (/^04\d{8}$/.test(s))  return '+61' + s.substring(1);
+  if (/^614\d{8}$/.test(s)) return '+' + s;
+  return null;
+}
+
 /* ── STEP 5: CONTACT VALIDATION ── */
 function validateContact() {
   var fn  = document.getElementById('firstName').value.trim();
   var ln  = document.getElementById('lastName').value.trim();
   var em  = document.getElementById('email').value.trim();
-  var ph  = document.getElementById('phone').value.trim().replace(/\s/g,'');
+  var ph  = document.getElementById('phone').value.trim();
   var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
-  var phoneOk = /^04\d{8}$/.test(ph);
-  document.getElementById('submitBtn').disabled = !(fn && ln && emailOk && phoneOk && turnstileToken);
+  var phoneOk = normalizeAuMobile(ph) !== null;
+  document.getElementById('submitBtn').disabled = !(fn && ln && emailOk && phoneOk);
 }
 
 function fv(id, test) {
@@ -1274,7 +1271,7 @@ window.submitForm = async function() {
   var ok = true;
   ok = fv('firstName', function(v){ return v.length > 1; }) && ok;
   ok = fv('lastName',  function(v){ return v.length > 1; }) && ok;
-  ok = fv('phone',     function(v){ return /^04\d{8}$/.test(v.replace(/\s/g,'')); }) && ok;
+  ok = fv('phone',     function(v){ return normalizeAuMobile(v) !== null; }) && ok;
   ok = fv('email',     function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }) && ok;
   if (!ok) return;
 
@@ -1285,9 +1282,8 @@ window.submitForm = async function() {
   formData.lastName     = ln;
   formData.name         = fn + ' ' + ln;
   formData.email        = document.getElementById('email').value.trim();
-  formData.phone        = document.getElementById('phone').value.trim().replace(/\s/g,'');
+  formData.phone        = normalizeAuMobile(document.getElementById('phone').value);
   formData.submitted_at = new Date().toISOString();
-  formData['cf-turnstile-response'] = turnstileToken;
 
   var btn = document.getElementById('submitBtn');
   btn.textContent = 'Matching you now…';
@@ -1301,10 +1297,6 @@ window.submitForm = async function() {
   if (typeof gtag !== 'undefined') {
     gtag('event', 'generate_lead', { event_category:'quote_form', event_label:'clearwatt_submitted' });
   }
-
-  /* ── Reset Turnstile ── */
-  turnstileToken = '';
-  try { if (typeof turnstile !== 'undefined') turnstile.reset(); } catch(e) { /* ignore */ }
 
   document.getElementById('overlay').classList.remove('show');
 
@@ -1353,9 +1345,13 @@ function closeMob() {
 
 /* ── SCROLL REVEAL ── */
 document.addEventListener('DOMContentLoaded', function() {
-  /* Phone input — digits only */
+  /* Phone input — digits, spaces, and a single leading '+' */
   var ph = document.getElementById('phone');
-  if (ph) ph.addEventListener('input', function(){ this.value = this.value.replace(/[^\d\s]/g,''); });
+  if (ph) ph.addEventListener('input', function(){
+    var v = this.value.replace(/[^\d+\s]/g,'');
+    v = (v.charAt(0) === '+' ? '+' : '') + v.replace(/\+/g,'');
+    this.value = v;
+  });
 
   /* Intersection observer for cards */
   var io = new IntersectionObserver(function(entries) {

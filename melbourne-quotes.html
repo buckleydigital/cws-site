@@ -1245,14 +1245,24 @@ window.submitPostcode = function() {
   goToStep(4, 5);
 };
 
+/* ── AU mobile normalizer: accepts 04XXXXXXXX, +61XXXXXXXXX, 61XXXXXXXXX → returns E.164 +61XXXXXXXXX, or null ── */
+function normalizeAuMobile(raw) {
+  var s = (raw || '').replace(/[\s\-().]/g,'');
+  s = s.replace(/\+/g,'');
+  if (!/^\d+$/.test(s)) return null;
+  if (/^04\d{8}$/.test(s))  return '+61' + s.substring(1);
+  if (/^614\d{8}$/.test(s)) return '+' + s;
+  return null;
+}
+
 /* ── STEP 5: CONTACT VALIDATION ── */
 function validateContact() {
   var fn  = document.getElementById('firstName').value.trim();
   var ln  = document.getElementById('lastName').value.trim();
   var em  = document.getElementById('email').value.trim();
-  var ph  = document.getElementById('phone').value.trim().replace(/\s/g,'');
+  var ph  = document.getElementById('phone').value.trim();
   var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
-  var phoneOk = /^04\d{8}$/.test(ph);
+  var phoneOk = normalizeAuMobile(ph) !== null;
   document.getElementById('submitBtn').disabled = !(fn && ln && emailOk && phoneOk);
 }
 
@@ -1270,7 +1280,7 @@ window.submitForm = async function() {
   var ok = true;
   ok = fv('firstName', function(v){ return v.length > 1; }) && ok;
   ok = fv('lastName',  function(v){ return v.length > 1; }) && ok;
-  ok = fv('phone',     function(v){ return /^04\d{8}$/.test(v.replace(/\s/g,'')); }) && ok;
+  ok = fv('phone',     function(v){ return normalizeAuMobile(v) !== null; }) && ok;
   ok = fv('email',     function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }) && ok;
   if (!ok) return;
 
@@ -1281,7 +1291,7 @@ window.submitForm = async function() {
   formData.lastName     = ln;
   formData.name         = fn + ' ' + ln;
   formData.email        = document.getElementById('email').value.trim();
-  formData.phone        = document.getElementById('phone').value.trim().replace(/\s/g,'');
+  formData.phone        = normalizeAuMobile(document.getElementById('phone').value);
   formData.submitted_at = new Date().toISOString();
 
   var btn = document.getElementById('submitBtn');
@@ -1353,9 +1363,13 @@ function closeMob() {
 
 /* ── SCROLL REVEAL ── */
 document.addEventListener('DOMContentLoaded', function() {
-  /* Phone input — digits only */
+  /* Phone input — digits, spaces, and a single leading '+' */
   var ph = document.getElementById('phone');
-  if (ph) ph.addEventListener('input', function(){ this.value = this.value.replace(/[^\d\s]/g,''); });
+  if (ph) ph.addEventListener('input', function(){
+    var v = this.value.replace(/[^\d+\s]/g,'');
+    v = (v.charAt(0) === '+' ? '+' : '') + v.replace(/\+/g,'');
+    this.value = v;
+  });
 
   /* Intersection observer for cards */
   var io = new IntersectionObserver(function(entries) {
