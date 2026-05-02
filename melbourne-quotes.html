@@ -32,9 +32,6 @@ document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','1692791048547338'); fbq('track','PageView');
 </script>
 
-<!-- Cloudflare Turnstile -->
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad" async defer></script>
-
 <!-- Structured Data -->
 <script type="application/ld+json">
 {
@@ -931,10 +928,6 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
             <div class="err-msg" id="err-email">Enter a valid email</div>
           </div>
 
-          <div id="turnstile-wrap" style="display:flex;justify-content:center;margin-bottom:14px">
-            <div class="cf-turnstile" data-sitekey="0x4AAAAAAC2q3rtE5KaDSTRs" data-callback="onTurnstileSuccess" data-expired-callback="onTurnstileExpired" data-theme="dark"></div>
-          </div>
-
           <button class="btn-next" id="submitBtn" disabled onclick="submitForm()">
             🎯 Get My Free Matched Quote →
           </button>
@@ -1176,15 +1169,10 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 <!-- ═══ JAVASCRIPT ═══ -->
 <script>
 /* ── CONFIG ── */
+var WEBHOOK_URL = 'https://hook.eu2.make.com/ijz3u5nrgxqi79eytwpd9l9kiznhvlbn';
 var TOTAL_STEPS   = 5;
 
 var formData = { source: 'melbourne-quotes' };
-var turnstileToken = '';
-
-/* ── TURNSTILE CALLBACKS ── */
-window.onTurnstileLoad = function() { /* widget auto-renders */ };
-window.onTurnstileSuccess = function(token) { turnstileToken = token; validateContact(); };
-window.onTurnstileExpired = function() { turnstileToken = ''; validateContact(); };
 
 /* ── PROGRESS ── */
 function updateProgress(step) {
@@ -1265,7 +1253,7 @@ function validateContact() {
   var ph  = document.getElementById('phone').value.trim().replace(/\s/g,'');
   var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
   var phoneOk = /^04\d{8}$/.test(ph);
-  document.getElementById('submitBtn').disabled = !(fn && ln && emailOk && phoneOk && turnstileToken);
+  document.getElementById('submitBtn').disabled = !(fn && ln && emailOk && phoneOk);
 }
 
 function fv(id, test) {
@@ -1295,7 +1283,6 @@ window.submitForm = async function() {
   formData.email        = document.getElementById('email').value.trim();
   formData.phone        = document.getElementById('phone').value.trim().replace(/\s/g,'');
   formData.submitted_at = new Date().toISOString();
-  formData['cf-turnstile-response'] = turnstileToken;
 
   var btn = document.getElementById('submitBtn');
   btn.textContent = 'Matching you now…';
@@ -1310,9 +1297,14 @@ window.submitForm = async function() {
     gtag('event', 'generate_lead', { event_category:'quote_form', event_label:'melbourne_submitted' });
   }
 
-  /* ── Reset Turnstile ── */
-  turnstileToken = '';
-  try { if (typeof turnstile !== 'undefined') turnstile.reset(); } catch(e) { /* ignore */ }
+  /* ── Fire webhook ── */
+  try {
+    await fetch(WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+  } catch(e) { console.warn('Webhook error:', e); }
 
   document.getElementById('overlay').classList.remove('show');
 
