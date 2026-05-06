@@ -542,6 +542,28 @@ nav{
 }
 .cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(249,115,22,0.42)}
 
+/* RESOURCES SECTION */
+.res-section{padding:72px 6vw;position:relative;z-index:1}
+.res-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;max-width:960px;margin:0 auto;
+}
+.res-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:26px 24px;
+  cursor:pointer;transition:transform 0.25s,border-color 0.25s;
+  display:flex;flex-direction:column;gap:10px;
+  text-decoration:none;
+}
+.res-card:hover{transform:translateY(-4px);border-color:var(--border2)}
+.res-card.hot{border-color:rgba(249,115,22,0.35);background:linear-gradient(145deg,var(--surface),rgba(249,115,22,0.04))}
+.res-icon{font-size:1.8rem;line-height:1}
+.res-tag{font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--cyan)}
+.res-card h4{font-family:'Outfit',sans-serif;font-weight:800;font-size:0.97rem;color:var(--white);margin:0}
+.res-card p{font-size:0.78rem;color:var(--muted);line-height:1.65;margin:0;flex:1}
+.res-link{font-size:0.78rem;font-weight:700;color:var(--cyan);text-decoration:none;margin-top:4px;display:inline-block}
+.res-link:hover{text-decoration:underline}
+
 /* FAQ */
 .faq-section{padding:60px 20px 80px;max-width:700px;margin:0 auto;position:relative;z-index:1}
 .faq-item{border-bottom:1px solid var(--border);padding:20px 0}
@@ -1084,6 +1106,38 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
   <a href="#quote" class="cta-btn" onclick="document.querySelector('.survey-card').scrollIntoView({behavior:'smooth'});return false;">
     Get My Free Quote — No Obligation →
   </a>
+</section>
+
+<!-- ═══ FREE RESOURCES ═══ -->
+<section class="res-section" id="resources">
+  <div class="section-head">
+    <div class="section-eyebrow">Free Resources</div>
+    <h2 class="section-h2">Everything you need to go solar with confidence</h2>
+    <p class="section-sub">No sales pitch, no jargon — just clear, honest information so you know exactly what you're buying.</p>
+  </div>
+  <div class="res-grid">
+    <a href="/savings-calculator" class="res-card hot">
+      <div class="res-icon">⚡</div>
+      <div class="res-tag">Free Tool</div>
+      <h4>Solar Savings Calculator</h4>
+      <p>Enter your power bill and state. Get your estimated system size, annual savings, payback period, and 10-year return instantly.</p>
+      <span class="res-link">Calculate my savings →</span>
+    </a>
+    <a href="/rebate-guide" class="res-card">
+      <div class="res-icon">💰</div>
+      <div class="res-tag">Rebates &amp; Incentives</div>
+      <h4>Australia Solar Rebate Guide 2026</h4>
+      <p>STCs, feed-in tariffs, state incentives — every federal and state rebate explained in plain English.</p>
+      <span class="res-link">Check my rebates →</span>
+    </a>
+    <a href="/faq" class="res-card">
+      <div class="res-icon">📋</div>
+      <div class="res-tag">Common Questions</div>
+      <h4>Solar FAQ — Your Questions Answered</h4>
+      <p>How much does it cost? Is it worth it? What's a CEC installer? Everything answered clearly and honestly.</p>
+      <span class="res-link">Read the FAQ →</span>
+    </a>
+  </div>
 </section>
 
 <!-- ═══ FAQ ═══ -->
