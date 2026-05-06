@@ -23,39 +23,39 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:        #FFF7ED;
+  --bg:        #EFF6FF;
   --surface:   #FFFFFF;
-  --surface2:  #FFFBEB;
-  --border:    rgba(249,115,22,0.15);
-  --border2:   rgba(249,115,22,0.28);
-  --cyan:      #F97316;
-  --cyan-dark: #EA580C;
-  --cyan-glow: rgba(249,115,22,0.18);
-  --cyan-pale: rgba(249,115,22,0.08);
-  --gold:      #FCD34D;
-  --gold-dark: #F59E0B;
-  --white:     #1C0A00;
-  --muted:     #92400E;
-  --muted2:    #C2724F;
+  --surface2:  #E0EDF8;
+  --border:    rgba(11,39,56,0.12);
+  --border2:   rgba(11,39,56,0.22);
+  --cyan:      #fcd435;
+  --cyan-dark: #d4aa00;
+  --cyan-glow: rgba(252,212,53,0.18);
+  --cyan-pale: rgba(252,212,53,0.1);
+  --gold:      #fcd435;
+  --gold-dark: #0b2738;
+  --white:     #0b2738;
+  --muted:     #2d5270;
+  --muted2:    #6288a0;
   --green:     #22d47a;
   --red:       #ff4757;
-  --orange:    #F97316;
+  --orange:    #fcd435;
   --radius:    20px;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Outfit',sans-serif;color:var(--white);background:var(--bg);overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 70% -10%,rgba(249,115,22,0.07) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at -10% 80%,rgba(234,88,12,0.05) 0%,transparent 60%);pointer-events:none;z-index:0}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 60% at 70% -10%,rgba(252,212,53,0.07) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at -10% 80%,rgba(11,39,56,0.05) 0%,transparent 60%);pointer-events:none;z-index:0}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;background:rgba(255,247,237,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;background:rgba(239,246,255,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-sun{width:38px;height:38px;background:linear-gradient(135deg,#FCD34D,#F97316);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px rgba(252,211,77,0.25),0 0 0 10px rgba(249,115,22,0.08);animation:pulse-sun 3s ease-in-out infinite;flex-shrink:0}
-.logo-sun svg{width:20px;height:20px}@keyframes pulse-sun{0%,100%{box-shadow:0 0 0 5px rgba(252,211,77,0.25),0 0 0 10px rgba(249,115,22,0.08)}50%{box-shadow:0 0 0 8px rgba(252,211,77,0.3),0 0 0 16px rgba(249,115,22,0.05)}}
+.logo-sun{width:38px;height:38px;background:linear-gradient(135deg,#fcd435,#0b2738);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px rgba(252,212,53,0.25),0 0 0 10px rgba(252,212,53,0.08);animation:pulse-sun 3s ease-in-out infinite;flex-shrink:0}
+.logo-sun svg{width:20px;height:20px}@keyframes pulse-sun{0%,100%{box-shadow:0 0 0 5px rgba(252,212,53,0.25),0 0 0 10px rgba(252,212,53,0.08)}50%{box-shadow:0 0 0 8px rgba(252,212,53,0.3),0 0 0 16px rgba(252,212,53,0.05)}}
 .logo-text{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-0.02em}
 .logo-text span{color:var(--cyan)}
 .nav-right{display:flex;align-items:center;gap:14px}
-.nav-cta{background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:var(--bg);font-weight:700;font-size:0.82rem;padding:9px 20px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(249,115,22,0.25);transition:transform 0.2s,box-shadow 0.2s}
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(249,115,22,0.38)}
+.nav-cta{background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:#0b2738;font-weight:700;font-size:0.82rem;padding:9px 20px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(252,212,53,0.25);transition:transform 0.2s,box-shadow 0.2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(252,212,53,0.38)}
 .nav-badge{display:flex;align-items:center;gap:6px;background:rgba(34,212,122,0.1);border:1px solid rgba(34,212,122,0.25);border-radius:50px;padding:5px 13px;font-size:0.72rem;font-weight:700;color:#22d47a;letter-spacing:0.04em}
 .nav-badge::before{content:'';width:6px;height:6px;background:#22d47a;border-radius:50%;animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
@@ -70,7 +70,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .mob-nav ul li a{display:block;font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--white);text-decoration:none;padding:16px 0;border-bottom:1px solid var(--border);transition:color 0.2s}
 .mob-nav ul li a:hover{color:var(--cyan)}
 .mob-cta{margin-top:28px}
-.mob-cta a{display:block;text-align:center;background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:var(--bg);font-family:'Outfit',sans-serif;font-weight:800;font-size:1rem;padding:16px;border-radius:50px;text-decoration:none}
+.mob-cta a{display:block;text-align:center;background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:#0b2738;font-family:'Outfit',sans-serif;font-weight:800;font-size:1rem;padding:16px;border-radius:50px;text-decoration:none}
 @media(max-width:640px){.nav-right .nav-cta{display:none}.nav-right .nav-badge{display:none}.hamburger{display:flex}nav{padding:14px 5vw}}
 
 /* PAGE HERO */
@@ -94,7 +94,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .policy-section a:hover{text-decoration:underline}
 
 /* FOOTER */
-footer{background:#1C0A00;border-top:none;padding:40px 6vw 28px;position:relative;z-index:1}
+footer{background:#0b2738;border-top:none;padding:40px 6vw 28px;position:relative;z-index:1}
 .footer-inner{max-width:1000px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;padding-bottom:28px;border-bottom:1px solid var(--border)}
 .footer-brand p{font-size:0.82rem;color:var(--muted2);margin-top:10px;max-width:220px;line-height:1.6}
 .footer-col h5{font-size:0.65rem;font-weight:700;color:var(--muted2);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px}
