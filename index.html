@@ -209,52 +209,46 @@ nav{
   position:relative;z-index:5;
 }
 .survey-card{
-  background:var(--surface);
-  border:1px solid var(--border2);
-  border-radius:20px;
-  box-shadow:
-    0 0 0 1px rgba(249,115,22,0.06),
-    0 24px 60px rgba(0,0,0,0.5),
-    0 0 80px rgba(249,115,22,0.04);
+  background:#ffffff;
+  border:1.5px solid rgba(249,115,22,0.1);
+  border-radius:28px;
+  box-shadow:0 24px 80px rgba(249,115,22,0.13), 0 2px 12px rgba(249,115,22,0.06);
   overflow:hidden;
+  position:relative;
 }
-
-/* CARD TOP BAR */
-.card-topbar{
-  display:flex;align-items:center;gap:8px;
-  padding:14px 20px;
-  background:rgba(249,115,22,0.04);
-  border-bottom:1px solid var(--border);
+.survey-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:5px;
+  background:linear-gradient(90deg,var(--gold),var(--cyan),var(--cyan-dark));
 }
-.tb-dot{width:10px;height:10px;border-radius:50%}
-.tb-dot.r{background:#ff5f57}.tb-dot.y{background:#febc2e}.tb-dot.g{background:#28c840}
-.tb-label{
-  margin-left:8px;font-family:'Outfit',sans-serif;font-weight:700;
-  font-size:0.78rem;color:var(--muted);letter-spacing:0.05em;text-transform:uppercase;
-}
-.tb-right{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:0.7rem;color:var(--muted2);font-weight:600}
-.tb-right svg{width:12px;height:12px;color:var(--green)}
 
 /* PROGRESS */
-.prog-outer{height:3px;background:rgba(249,115,22,0.06)}
+.survey-progress{padding:22px 32px 14px}
+.progress-meta{
+  display:flex;justify-content:space-between;align-items:center;margin-bottom:9px;
+}
+.progress-label{
+  font-size:0.7rem;font-weight:800;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--muted2);
+}
+.progress-count{font-size:0.7rem;font-weight:700;color:var(--cyan)}
+.prog-outer{
+  height:6px;background:rgba(249,115,22,0.08);
+  border-radius:100px;overflow:hidden;
+}
 .prog-inner{
   height:100%;width:0%;
-  background:linear-gradient(90deg,var(--cyan),var(--gold));
-  transition:width 0.5s cubic-bezier(0.4,0,0.2,1);
+  background:linear-gradient(90deg,var(--gold),var(--cyan));
+  border-radius:100px;
+  transition:width 0.5s cubic-bezier(0.34,1.56,0.64,1);
 }
 
-/* STEP DOTS */
-.dot-row{display:flex;justify-content:center;align-items:center;gap:7px;padding:14px 0 0}
-.sdot{
-  width:7px;height:7px;border-radius:50%;
-  background:rgba(0,0,0,0.07);transition:all 0.3s ease;
-}
-.sdot.active{background:var(--cyan);transform:scale(1.35);box-shadow:0 0 8px rgba(249,115,22,0.5)}
-.sdot.done{background:var(--green)}
+/* STEP DOTS — hidden, kept for JS compatibility */
+.dot-row{display:none}
+.sdot{width:7px;height:7px;border-radius:50%}
 
 /* CARD BODY */
-.card-body{padding:28px 32px 30px}
-@media(max-width:480px){.card-body{padding:22px 18px 24px}}
+.card-body{padding:8px 32px 32px}
+@media(max-width:480px){.card-body{padding:4px 18px 26px}.survey-progress{padding:20px 18px 12px}}
 
 /* STEPS */
 .step{display:none}
@@ -277,36 +271,36 @@ nav{
 @media(max-width:440px){.choice-grid{grid-template-columns:1fr}}
 
 .choice-card{
-  border:1.5px solid rgba(0,0,0,0.07);
+  border:2px solid transparent;
   border-radius:14px;padding:18px 14px;
-  cursor:pointer;transition:all 0.2s ease;
+  cursor:pointer;transition:all 0.18s ease;
   background:rgba(249,115,22,0.04);
   position:relative;overflow:hidden;
   user-select:none;
 }
 .choice-card::before{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg, rgba(249,115,22,0.06), rgba(249,115,22,0.02));
-  opacity:0;transition:opacity 0.2s;
+  background:linear-gradient(135deg, rgba(249,115,22,0.06), rgba(252,211,77,0.04));
+  opacity:0;transition:opacity 0.18s;
 }
-.choice-card:hover{border-color:rgba(249,115,22,0.4);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.choice-card:hover{border-color:rgba(249,115,22,0.35);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,0.12)}
 .choice-card:hover::before{opacity:1}
 .choice-card.selected{
   border-color:var(--cyan);
-  background:rgba(249,115,22,0.08);
-  box-shadow:0 0 0 1px rgba(249,115,22,0.2), 0 8px 28px rgba(0,0,0,0.3);
+  background:#ffffff;
+  box-shadow:0 8px 28px rgba(249,115,22,0.2);
 }
 .choice-card.selected::before{opacity:1}
 .choice-card.selected::after{
   content:'✓';position:absolute;top:9px;right:11px;
-  width:20px;height:20px;background:var(--cyan);color:var(--bg);
-  border-radius:50%;font-size:0.65rem;font-weight:900;
-  display:flex;align-items:center;justify-content:center;line-height:20px;
+  width:22px;height:22px;background:var(--cyan);color:#ffffff;
+  border-radius:50%;font-size:0.68rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;line-height:22px;
 }
 
 /* Renter / disqualify disqualify card style */
 .choice-card.disq-card:hover{border-color:rgba(255,71,87,0.5)}
-.choice-card.disq-card.selected{border-color:var(--red);background:rgba(255,71,87,0.08)}
+.choice-card.disq-card.selected{border-color:var(--red);background:#ffffff}
 .choice-card.disq-card.selected::after{background:var(--red)}
 
 .cc-icon{font-size:2rem;margin-bottom:10px;display:block}
@@ -316,19 +310,19 @@ nav{
 /* Horizontal choice for bill/timeline */
 .choice-h{
   display:flex;align-items:center;gap:14px;
-  border:1.5px solid rgba(0,0,0,0.07);
+  border:2px solid transparent;
   border-radius:14px;padding:15px 16px;
-  cursor:pointer;transition:all 0.2s ease;
+  cursor:pointer;transition:all 0.18s ease;
   background:rgba(249,115,22,0.04);
   position:relative;overflow:hidden;user-select:none;
 }
-.choice-h:hover{border-color:rgba(249,115,22,0.4);transform:translateY(-2px)}
-.choice-h.selected{border-color:var(--cyan);background:rgba(249,115,22,0.08);box-shadow:0 0 0 1px rgba(249,115,22,0.2)}
+.choice-h:hover{border-color:rgba(249,115,22,0.35);transform:translateY(-1px);box-shadow:0 6px 20px rgba(249,115,22,0.12)}
+.choice-h.selected{border-color:var(--cyan);background:#ffffff;box-shadow:0 8px 28px rgba(249,115,22,0.2)}
 .choice-h.selected::after{
   content:'✓';position:absolute;top:50%;right:14px;transform:translateY(-50%);
-  width:20px;height:20px;background:var(--cyan);color:var(--bg);
-  border-radius:50%;font-size:0.65rem;font-weight:900;
-  display:flex;align-items:center;justify-content:center;line-height:20px;
+  width:22px;height:22px;background:var(--cyan);color:#ffffff;
+  border-radius:50%;font-size:0.68rem;font-weight:900;
+  display:flex;align-items:center;justify-content:center;line-height:22px;
 }
 .ch-icon{font-size:1.5rem;flex-shrink:0}
 .ch-body{flex:1}
@@ -751,20 +745,15 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
   <div class="survey-wrap">
     <div class="survey-card">
 
-      <div class="card-topbar">
-        <div class="tb-dot r"></div>
-        <div class="tb-dot y"></div>
-        <div class="tb-dot g"></div>
-        <span class="tb-label">Solar Quote — Australia</span>
-        <div class="tb-right">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
-          Secure &amp; Private
+      <div class="survey-progress">
+        <div class="progress-meta">
+          <span class="progress-label">Your Progress</span>
+          <span class="progress-count" id="progressCount">Step 1 of 5</span>
         </div>
+        <div class="prog-outer"><div class="prog-inner" id="progFill"></div></div>
       </div>
 
-      <div class="prog-outer"><div class="prog-inner" id="progFill"></div></div>
-
-      <div style="padding:12px 24px 0;display:flex;justify-content:center">
+      <div style="display:none">
         <div class="dot-row">
           <div class="sdot active" id="dot1"></div>
           <div class="sdot" id="dot2"></div>
@@ -1223,6 +1212,8 @@ var formData = { source: 'clearwattsolar.com.au' };
 function updateProgress(step) {
   var pct = ((step - 1) / TOTAL_STEPS) * 100;
   document.getElementById('progFill').style.width = pct + '%';
+  var pc = document.getElementById('progressCount');
+  if (pc) pc.textContent = 'Step ' + step + ' of ' + TOTAL_STEPS;
   for (var i = 1; i <= TOTAL_STEPS; i++) {
     var d = document.getElementById('dot' + i);
     if (!d) continue;
@@ -1356,8 +1347,7 @@ window.submitForm = async function() {
 
   /* ── Show inline success ── */
   document.getElementById('step5').classList.remove('active');
-  document.querySelector('.prog-outer').style.display = 'none';
-  document.querySelector('.dot-row').parentElement.style.display = 'none';
+  document.querySelector('.survey-progress').style.display = 'none';
 
   var successEl = document.createElement('div');
   successEl.style.cssText = 'text-align:center;padding:28px 0 20px;animation:stepIn 0.4s ease';
