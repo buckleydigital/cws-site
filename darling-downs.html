@@ -1303,11 +1303,6 @@ window.submitForm = async function() {
     consent_text:                consentText
   };
 
-  /* Add any captured UTM params */
-  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
-    if (formData[k]) leadPayload[k] = formData[k];
-  });
-
   /* Tracking */
   if (typeof fbq !== 'undefined') {
     fbq('track', 'Lead', { content_name:'Solar Quote Darling Downs', content_category:'Solar', value:0, currency:'AUD' });
@@ -1448,12 +1443,6 @@ document.addEventListener('DOMContentLoaded', function() {
     io.observe(el);
   });
 
-  /* UTM params */
-  var params = new URLSearchParams(window.location.search);
-  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
-    if (params.get(k)) formData[k] = params.get(k);
-  });
-  if (params.get('utm_campaign')) formData.campaign = params.get('utm_campaign');
 });
 </script>
 </body>
