@@ -1321,12 +1321,6 @@ document.addEventListener('DOMContentLoaded', function() {
     io.observe(el);
   });
 
-  /* UTM params */
-  var params = new URLSearchParams(window.location.search);
-  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k) {
-    if (params.get(k)) formData[k] = params.get(k);
-  });
-  if (params.get('utm_campaign')) formData.campaign = params.get('utm_campaign');
 });
 </script>
 </body>
