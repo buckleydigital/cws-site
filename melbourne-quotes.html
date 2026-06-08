@@ -374,6 +374,11 @@ nav{
 @media(max-width:460px){.field-row{grid-template-columns:1fr}}
 
 /* CONSENT */
+.suburb-chip{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:0.72rem;font-weight:700;padding:5px 14px;border-radius:50px;transition:all 0.25s}
+.suburb-chip.loading{background:rgba(11,39,56,0.04);border:1px solid var(--border);color:var(--muted2)}
+.suburb-chip.found{background:rgba(34,212,122,0.08);border:1px solid rgba(34,212,122,0.25);color:var(--green)}
+.suburb-chip.no-coverage{background:rgba(252,212,53,0.08);border:1px solid rgba(252,212,53,0.22);color:var(--cyan-dark)}
+.suburb-chip.error{background:rgba(11,39,56,0.04);border:1px solid var(--border);color:var(--muted2)}
 .consent-wrap{
   display:flex;gap:10px;align-items:flex-start;margin:14px 0 18px;
   background:rgba(252,212,53,0.04);border:1px solid rgba(252,212,53,0.07);
@@ -872,13 +877,14 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 
           <div class="field-wrap">
             <label>Postcode</label>
-            <input type="text" id="postcode" placeholder="e.g. 2000" maxlength="4" inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'').slice(0,4)">
+            <input type="text" id="postcode" placeholder="e.g. 2000" maxlength="4" inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'').slice(0,4);onPostcodeTyping()">
+            <div class="suburb-chip" id="suburb-chip" style="display:none">
+              <span id="suburb-text"></span>
+            </div>
             <div class="err-msg" id="err-postcode">Please enter a valid 4-digit postcode</div>
           </div>
 
-          <button class="btn-next" id="postcodeNextBtn" onclick="submitPostcode()">
-            Next →
-          </button>
+          <button class="btn-next" id="postcodeBtn" onclick="submitPostcode()">Find My Local Installer →</button>
           <button class="btn-back" onclick="goToStep(4,3)">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
             Back
@@ -890,9 +896,9 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
           <div class="step-label">Step 5 of 5 &mdash; Almost There!</div>
           <h3>Where Should We Send Your Quote?</h3>
 
-          <div class="match-notice" id="buyerMatchNotice">
+          <div class="match-notice" id="matchNotice">
             <span class="mn-icon">🎯</span>
-            <p>Great news! Enter your details below and a pre-vetted, licensed Melbourne installer will be in touch with your free quote.</p>
+            <p>Great news! We've matched you with <strong id="buyerName">a pre-vetted local installer</strong> covering your area. Enter your details for your free, obligation-free solar quote.</p>
           </div>
 
           <div class="field-row">
@@ -920,6 +926,12 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
             <div class="err-msg" id="err-email">Enter a valid email</div>
           </div>
 
+          <div class="consent-wrap">
+            <input type="checkbox" id="consent" onchange="validateContact()">
+            <label for="consent">
+              I agree to be contacted by <strong id="consentBuyerName">a pre-vetted CEC-accredited installer</strong> regarding my obligation-free solar quote. My details will be shared only with my matched installer. I've read the <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.
+            </label>
+          </div>
           <button class="btn-next" id="submitBtn" disabled onclick="submitForm()">
             🎯 Get My Free Matched Quote →
           </button>
@@ -1152,10 +1164,15 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 <!-- ═══ JAVASCRIPT ═══ -->
 <script>
 /* ── CONFIG ── */
-var WEBHOOK_URL = 'https://hook.eu2.make.com/ijz3u5nrgxqi79eytwpd9l9kiznhvlbn';
-var TOTAL_STEPS   = 5;
-
-var formData = { source: 'melbourne-quotes' };
+var MAKE_WEBHOOK        = 'https://hook.eu2.make.com/ijz3u5nrgxqi79eytwpd9l9kiznhvlbn';
+var SUPABASE_URL        = 'https://wmegoygrancfwxagqskh.supabase.co';
+var SUPABASE_ANON_KEY   = 'sb_publishable_UHQNxVCjHJnFjssYwTiwcQ_3FYovX8I';
+var SURVEY_NICHE        = 'solar';
+var SURVEY_SOURCE       = 'PPL';
+var SUBMIT_LEAD_URL     = SUPABASE_URL + '/functions/v1/submit-lead';
+var POSTCODE_LOOKUP_URL = SUPABASE_URL + '/functions/v1/postcode-lookup';
+var TOTAL_STEPS         = 5;
+var formData            = { source: SURVEY_SOURCE };
 
 /* ── PROGRESS ── */
 function updateProgress(step) {
@@ -1215,19 +1232,89 @@ window.pickTimeline = function(el, val) {
   setTimeout(function() { goToStep(3, 4); }, 280);
 };
 
-/* ── STEP 4: POSTCODE ── */
-window.submitPostcode = function() {
-  var pcInput = document.getElementById('postcode');
-  var pc = pcInput.value.trim().replace(/\D/g, '');
+/* ══ STEP 4: POSTCODE TYPING ══ */
+window.onPostcodeTyping = function() {
+  var pc  = document.getElementById('postcode').value;
+  var err = document.getElementById('err-postcode');
+  if (err) err.style.display = 'none';
+  document.getElementById('postcode').classList.remove('err-field');
+  if (pc.length < 4) {
+    document.getElementById('suburb-chip').style.display = 'none';
+  }
+};
+
+/* ══ STEP 4: POSTCODE SUBMIT ══ */
+window.submitPostcode = async function() {
+  var pcEl  = document.getElementById('postcode');
+  var errEl = document.getElementById('err-postcode');
+  var btn   = document.getElementById('postcodeBtn');
+  var chip  = document.getElementById('suburb-chip');
+  var pc    = pcEl.value.trim();
+
   if (!/^\d{4}$/.test(pc)) {
-    pcInput.classList.add('err-field');
-    document.getElementById('err-postcode').style.display = 'block';
+    pcEl.classList.add('err-field');
+    errEl.textContent   = 'Please enter a valid 4-digit postcode';
+    errEl.style.display = 'block';
     return;
   }
-  pcInput.classList.remove('err-field');
-  document.getElementById('err-postcode').style.display = 'none';
-  formData.postcode = pc;
-  goToStep(4, 5);
+  pcEl.classList.remove('err-field');
+  errEl.style.display = 'none';
+
+  btn.textContent = 'Finding your installer…';
+  btn.disabled    = true;
+  chip.className  = 'suburb-chip loading';
+  chip.style.display = 'inline-flex';
+  document.getElementById('suburb-text').textContent = 'Checking installers near you…';
+
+  try {
+    var resp = await fetch(
+      POSTCODE_LOOKUP_URL + '?postcode=' + encodeURIComponent(pc) + '&niche=' + encodeURIComponent(SURVEY_NICHE),
+      {
+        headers: {
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'apikey':        SUPABASE_ANON_KEY
+        }
+      }
+    );
+    var data = resp.ok ? await resp.json() : {};
+
+    if (data.buyer_name) {
+      chip.className = 'suburb-chip found';
+      document.getElementById('suburb-text').textContent = '✓ Installer available in your area';
+
+      formData.postcode      = pc;
+      formData.matched_buyer = data.buyer_name;
+
+      document.getElementById('buyerName').textContent        = data.buyer_name;
+      document.getElementById('consentBuyerName').textContent = data.buyer_name;
+
+      var mn = document.getElementById('matchNotice');
+      mn.style.background  = 'rgba(34,212,122,0.06)';
+      mn.style.borderColor = 'rgba(34,212,122,0.2)';
+
+      setTimeout(function() { goToStep(4, 5); }, 400);
+    } else {
+      chip.className = 'suburb-chip no-coverage';
+      document.getElementById('suburb-text').textContent = 'No installer found for this postcode';
+      pcEl.classList.add('err-field');
+      errEl.textContent   = "We don't have an installer covering that postcode yet — try a neighbouring postcode.";
+      errEl.style.display = 'block';
+      btn.textContent     = 'Find My Local Installer →';
+      btn.disabled        = false;
+    }
+  } catch(e) {
+    console.warn('Postcode lookup error:', e);
+    chip.style.display = 'none';
+    formData.postcode      = pc;
+    formData.matched_buyer = null;
+
+    document.getElementById('buyerName').textContent        = 'a pre-vetted local installer';
+    document.getElementById('consentBuyerName').textContent = 'a pre-vetted CEC-accredited installer';
+
+    setTimeout(function() { goToStep(4, 5); }, 280);
+    btn.textContent = 'Find My Local Installer →';
+    btn.disabled    = false;
+  }
 };
 
 /* ── AU mobile normalizer: accepts 04XXXXXXXX, +61XXXXXXXXX, 61XXXXXXXXX → returns E.164 +61XXXXXXXXX, or null ── */
@@ -1242,13 +1329,16 @@ function normalizeAuMobile(raw) {
 
 /* ── STEP 5: CONTACT VALIDATION ── */
 function validateContact() {
-  var fn  = document.getElementById('firstName').value.trim();
-  var ln  = document.getElementById('lastName').value.trim();
-  var em  = document.getElementById('email').value.trim();
-  var ph  = document.getElementById('phone').value.trim();
-  var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
-  var phoneOk = normalizeAuMobile(ph) !== null;
-  document.getElementById('submitBtn').disabled = !(fn && ln && emailOk && phoneOk);
+  var fn  = document.getElementById('firstName');
+  var ln  = document.getElementById('lastName');
+  var em  = document.getElementById('email');
+  var ph  = document.getElementById('phone');
+  var con = document.getElementById('consent');
+  if (!fn || !ln || !em || !ph || !con) return;
+  var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim());
+  var phoneOk = normalizeAuMobile(ph.value.trim()) !== null;
+  var btn     = document.getElementById('submitBtn');
+  if (btn) btn.disabled = !(fn.value.trim().length > 1 && ln.value.trim().length > 1 && emailOk && phoneOk && con.checked);
 }
 
 function fv(id, test) {
@@ -1261,6 +1351,7 @@ function fv(id, test) {
 }
 
 /* ── SUBMIT ── */
+/* ══ SUBMIT — triple dispatch (submit-lead + Make webhook + direct Supabase insert) ══ */
 window.submitForm = async function() {
   var ok = true;
   ok = fv('firstName', function(v){ return v.length > 1; }) && ok;
@@ -1268,23 +1359,36 @@ window.submitForm = async function() {
   ok = fv('phone',     function(v){ return normalizeAuMobile(v) !== null; }) && ok;
   ok = fv('email',     function(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }) && ok;
   if (!ok) return;
+  if (!document.getElementById('consent').checked) return;
 
-  var fn = document.getElementById('firstName').value.trim();
-  var ln = document.getElementById('lastName').value.trim();
+  var fn  = document.getElementById('firstName').value.trim();
+  var ln  = document.getElementById('lastName').value.trim();
+  var em  = document.getElementById('email').value.trim();
+  var ph  = normalizeAuMobile(document.getElementById('phone').value);
+  var pc  = formData.postcode || document.getElementById('postcode').value.trim();
+  var now = new Date().toISOString();
 
-  formData.firstName    = fn;
-  formData.lastName     = ln;
-  formData.name         = fn + ' ' + ln;
-  formData.email        = document.getElementById('email').value.trim();
-  formData.phone        = normalizeAuMobile(document.getElementById('phone').value);
-  formData.submitted_at = new Date().toISOString();
+  var consentText = 'I agree to be contacted by ' +
+    (formData.matched_buyer || 'a pre-vetted CEC-accredited installer') +
+    ' regarding my obligation-free solar quote. My details will be shared only with my matched installer.';
 
-  var btn = document.getElementById('submitBtn');
-  btn.textContent = 'Matching you now…';
-  btn.disabled = true;
-  document.getElementById('overlay').classList.add('show');
+  var leadPayload = {
+    first_name:                  fn,
+    last_name:                   ln,
+    name:                        fn + ' ' + ln,
+    email:                       em,
+    phone:                       ph,
+    postcode:                    pc,
+    niche:                       SURVEY_NICHE,
+    source:                      SURVEY_SOURCE,
+    is_decision_maker:           formData.is_decision_maker,
+    ownership_type:              formData.ownership_type || null,
+    purchase_timeline:           formData.purchase_timeline || null,
+    bill_range:                  formData.avg_quarterly_bill || null,
+    matched_buyer:               formData.matched_buyer || null,
+    consent_text:                consentText
+  };
 
-  /* ── Tracking events ── */
   if (typeof fbq !== 'undefined') {
     fbq('track', 'Lead', { content_name:'Solar Quote Melbourne', content_category:'Solar', value:0, currency:'AUD' });
   }
@@ -1292,34 +1396,79 @@ window.submitForm = async function() {
     gtag('event', 'generate_lead', { event_category:'quote_form', event_label:'melbourne_submitted' });
   }
 
-  /* ── Fire webhook ── */
+  var btn = document.getElementById('submitBtn');
+  btn.textContent = 'Matching you now…';
+  btn.disabled    = true;
+  document.getElementById('overlay').classList.add('show');
+
   try {
-    await fetch(WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
-  } catch(e) { console.warn('Webhook error:', e); }
+    await Promise.all([
+
+      fetch(SUBMIT_LEAD_URL, {
+        method:  'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'apikey':        SUPABASE_ANON_KEY
+        },
+        body: JSON.stringify(leadPayload)
+      }).catch(function(e) { console.warn('submit-lead error:', e); }),
+
+      fetch(MAKE_WEBHOOK, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(leadPayload)
+      }).catch(function(e) { console.warn('Make webhook error:', e); }),
+
+      fetch(SUPABASE_URL + '/rest/v1/leads', {
+        method:  'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'apikey':        SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer':        'return=minimal'
+        },
+        body: JSON.stringify({
+          first_name:        leadPayload.first_name,
+          last_name:         leadPayload.last_name,
+          name:              leadPayload.name,
+          email:             leadPayload.email,
+          phone:             leadPayload.phone,
+          postcode:          leadPayload.postcode,
+          niche:             leadPayload.niche,
+          source:            leadPayload.source,
+          is_decision_maker: leadPayload.is_decision_maker,
+          purchase_timeline: leadPayload.purchase_timeline,
+          bill_range:        leadPayload.bill_range,
+          ownership_type:    leadPayload.ownership_type,
+          matched_buyer:     leadPayload.matched_buyer,
+          consent_text:      leadPayload.consent_text,
+          submitted_at:      now
+        })
+      }).catch(function(e) { console.warn('Supabase direct insert error:', e); })
+
+    ]);
+  } catch(e) { console.warn('Submit error:', e); }
 
   document.getElementById('overlay').classList.remove('show');
 
-  /* ── Show inline success ── */
   document.getElementById('step5').classList.remove('active');
   document.querySelector('.survey-progress').style.display = 'none';
 
   var successEl = document.createElement('div');
-  successEl.style.cssText = 'text-align:center;padding:28px 0 20px;animation:stepIn 0.4s ease';
+  successEl.style.cssText = 'text-align:center;padding:34px 8px 24px;animation:stepIn 0.4s ease';
   successEl.innerHTML = [
-    '<div style="font-size:3.2rem;margin-bottom:16px;animation:stepIn 0.5s ease">⚡</div>',
+    '<div style="font-size:3.2rem;margin-bottom:18px">⚡</div>',
     '<h3 style="font-family:Outfit,sans-serif;font-weight:900;font-size:1.3rem;color:var(--white);letter-spacing:-0.03em;margin-bottom:10px">You\'re matched! Quote incoming.</h3>',
-    '<p style="font-size:0.84rem;color:var(--muted);line-height:1.65;max-width:320px;margin:0 auto 22px">Expect a call or email from your matched Melbourne installer within 24 hours. Zero pressure - just a clear, honest quote.</p>',
+    '<p style="font-size:0.84rem;color:var(--muted);line-height:1.65;max-width:320px;margin:0 auto 24px">',
+      'Expect a call or email from <strong>' + (leadPayload.matched_buyer || 'your matched installer') + '</strong> within 1 business day. Zero pressure — just a clear, honest quote.',
+    '</p>',
     '<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">',
-    '<span style="background:rgba(252,212,53,0.08);border:1px solid rgba(252,212,53,0.2);border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:700;color:var(--cyan)">✓ CEC Verified</span>',
-    '<span style="background:rgba(252,212,53,0.08);border:1px solid rgba(252,212,53,0.2);border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:700;color:var(--cyan)">✓ Zero Obligation</span>',
-    '<span style="background:rgba(34,212,122,0.08);border:1px solid rgba(34,212,122,0.2);border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:700;color:var(--green)">✓ 100% Free</span>',
+      '<span style="background:rgba(252,212,53,0.08);border:1px solid rgba(252,212,53,0.22);border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:700;color:var(--cyan)">✓ CEC Verified</span>',
+      '<span style="background:rgba(252,212,53,0.08);border:1px solid rgba(252,212,53,0.22);border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:700;color:var(--cyan)">📍 Postcode Matched</span>',
+      '<span style="background:rgba(34,212,122,0.08);border:1px solid rgba(34,212,122,0.22);border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:700;color:var(--green)">✓ 100% Free</span>',
     '</div>'
   ].join('');
-
   document.querySelector('.card-body').appendChild(successEl);
 };
 

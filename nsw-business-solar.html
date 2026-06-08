@@ -1077,9 +1077,15 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 
 <!-- ═══ JAVASCRIPT ═══ -->
 <script>
-var WEBHOOK_URL = 'https://hook.eu2.make.com/ijz3u5nrgxqi79eytwpd9l9kiznhvlbn';
-var TOTAL_STEPS = 3;
-var formData    = { source: 'nsw-business-solar', page_type: 'commercial' };
+var MAKE_WEBHOOK        = 'https://hook.eu2.make.com/ijz3u5nrgxqi79eytwpd9l9kiznhvlbn';
+var SUPABASE_URL        = 'https://wmegoygrancfwxagqskh.supabase.co';
+var SUPABASE_ANON_KEY   = 'sb_publishable_UHQNxVCjHJnFjssYwTiwcQ_3FYovX8I';
+var SURVEY_NICHE        = 'solar';
+var SURVEY_SOURCE       = 'PPL';
+var SUBMIT_LEAD_URL     = SUPABASE_URL + '/functions/v1/submit-lead';
+var POSTCODE_LOOKUP_URL = SUPABASE_URL + '/functions/v1/postcode-lookup';
+var TOTAL_STEPS         = 3;
+var formData            = { source: SURVEY_SOURCE, page_type: 'commercial' };
 
 /* ── PROGRESS ── */
 function updateProgress(step) {
@@ -1162,6 +1168,7 @@ function fv(id, test) {
 }
 
 /* ── SUBMIT ── */
+/* ══ SUBMIT — triple dispatch (submit-lead + Make webhook + direct Supabase insert) ══ */
 window.submitForm = async function() {
   var ok = true;
   ok = fv('firstName', function(v){ return v.length > 1; }) && ok;
@@ -1171,50 +1178,87 @@ window.submitForm = async function() {
   ok = fv('postcode',  function(v){ return /^\d{4}$/.test(v); }) && ok;
   if (!ok) return;
 
-  var fn = document.getElementById('firstName').value.trim();
-  var ln = document.getElementById('lastName').value.trim();
+  var fn  = document.getElementById('firstName').value.trim();
+  var ln  = document.getElementById('lastName').value.trim();
+  var em  = document.getElementById('email').value.trim();
+  var ph  = normalizeAuMobile(document.getElementById('phone').value);
+  var pc  = document.getElementById('postcode').value.trim();
+  var now = new Date().toISOString();
 
-  formData.firstName    = fn;
-  formData.lastName     = ln;
-  formData.name         = fn + ' ' + ln;
-  formData.email        = document.getElementById('email').value.trim();
-  formData.phone        = normalizeAuMobile(document.getElementById('phone').value);
-  formData.postcode     = document.getElementById('postcode').value.trim();
-  formData.submitted_at = new Date().toISOString();
+  var leadPayload = {
+    first_name:            fn,
+    last_name:             ln,
+    name:                  fn + ' ' + ln,
+    email:                 em,
+    phone:                 ph,
+    postcode:              pc,
+    niche:                 SURVEY_NICHE,
+    source:                SURVEY_SOURCE,
+    page_type:             formData.page_type || 'commercial',
+    is_decision_maker:     formData.is_decision_maker,
+    monthly_bill:          formData.monthly_electricity_bill || null
+  };
+
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', { content_name:'Commercial Solar NSW', content_category:'CommercialSolar', value:0, currency:'AUD' });
+  }
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'generate_lead', { event_category:'commercial_quote_form', event_label:'nsw_business_submitted' });
+  }
 
   var btn = document.getElementById('submitBtn');
   btn.textContent = 'Submitting…';
   btn.disabled    = true;
   document.getElementById('overlay').classList.add('show');
 
-  /* Tracking */
-  if (typeof fbq !== 'undefined') {
-    fbq('track', 'Lead', {
-      content_name: 'Commercial Solar Assessment NSW',
-      content_category: 'CommercialSolar',
-      value: 0,
-      currency: 'AUD'
-    });
-  }
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'generate_lead', {
-      event_category: 'commercial_quote_form',
-      event_label: 'nsw_business_submitted'
-    });
-  }
-
-  /* Fire webhook */
   try {
-    await fetch(WEBHOOK_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    });
-  } catch(e) { console.warn('Webhook error:', e); }
+    await Promise.all([
+
+      fetch(SUBMIT_LEAD_URL, {
+        method:  'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'apikey':        SUPABASE_ANON_KEY
+        },
+        body: JSON.stringify(leadPayload)
+      }).catch(function(e) { console.warn('submit-lead error:', e); }),
+
+      fetch(MAKE_WEBHOOK, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(leadPayload)
+      }).catch(function(e) { console.warn('Make webhook error:', e); }),
+
+      fetch(SUPABASE_URL + '/rest/v1/leads', {
+        method:  'POST',
+        headers: {
+          'Content-Type':  'application/json',
+          'apikey':        SUPABASE_ANON_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+          'Prefer':        'return=minimal'
+        },
+        body: JSON.stringify({
+          first_name:        leadPayload.first_name,
+          last_name:         leadPayload.last_name,
+          name:              leadPayload.name,
+          email:             leadPayload.email,
+          phone:             leadPayload.phone,
+          postcode:          leadPayload.postcode,
+          niche:             leadPayload.niche,
+          source:            leadPayload.source,
+          page_type:         leadPayload.page_type,
+          is_decision_maker: leadPayload.is_decision_maker,
+          monthly_bill:      leadPayload.monthly_bill,
+          submitted_at:      now
+        })
+      }).catch(function(e) { console.warn('Supabase direct insert error:', e); })
+
+    ]);
+  } catch(e) { console.warn('Submit error:', e); }
 
   document.getElementById('overlay').classList.remove('show');
 
-  /* Inline success */
   document.getElementById('step3').classList.remove('active');
   document.querySelector('.prog-outer').style.display = 'none';
   document.querySelector('.dot-row').parentElement.style.display = 'none';
