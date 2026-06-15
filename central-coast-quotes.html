@@ -612,19 +612,19 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
             <div class="step-label">Step 1 of 3</div>
             <h3>Do You Own Your Home?</h3>
             <div class="choice-grid">
-              <div class="choice-card" onclick="pickOwner(true, this)">
+              <div class="choice-card" onclick="pickOwner(true, 'own', this)">
                 <span class="cc-icon">🏠</span>
                 <div class="cc-title">Yes, I Own It</div>
                 <div class="cc-sub">Freehold or mortgage</div>
               </div>
-              <div class="choice-card" onclick="pickOwner(true, this)">
+              <div class="choice-card" onclick="pickOwner(true, 'invest', this)">
                 <span class="cc-icon">🔑</span>
                 <div class="cc-title">Investment Property</div>
                 <div class="cc-sub">Landlord wanting solar</div>
               </div>
             </div>
             <div class="choice-grid one-col">
-              <div class="choice-card disq-card" onclick="pickOwner(false, this)">
+              <div class="choice-card disq-card" onclick="pickOwner(false, 'rent', this)">
                 <span class="cc-icon">🏢</span>
                 <div class="cc-title">No, I Rent</div>
                 <div class="cc-sub">The owner would need to apply</div>
@@ -1037,10 +1037,11 @@ function goToStep(from, to) {
 }
 
 /* ══ STEP 1: OWNERSHIP ══ */
-window.pickOwner = function(owns, el) {
+window.pickOwner = function(owns, type, el) {
   document.querySelectorAll('#step1-inner .choice-card').forEach(function(c) { c.classList.remove('selected'); });
   el.classList.add('selected');
   formData.is_decision_maker = owns;
+  formData.ownership_type     = type;
 
   if (!owns) {
     setTimeout(function() {
@@ -1201,6 +1202,7 @@ window.submitForm = async function() {
     niche:                      SURVEY_NICHE,
     source:                     SURVEY_SOURCE,
     is_decision_maker:          formData.is_decision_maker,
+    ownership_type:             formData.ownership_type || null,
     quarterly_electricity_bill: formData.quarterly_electricity_bill,
   };
 
