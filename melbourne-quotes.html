@@ -12,7 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Google Tag (replace G-XXXXXXXX) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
@@ -46,24 +46,27 @@ fbq('init','1692791048547338'); fbq('track','PageView');
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:        #EFF6FF;
-  --surface:   #FFFFFF;
-  --surface2:  #E0EDF8;
-  --border:    rgba(11,39,56,0.12);
-  --border2:   rgba(11,39,56,0.22);
-  --cyan:      #fcd435;
-  --cyan-dark: #d4aa00;
-  --cyan-glow: rgba(252,212,53,0.18);
-  --cyan-pale: rgba(252,212,53,0.1);
-  --gold:      #fcd435;
-  --gold-dark: #0b2738;
-  --white:     #0b2738;
-  --muted:     #2d5270;
-  --muted2:    #6288a0;
-  --green:     #22d47a;
-  --red:       #ff4757;
-  --orange:    #fcd435;
-  --radius:    20px;
+  --bg:#F9F7F4;
+  --surface:#FFFFFF;
+  --surface2:#F3EFE8;
+  --border:rgba(10,22,40,0.10);
+  --border2:rgba(10,22,40,0.16);
+  --cyan:#0A1628;
+  --cyan-dark:#0A1628;
+  --cyan-glow:rgba(10,22,40,0.06);
+  --cyan-pale:rgba(10,22,40,0.04);
+  --gold:#F5C400;
+  --gold-dark:#0A1628;
+  --white:#0A1628;
+  --muted:#54606E;
+  --muted2:#8A93A0;
+  --green:#1E9E5A;
+  --red:#C0392B;
+  --orange:#F5C400;
+  --radius:16px;
+  --navy:#0A1628;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
 
 html{scroll-behavior:smooth}
@@ -78,9 +81,9 @@ body{
 body::before{
   content:'';position:fixed;inset:0;
   background:
-    radial-gradient(ellipse 80% 60% at 70% -10%, rgba(252,212,53,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 70% -10%, rgba(10,22,40,0.07) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at -10% 80%, rgba(11,39,56,0.05) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 50% 110%, rgba(252,212,53,0.04) 0%, transparent 60%);
+    radial-gradient(ellipse 40% 30% at 50% 110%, rgba(10,22,40,0.04) 0%, transparent 60%);
   pointer-events:none;z-index:0;
 }
 
@@ -92,13 +95,13 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;align-items:center;justify-content:space-between;
   padding:16px 6vw;
-  background:rgba(239,246,255,0.9);
+  background:rgba(249,247,244,0.9);
   backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
 }
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-sun{width:38px;height:38px;background:linear-gradient(135deg,#fcd435,#0b2738);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px rgba(252,212,53,0.25),0 0 0 10px rgba(252,212,53,0.08);animation:pulse-sun 3s ease-in-out infinite;flex-shrink:0}
-.logo-sun svg{width:20px;height:20px}@keyframes pulse-sun{0%,100%{box-shadow:0 0 0 5px rgba(252,212,53,0.25),0 0 0 10px rgba(252,212,53,0.08)}50%{box-shadow:0 0 0 8px rgba(252,212,53,0.3),0 0 0 16px rgba(252,212,53,0.05)}}
+.logo-sun{width:38px;height:38px;background:linear-gradient(135deg,#0A1628,#0b2738);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px rgba(10,22,40,0.25),0 0 0 10px rgba(10,22,40,0.08);animation:pulse-sun 3s ease-in-out infinite;flex-shrink:0}
+.logo-sun svg{width:20px;height:20px}@keyframes pulse-sun{0%,100%{box-shadow:0 0 0 5px rgba(10,22,40,0.25),0 0 0 10px rgba(10,22,40,0.08)}50%{box-shadow:0 0 0 8px rgba(10,22,40,0.3),0 0 0 16px rgba(10,22,40,0.05)}}
 .logo-text{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-0.02em}
 .logo-text span{color:var(--cyan)}
 .nav-right{display:flex;align-items:center;gap:14px}
@@ -114,10 +117,10 @@ nav{
   background:linear-gradient(135deg, var(--cyan), var(--cyan-dark));
   color:#0b2738;font-weight:700;font-size:0.82rem;
   padding:9px 20px;border-radius:50px;text-decoration:none;
-  box-shadow:0 4px 20px rgba(252,212,53,0.25);
+  box-shadow:0 4px 20px rgba(10,22,40,0.25);
   transition:transform 0.2s,box-shadow 0.2s;
 }
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(252,212,53,0.38)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(10,22,40,0.38)}
 
 /* ═══ HERO ═══ */
 .hero{
@@ -130,8 +133,8 @@ nav{
 .hero-lines{
   position:absolute;inset:0;pointer-events:none;overflow:hidden;
   background-image:
-    linear-gradient(rgba(252,212,53,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(252,212,53,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(10,22,40,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,22,40,0.04) 1px, transparent 1px);
   background-size:60px 60px;
   -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
   mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
@@ -179,7 +182,7 @@ nav{
 }
 .trust-pill{
   display:flex;align-items:center;gap:6px;
-  background:rgba(252,212,53,0.05);border:1px solid rgba(0,0,0,0.07);
+  background:rgba(10,22,40,0.05);border:1px solid rgba(0,0,0,0.07);
   border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:600;color:var(--muted);
 }
 .trust-pill svg{width:13px;height:13px;color:var(--green);flex-shrink:0}
@@ -194,7 +197,7 @@ nav{
   display:block;font-family:'Outfit',sans-serif;font-weight:900;
   font-size:2rem;letter-spacing:-0.04em;color:var(--cyan);line-height:1;
 }
-.stat-sep{color:rgba(252,212,53,0.3);font-size:1.8rem;display:flex;align-items:center}
+.stat-sep{color:rgba(10,22,40,0.3);font-size:1.8rem;display:flex;align-items:center}
 .stat-label{font-size:0.68rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.09em;margin-top:3px}
 
 @keyframes fadeSlideUp{
@@ -210,9 +213,9 @@ nav{
 }
 .survey-card{
   background:#ffffff;
-  border:1.5px solid rgba(252,212,53,0.1);
+  border:1.5px solid rgba(10,22,40,0.1);
   border-radius:28px;
-  box-shadow:0 24px 80px rgba(252,212,53,0.13), 0 2px 12px rgba(252,212,53,0.06);
+  box-shadow:0 24px 80px rgba(10,22,40,0.13), 0 2px 12px rgba(10,22,40,0.06);
   overflow:hidden;
   position:relative;
 }
@@ -232,7 +235,7 @@ nav{
 }
 .progress-count{font-size:0.7rem;font-weight:700;color:var(--cyan)}
 .prog-outer{
-  height:6px;background:rgba(252,212,53,0.08);
+  height:6px;background:rgba(10,22,40,0.08);
   border-radius:100px;overflow:hidden;
 }
 .prog-inner{
@@ -274,21 +277,21 @@ nav{
   border:2px solid transparent;
   border-radius:14px;padding:18px 14px;
   cursor:pointer;transition:all 0.18s ease;
-  background:rgba(252,212,53,0.04);
+  background:rgba(10,22,40,0.04);
   position:relative;overflow:hidden;
   user-select:none;
 }
 .choice-card::before{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg, rgba(252,212,53,0.06), rgba(252,212,53,0.04));
+  background:linear-gradient(135deg, rgba(10,22,40,0.06), rgba(10,22,40,0.04));
   opacity:0;transition:opacity 0.18s;
 }
-.choice-card:hover{border-color:rgba(252,212,53,0.35);transform:translateY(-1px);box-shadow:0 6px 20px rgba(252,212,53,0.12)}
+.choice-card:hover{border-color:rgba(10,22,40,0.35);transform:translateY(-1px);box-shadow:0 6px 20px rgba(10,22,40,0.12)}
 .choice-card:hover::before{opacity:1}
 .choice-card.selected{
   border-color:var(--cyan);
   background:#ffffff;
-  box-shadow:0 8px 28px rgba(252,212,53,0.2);
+  box-shadow:0 8px 28px rgba(10,22,40,0.2);
 }
 .choice-card.selected::before{opacity:1}
 .choice-card.selected::after{
@@ -313,11 +316,11 @@ nav{
   border:2px solid transparent;
   border-radius:14px;padding:15px 16px;
   cursor:pointer;transition:all 0.18s ease;
-  background:rgba(252,212,53,0.04);
+  background:rgba(10,22,40,0.04);
   position:relative;overflow:hidden;user-select:none;
 }
-.choice-h:hover{border-color:rgba(252,212,53,0.35);transform:translateY(-1px);box-shadow:0 6px 20px rgba(252,212,53,0.12)}
-.choice-h.selected{border-color:var(--cyan);background:#ffffff;box-shadow:0 8px 28px rgba(252,212,53,0.2)}
+.choice-h:hover{border-color:rgba(10,22,40,0.35);transform:translateY(-1px);box-shadow:0 6px 20px rgba(10,22,40,0.12)}
+.choice-h.selected{border-color:var(--cyan);background:#ffffff;box-shadow:0 8px 28px rgba(10,22,40,0.2)}
 .choice-h.selected::after{
   content:'✓';position:absolute;top:50%;right:14px;transform:translateY(-50%);
   width:22px;height:22px;background:var(--cyan);color:#ffffff;
@@ -329,7 +332,7 @@ nav{
 .ch-title{font-weight:700;font-size:0.92rem;color:var(--white)}
 .ch-sub{font-size:0.72rem;color:var(--muted);margin-top:2px}
 .ch-badge{
-  background:rgba(252,212,53,0.12);border:1px solid rgba(252,212,53,0.25);
+  background:rgba(10,22,40,0.12);border:1px solid rgba(10,22,40,0.25);
   border-radius:50px;padding:3px 10px;font-size:0.65rem;font-weight:700;
   color:var(--gold);white-space:nowrap;flex-shrink:0;margin-right:26px;
 }
@@ -337,8 +340,8 @@ nav{
 /* ── INSIGHT BOX ── */
 .insight{
   display:flex;gap:11px;align-items:flex-start;
-  background:rgba(252,212,53,0.05);
-  border:1px solid rgba(252,212,53,0.12);
+  background:rgba(10,22,40,0.05);
+  border:1px solid rgba(10,22,40,0.12);
   border-radius:12px;padding:13px 15px;margin-bottom:20px;
 }
 .insight-icon{font-size:1.2rem;flex-shrink:0;line-height:1.2}
@@ -360,14 +363,14 @@ nav{
 .field-wrap{margin-bottom:14px}
 .field-wrap label{display:block;font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
 .field-wrap input{
-  width:100%;background:rgba(252,212,53,0.05);
+  width:100%;background:rgba(10,22,40,0.05);
   border:1.5px solid rgba(0,0,0,0.07);
   border-radius:10px;padding:12px 14px;
   font-family:'Outfit',sans-serif;font-size:0.92rem;color:var(--white);
   outline:none;transition:border-color 0.2s,box-shadow 0.2s;
 }
 .field-wrap input::placeholder{color:var(--muted2)}
-.field-wrap input:focus{border-color:rgba(252,212,53,0.5);box-shadow:0 0 0 3px rgba(252,212,53,0.08)}
+.field-wrap input:focus{border-color:rgba(10,22,40,0.5);box-shadow:0 0 0 3px rgba(10,22,40,0.08)}
 .field-wrap input.err-field{border-color:rgba(255,71,87,0.6)}
 .err-msg{color:var(--red);font-size:0.7rem;margin-top:4px;display:none}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -377,11 +380,11 @@ nav{
 .suburb-chip{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:0.72rem;font-weight:700;padding:5px 14px;border-radius:50px;transition:all 0.25s}
 .suburb-chip.loading{background:rgba(11,39,56,0.04);border:1px solid var(--border);color:var(--muted2)}
 .suburb-chip.found{background:rgba(34,212,122,0.08);border:1px solid rgba(34,212,122,0.25);color:var(--green)}
-.suburb-chip.no-coverage{background:rgba(252,212,53,0.08);border:1px solid rgba(252,212,53,0.22);color:var(--cyan-dark)}
+.suburb-chip.no-coverage{background:rgba(10,22,40,0.08);border:1px solid rgba(10,22,40,0.22);color:var(--cyan-dark)}
 .suburb-chip.error{background:rgba(11,39,56,0.04);border:1px solid var(--border);color:var(--muted2)}
 .consent-wrap{
   display:flex;gap:10px;align-items:flex-start;margin:14px 0 18px;
-  background:rgba(252,212,53,0.04);border:1px solid rgba(252,212,53,0.07);
+  background:rgba(10,22,40,0.04);border:1px solid rgba(10,22,40,0.07);
   border-radius:10px;padding:12px 14px;
 }
 .consent-wrap input[type=checkbox]{
@@ -399,7 +402,7 @@ nav{
   font-size:1rem;font-weight:800;cursor:pointer;
   background:linear-gradient(135deg, var(--cyan), var(--cyan-dark));
   color:#0b2738;letter-spacing:-0.01em;
-  box-shadow:0 6px 28px rgba(252,212,53,0.3);
+  box-shadow:0 6px 28px rgba(10,22,40,0.3);
   transition:all 0.25s ease;position:relative;overflow:hidden;
 }
 .btn-next::before{
@@ -407,9 +410,9 @@ nav{
   background:linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
   opacity:0;transition:opacity 0.2s;
 }
-.btn-next:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(252,212,53,0.42)}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(10,22,40,0.42)}
 .btn-next:hover::before{opacity:1}
-.btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:0 4px 18px rgba(252,212,53,0.15)}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:0 4px 18px rgba(10,22,40,0.15)}
 .btn-back{
   display:flex;align-items:center;gap:5px;margin-top:11px;
   background:none;border:none;color:var(--muted2);font-family:'Outfit',sans-serif;
@@ -427,7 +430,7 @@ nav{
 #renter-msg{display:none;text-align:center;padding:16px 0 8px}
 .renter-icon{font-size:3rem;margin-bottom:14px}
 .renter-msg-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.1rem;color:var(--white);margin-bottom:10px;letter-spacing:-0.02em}
-.renter-box{background:rgba(252,212,53,0.05);border:1px solid var(--border);border-radius:12px;padding:14px;margin-top:16px;font-size:0.78rem;color:var(--muted);line-height:1.6}
+.renter-box{background:rgba(10,22,40,0.05);border:1px solid var(--border);border-radius:12px;padding:14px;margin-top:16px;font-size:0.78rem;color:var(--muted);line-height:1.6}
 
 /* ═══ BELOW THE FOLD ═══ */
 
@@ -465,7 +468,7 @@ nav{
 .hiw-card:hover::before{transform:scaleX(1)}
 .hiw-num{
   font-family:'Outfit',sans-serif;font-size:3rem;font-weight:900;
-  color:rgba(252,212,53,0.08);line-height:1;margin-bottom:14px;
+  color:rgba(10,22,40,0.08);line-height:1;margin-bottom:14px;
   letter-spacing:-0.06em;
 }
 .hiw-card h4{font-family:'Outfit',sans-serif;font-weight:800;font-size:0.97rem;color:var(--white);margin-bottom:8px}
@@ -473,7 +476,7 @@ nav{
 
 /* FACTS SECTION */
 .facts-section{
-  background:linear-gradient(180deg, rgba(252,212,53,0.03) 0%, transparent 100%);
+  background:linear-gradient(180deg, rgba(10,22,40,0.03) 0%, transparent 100%);
   border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   padding:80px 6vw;position:relative;z-index:1;
 }
@@ -516,7 +519,7 @@ nav{
 
 /* CTA STRIP */
 .cta-strip{
-  background:linear-gradient(135deg, rgba(252,212,53,0.08), rgba(11,39,56,0.05));
+  background:linear-gradient(135deg, rgba(10,22,40,0.08), rgba(11,39,56,0.05));
   border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   padding:56px 20px;text-align:center;position:relative;z-index:1;overflow:hidden;
 }
@@ -524,7 +527,7 @@ nav{
   content:'';position:absolute;top:50%;left:50%;
   transform:translate(-50%,-50%);
   width:600px;height:200px;
-  background:radial-gradient(ellipse, rgba(252,212,53,0.07) 0%, transparent 70%);
+  background:radial-gradient(ellipse, rgba(10,22,40,0.07) 0%, transparent 70%);
   pointer-events:none;
 }
 .cta-strip h3{
@@ -537,9 +540,9 @@ nav{
   background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));
   color:#0b2738;font-family:'Outfit',sans-serif;font-weight:800;
   font-size:0.95rem;padding:15px 38px;border-radius:50px;text-decoration:none;
-  box-shadow:0 6px 28px rgba(252,212,53,0.3);transition:all 0.2s;letter-spacing:-0.01em;
+  box-shadow:0 6px 28px rgba(10,22,40,0.3);transition:all 0.2s;letter-spacing:-0.01em;
 }
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(252,212,53,0.42)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(10,22,40,0.42)}
 
 /* FAQ */
 .faq-section{padding:60px 20px 80px;max-width:700px;margin:0 auto;position:relative;z-index:1}
@@ -585,12 +588,12 @@ footer{
 .overlay.show{display:flex}
 .spinner{
   width:44px;height:44px;
-  border:3px solid rgba(252,212,53,0.15);
+  border:3px solid rgba(10,22,40,0.15);
   border-top-color:var(--cyan);
   border-radius:50%;animation:spin 0.75s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
-.overlay p{font-family:'Outfit',sans-serif;font-weight:700;color:#EFF6FF;font-size:0.95rem;letter-spacing:-0.01em}
+.overlay p{font-family:'Outfit',sans-serif;font-weight:700;color:#F9F7F4;font-size:0.95rem;letter-spacing:-0.01em}
 
 /* HAMBURGER / MOB NAV */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:6px}
@@ -625,6 +628,51 @@ footer .footer-brand p{color:rgba(255,255,255,0.38)}
 footer .footer-col h5{color:rgba(255,255,255,0.35)}
 footer .footer-bottom{color:rgba(255,255,255,0.3)}
 .footer-inner{border-bottom-color:rgba(255,255,255,0.1)}
+
+/* ===== ClearWatt premium brand alignment ===== */
+body{font-family:var(--sans)!important;color:var(--white);background:var(--bg);-webkit-font-smoothing:antialiased}
+body::before{display:none!important}
+.hero-lines{display:none!important}
+h1,h2,h3,h4,.hero-h1,.section-h2,.step h3,.cta-strip h3,.faq-q,.section-h1{font-family:var(--serif)!important;font-weight:500!important;letter-spacing:-0.01em}
+.hero-h1{font-weight:600!important}
+.hero-h1 .line1{color:var(--white)!important}
+.hero-h1 .line2,.section-h2 .line2{background:none!important;-webkit-text-fill-color:initial!important;background-clip:initial!important;-webkit-background-clip:initial!important;color:var(--white)!important;font-family:var(--serif)!important;font-style:italic;font-weight:600!important}
+.logo-mark{width:30px;height:30px;flex-shrink:0;color:var(--navy)}
+.logo-mark .ray{stroke:var(--navy)}
+.logo-mark .core{fill:var(--gold)}
+.logo-text{font-family:var(--serif)!important;font-weight:600!important;font-size:1.32rem!important;color:var(--white)!important;letter-spacing:-0.01em}
+.logo-text span{color:var(--white)!important}
+.logo-sun{background:var(--navy)!important;box-shadow:none!important;animation:none!important}
+/* key CTAs in ClearWatt yellow; everything else stays navy */
+.nav-cta,.btn-next,.cta-btn,.mob-cta a{background:var(--gold)!important;background-image:none!important;color:#0A1628!important;border:none!important;box-shadow:0 1px 2px rgba(10,22,40,0.16)!important;border-radius:999px!important;font-family:var(--sans)!important;text-shadow:none!important}
+.nav-cta:hover,.btn-next:hover,.cta-btn:hover,.mob-cta a:hover{background:#FFD11A!important}
+#postcodeBtn{background:var(--navy)!important;color:#fff!important}
+#postcodeBtn:hover{background:#11233B!important}
+.btn-next:disabled{opacity:0.45!important;box-shadow:none!important}
+.survey-card::before{display:none!important}
+.prog-inner{background:var(--navy)!important;background-image:none!important}
+.review-stars{color:var(--gold)!important}
+/* footer */
+footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
+.footer-inner{display:flex!important;justify-content:space-between;flex-wrap:wrap;gap:48px;max-width:1080px;margin:0 auto;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.12)!important}
+.footer-brand{max-width:300px}
+.footer-brand .logo-text,.footer-brand .logo-text span{color:#fff!important}
+.footer-brand .logo-mark{color:#fff}
+.footer-brand .logo-mark .ray{stroke:#fff}
+.footer-brand .logo-mark .core{fill:var(--gold)}
+.footer-brand p{color:rgba(255,255,255,0.55)!important;margin-top:16px}
+.footer-cols{display:flex;gap:64px;flex-wrap:wrap}
+.footer-col h5{color:rgba(255,255,255,0.45)!important}
+.footer-col a{color:rgba(255,255,255,0.7)!important}
+.footer-col a:hover{color:#fff!important}
+.footer-bottom{color:rgba(255,255,255,0.4)!important;max-width:1080px;margin:28px auto 0}
+.footer-disclaimer{margin-top:12px;font-size:0.72rem;color:rgba(255,255,255,0.32);max-width:840px;line-height:1.7}
+.cec-badge{display:inline-flex;align-items:center;gap:11px;margin-top:22px;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px 16px}
+.cec-badge svg{width:24px;height:24px;color:var(--gold);flex-shrink:0}
+.cec-badge-txt{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);line-height:1.45}
+.overlay{background:rgba(10,22,40,0.94)!important}
+.spinner{border-top-color:var(--gold)!important}
+.overlay p{color:#fff!important;font-family:var(--sans)!important}
 </style>
 </head>
 <body>
@@ -638,20 +686,11 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 <!-- ═══ NAV ═══ -->
 <nav>
   <a href="/" class="logo">
-    <div class="logo-sun">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
-        <circle cx="12" cy="12" r="4.5"/>
-        <line x1="12" y1="1.5" x2="12" y2="3.5"/><line x1="12" y1="20.5" x2="12" y2="22.5"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1.5" y1="12" x2="3.5" y2="12"/><line x1="20.5" y1="12" x2="22.5" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-    </div>
-    <span class="logo-text">Clear<span>Watt</span> Solar</span>
+    <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle class="core" cx="12" cy="12" r="3.4"/><g class="ray" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.4" y1="5.4" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="18.6" y2="18.6"/><line x1="5.4" y1="18.6" x2="7.1" y2="16.9"/><line x1="16.9" y1="7.1" x2="18.6" y2="5.4"/></g></svg>
+    <span class="logo-text">ClearWatt</span>
   </a>
   <div class="nav-right">
-    <div class="nav-badge">CEC Accredited Network</div>
-    <a href="#quote" class="nav-cta">Free Quote →</a>
+    <a href="#quote" class="nav-cta">Get Your Free Quote</a>
     <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMob()">
       <span></span><span></span><span></span>
     </button>
@@ -675,7 +714,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 
   <div class="hero-eyebrow">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-    <span>🌆 Melbourne, VIC</span>
+    <span> Melbourne, VIC</span>
     <div class="divider"></div>
     <span>CEC-Accredited Only</span>
     <div class="divider"></div>
@@ -683,8 +722,8 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
   </div>
 
   <h1 class="hero-h1">
-    <span class="line1">Melbourne: Stop Overpaying.</span>
-    <span class="line2">Go Solar. Pay Less. Forever.</span>
+    <span class="line1">Melbourne's Most Trusted</span>
+    <span class="line2">Solar Matching Service</span>
   </h1>
 
   <p class="hero-sub">
@@ -758,22 +797,22 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
             <h3>Do You Own Your Home?</h3>
             <div class="choice-grid">
               <div class="choice-card" onclick="pickOwner(true, 'own', this)">
-                <span class="cc-icon">🏠</span>
+                
                 <div class="cc-title">Yes, I Own It</div>
                 <div class="cc-sub">Freehold or mortgage</div>
               </div>
               <div class="choice-card disq-card" onclick="pickOwner(false, 'rent', this)">
-                <span class="cc-icon">🔑</span>
+                
                 <div class="cc-title">No, I Rent</div>
                 <div class="cc-sub">Tenant or other</div>
               </div>
             </div>
           </div>
           <div id="renter-msg">
-            <div class="renter-icon">😔</div>
+            
             <div class="renter-msg-title">Sorry, We Can't Help Right Now</div>
             <p style="font-size:0.82rem;color:var(--muted);line-height:1.65;margin-bottom:8px">Solar quotes are only available to homeowners. If your situation changes, we'd love to help you in the future!</p>
-            <div class="renter-box">💡 <strong style="color:var(--cyan)">Buying soon?</strong> Bookmark this page &mdash; solar is one of the best first upgrades for new homeowners in Melbourne.</div>
+            <div class="renter-box"> <strong style="color:var(--cyan)">Buying soon?</strong> Bookmark this page &mdash; solar is one of the best first upgrades for new homeowners in Melbourne.</div>
           </div>
         </div>
 
@@ -783,28 +822,28 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
           <h3>What's Your Average Quarterly Electricity Bill?</h3>
           <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
             <div class="choice-h" onclick="pickBill(this,'Under $300')">
-              <span class="ch-icon">💡</span>
+              
               <div class="ch-body">
                 <div class="ch-title">Under $300</div>
                 <div class="ch-sub">Low usage</div>
               </div>
             </div>
             <div class="choice-h" onclick="pickBill(this,'$300–$500')">
-              <span class="ch-icon">🔌</span>
+              
               <div class="ch-body">
                 <div class="ch-title">$300 – $500</div>
                 <div class="ch-sub">Average household</div>
               </div>
             </div>
             <div class="choice-h" onclick="pickBill(this,'$500–$800')">
-              <span class="ch-icon">⚡</span>
+              
               <div class="ch-body">
                 <div class="ch-title">$500 – $800</div>
                 <div class="ch-sub">High usage</div>
               </div>
             </div>
             <div class="choice-h" onclick="pickBill(this,'$800+')">
-              <span class="ch-icon">📈</span>
+              
               <div class="ch-body">
                 <div class="ch-title">$800+</div>
                 <div class="ch-sub">Very high usage</div>
@@ -812,7 +851,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
             </div>
           </div>
           <div class="insight">
-            <span class="insight-icon">💡</span>
+            
             <p>Melbourne electricity tariffs are among the highest in VIC. At $500/qtr, most Melbourne homeowners see <strong>full payback in under 4 years.</strong></p>
           </div>
           <button class="btn-back" onclick="goToStep(2,1)">
@@ -827,28 +866,28 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
           <h3>When Are You Looking To Get Solar?</h3>
           <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
             <div class="choice-h" onclick="pickTimeline(this,'ASAP')">
-              <span class="ch-icon">🚀</span>
+              
               <div class="ch-body">
                 <div class="ch-title">ASAP</div>
                 <div class="ch-sub">Within 1 month</div>
               </div>
             </div>
             <div class="choice-h" onclick="pickTimeline(this,'1-3 Months')">
-              <span class="ch-icon">📅</span>
+              
               <div class="ch-body">
                 <div class="ch-title">1–3 Months</div>
                 <div class="ch-sub">Planning ahead</div>
               </div>
             </div>
             <div class="choice-h" onclick="pickTimeline(this,'3-6 Months')">
-              <span class="ch-icon">🗓️</span>
+              
               <div class="ch-body">
                 <div class="ch-title">3–6 Months</div>
                 <div class="ch-sub">Just researching</div>
               </div>
             </div>
             <div class="choice-h" onclick="pickTimeline(this,'Just Exploring')">
-              <span class="ch-icon">🔍</span>
+              
               <div class="ch-body">
                 <div class="ch-title">Exploring</div>
                 <div class="ch-sub">No rush yet</div>
@@ -856,7 +895,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
             </div>
           </div>
           <div class="insight">
-            <span class="insight-icon">⏳</span>
+            
             <p>No pressure - whether you're ready tomorrow or in 6 months, <strong>getting a quote now locks in today's VIC Solar Homes rebate levels.</strong></p>
           </div>
           <button class="btn-back" onclick="goToStep(3,2)">
@@ -871,7 +910,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
           <h3>What's Your Postcode?</h3>
 
           <div class="match-notice">
-            <span class="mn-icon">📍</span>
+            
             <p>We use your postcode to <strong>match you with your nearest pre-vetted Melbourne installer.</strong></p>
           </div>
 
@@ -897,7 +936,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
           <h3>Where Should We Send Your Quote?</h3>
 
           <div class="match-notice" id="matchNotice">
-            <span class="mn-icon">🎯</span>
+            
             <p>Great news! We've matched you with <strong id="buyerName">a pre-vetted local installer</strong> covering your area. Enter your details for your free, obligation-free solar quote.</p>
           </div>
 
@@ -933,7 +972,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
             </label>
           </div>
           <button class="btn-next" id="submitBtn" disabled onclick="submitForm()">
-            🎯 Get My Free Matched Quote →
+             Get My Free Matched Quote →
           </button>
           <div class="priv-note">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l3.09 6.26L22 8.27l-5 4.87 1.18 6.88L12 16.77l-6.18 3.25L7 13.14 2 8.27l6.91-1.01L12 1z"/></svg>
@@ -989,33 +1028,33 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
   </div>
   <div class="facts-grid">
     <div class="fact-card">
-      <span class="fact-icon">☀️</span>
+      
       <h4>Melbourne's Solid Solar Resource</h4>
       <p>Melbourne averages over 4.1 peak sun hours per day - more than enough to deliver strong returns on a quality solar system year-round.</p>
     </div>
     <div class="fact-card">
-      <span class="fact-icon">💸</span>
+      
       <h4>VIC Feed-In Tariffs &amp; Solar Homes</h4>
       <p>Export surplus solar power to the VIC grid for feed-in tariff credits, and check eligibility for the Victorian Solar Homes Program rebate.</p>
     </div>
     <div class="fact-card">
-      <span class="fact-icon">🏷️</span>
+      
       <h4>Government Rebates May Apply*</h4>
       <p>The federal STC scheme plus the Victorian Solar Homes Program can significantly reduce your upfront solar cost. Your matched Melbourne installer will confirm your eligibility.</p>
       <span class="fact-asterisk">*Subject to eligibility criteria at time of installation. Ask your installer for details.</span>
     </div>
     <div class="fact-card">
-      <span class="fact-icon">📈</span>
+      
       <h4>4–6 Year Payback in Melbourne</h4>
       <p>Most Melbourne homeowners recoup their investment within 4–6 years, then enjoy 20+ years of effectively free electricity.</p>
     </div>
     <div class="fact-card">
-      <span class="fact-icon">🔋</span>
+      
       <h4>Battery = True Independence</h4>
       <p>Add a home battery and power your Melbourne home at night - slashing peak tariff costs and reducing grid dependency.</p>
     </div>
     <div class="fact-card">
-      <span class="fact-icon">🏡</span>
+      
       <h4>Boost Your Melbourne Home's Value</h4>
       <p>Studies show solar can add $20,000–$40,000 to resale value - a major advantage in Melbourne's competitive property market.</p>
     </div>
@@ -1083,7 +1122,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 
 <!-- ═══ CTA STRIP ═══ -->
 <section class="cta-strip">
-  <h3>Ready to stop overpaying for power in Melbourne?</h3>
+  <h3>Join thousands of Melbourne homeowners who went solar with confidence</h3>
   <a href="#quote" class="cta-btn" onclick="document.querySelector('.survey-card').scrollIntoView({behavior:'smooth'});return false;">
     Get My Free Quote - No Obligation →
   </a>
@@ -1126,38 +1165,38 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="/" class="logo" style="text-decoration:none">
-        <div class="logo-sun">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
-        <circle cx="12" cy="12" r="4.5"/>
-        <line x1="12" y1="1.5" x2="12" y2="3.5"/><line x1="12" y1="20.5" x2="12" y2="22.5"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1.5" y1="12" x2="3.5" y2="12"/><line x1="20.5" y1="12" x2="22.5" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-    </div>
-        <span class="logo-text">Clear<span>Watt</span> Solar</span>
+        <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle class="core" cx="12" cy="12" r="3.4"/><g class="ray" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.4" y1="5.4" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="18.6" y2="18.6"/><line x1="5.4" y1="18.6" x2="7.1" y2="16.9"/><line x1="16.9" y1="7.1" x2="18.6" y2="5.4"/></g></svg>
+        <span class="logo-text">ClearWatt</span>
       </a>
-      <p>Australia's trusted solar quote matching service - connecting Melbourne homeowners with the best local installers since 2020.</p>
+      <p>Australia's trusted solar quote matching service — connecting homeowners with CEC-accredited local installers.</p>
+      <div class="cec-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z"/><polyline points="9 12 11 14 15 9.5"/></svg>
+        <span class="cec-badge-txt">CEC Accredited<br>Installer Network</span>
+      </div>
     </div>
-    <div class="footer-col">
-      <h5>Resources</h5>
-      <ul>
-        <li><a href="/rebate-guide">Rebate Guide</a></li>
-        <li><a href="/savings-calculator">Savings Calculator</a></li>
-        <li><a href="/faq">Full FAQ</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Legal</h5>
-      <ul>
-        <li><a href="/privacy-policy">Privacy Policy</a></li>
-        <li><a href="/terms">Terms of Use</a></li>
-      </ul>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="/rebate-guide">Rebate Guide</a></li>
+          <li><a href="/savings-calculator">Savings Calculator</a></li>
+          <li><a href="/faq">Full FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 ClearWatt Solar · clearwattsolar.com.au · Australian-owned &amp; operated<br>
-    *Rebate availability subject to federal and state government eligibility criteria and scheme availability at time of installation. Not all homeowners will qualify. ClearWatt Solar is a referral matching service and does not provide installation services directly. All installers are independently licensed and insured.
+    © 2026 ClearWatt Solar · clearwattsolar.com.au · Australian-owned &amp; operated
+    <div class="footer-disclaimer">
+      Rebate availability is subject to federal and state government eligibility criteria and scheme availability at the time of installation. Not all homeowners will qualify. ClearWatt Solar is a referral matching service and does not provide installation services directly. All installers are independently licensed and insured.
+    </div>
   </div>
 </footer>
 

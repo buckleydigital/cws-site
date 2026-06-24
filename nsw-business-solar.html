@@ -12,7 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Google Tag -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
@@ -45,24 +45,27 @@ fbq('init','1692791048547338'); fbq('track','PageView');
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:        #EFF6FF;
-  --surface:   #FFFFFF;
-  --surface2:  #E0EDF8;
-  --border:    rgba(11,39,56,0.12);
-  --border2:   rgba(11,39,56,0.22);
-  --cyan:      #fcd435;
-  --cyan-dark: #d4aa00;
-  --cyan-glow: rgba(252,212,53,0.18);
-  --cyan-pale: rgba(252,212,53,0.1);
-  --gold:      #fcd435;
-  --gold-dark: #0b2738;
-  --white:     #0b2738;
-  --muted:     #2d5270;
-  --muted2:    #6288a0;
-  --green:     #22d47a;
-  --red:       #ff4757;
-  --orange:    #fcd435;
-  --radius:    20px;
+  --bg:#F9F7F4;
+  --surface:#FFFFFF;
+  --surface2:#F3EFE8;
+  --border:rgba(10,22,40,0.10);
+  --border2:rgba(10,22,40,0.16);
+  --cyan:#0A1628;
+  --cyan-dark:#0A1628;
+  --cyan-glow:rgba(10,22,40,0.06);
+  --cyan-pale:rgba(10,22,40,0.04);
+  --gold:#F5C400;
+  --gold-dark:#0A1628;
+  --white:#0A1628;
+  --muted:#54606E;
+  --muted2:#8A93A0;
+  --green:#1E9E5A;
+  --red:#C0392B;
+  --orange:#F5C400;
+  --radius:16px;
+  --navy:#0A1628;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
 
 html{scroll-behavior:smooth}
@@ -76,9 +79,9 @@ body{
 body::before{
   content:'';position:fixed;inset:0;
   background:
-    radial-gradient(ellipse 90% 60% at 75% -5%, rgba(252,212,53,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 90% 60% at 75% -5%, rgba(10,22,40,0.08) 0%, transparent 60%),
     radial-gradient(ellipse 60% 50% at -10% 85%, rgba(11,39,56,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 35% at 50% 115%, rgba(252,212,53,0.05) 0%, transparent 60%);
+    radial-gradient(ellipse 50% 35% at 50% 115%, rgba(10,22,40,0.05) 0%, transparent 60%);
   pointer-events:none;z-index:0;
 }
 body::after{content:'';display:none}
@@ -93,8 +96,8 @@ nav{
   border-bottom:1px solid var(--border);
 }
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-sun{width:38px;height:38px;background:linear-gradient(135deg,#fcd435,#0b2738);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px rgba(252,212,53,0.25),0 0 0 10px rgba(252,212,53,0.08);animation:pulse-sun 3s ease-in-out infinite;flex-shrink:0}
-.logo-sun svg{width:20px;height:20px}@keyframes pulse-sun{0%,100%{box-shadow:0 0 0 5px rgba(252,212,53,0.25),0 0 0 10px rgba(252,212,53,0.08)}50%{box-shadow:0 0 0 8px rgba(252,212,53,0.3),0 0 0 16px rgba(252,212,53,0.05)}}
+.logo-sun{width:38px;height:38px;background:linear-gradient(135deg,#0A1628,#0b2738);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px rgba(10,22,40,0.25),0 0 0 10px rgba(10,22,40,0.08);animation:pulse-sun 3s ease-in-out infinite;flex-shrink:0}
+.logo-sun svg{width:20px;height:20px}@keyframes pulse-sun{0%,100%{box-shadow:0 0 0 5px rgba(10,22,40,0.25),0 0 0 10px rgba(10,22,40,0.08)}50%{box-shadow:0 0 0 8px rgba(10,22,40,0.3),0 0 0 16px rgba(10,22,40,0.05)}}
 .logo-text{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-0.02em}
 .logo-text span{color:var(--cyan)}
 .nav-right{display:flex;align-items:center;gap:14px}
@@ -102,7 +105,7 @@ nav{
 /* Commercial badge - gold instead of green */
 .nav-badge{
   display:flex;align-items:center;gap:6px;
-  background:rgba(252,212,53,0.1);border:1px solid rgba(252,212,53,0.28);
+  background:rgba(10,22,40,0.1);border:1px solid rgba(10,22,40,0.28);
   border-radius:50px;padding:5px 13px;font-size:0.72rem;font-weight:700;
   color:var(--gold);letter-spacing:0.04em;
 }
@@ -113,10 +116,10 @@ nav{
   background:linear-gradient(135deg, var(--cyan), var(--cyan-dark));
   color:#0b2738;font-weight:700;font-size:0.82rem;
   padding:9px 20px;border-radius:50px;text-decoration:none;
-  box-shadow:0 4px 20px rgba(252,212,53,0.25);
+  box-shadow:0 4px 20px rgba(10,22,40,0.25);
   transition:transform 0.2s,box-shadow 0.2s;
 }
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(252,212,53,0.38)}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(10,22,40,0.38)}
 
 /* ═══ HERO ═══ */
 .hero{
@@ -127,8 +130,8 @@ nav{
 .hero-lines{
   position:absolute;inset:0;pointer-events:none;overflow:hidden;
   background-image:
-    linear-gradient(rgba(252,212,53,0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(252,212,53,0.035) 1px, transparent 1px);
+    linear-gradient(rgba(10,22,40,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,22,40,0.035) 1px, transparent 1px);
   background-size:64px 64px;
   -webkit-mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
   mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
@@ -137,15 +140,15 @@ nav{
 /* COMMERCIAL ALERT STRIP */
 .alert-strip{
   display:inline-flex;align-items:center;gap:10px;
-  background:linear-gradient(135deg, rgba(252,212,53,0.1), rgba(252,212,53,0.05));
-  border:1px solid rgba(252,212,53,0.3);
+  background:linear-gradient(135deg, rgba(10,22,40,0.1), rgba(10,22,40,0.05));
+  border:1px solid rgba(10,22,40,0.3);
   border-radius:50px;padding:8px 20px;margin-bottom:24px;
   font-size:0.75rem;font-weight:700;color:var(--gold);
   letter-spacing:0.06em;text-transform:uppercase;
   animation:fadeSlideUp 0.6s ease forwards;
 }
 .alert-strip .as-icon{font-size:1rem}
-.alert-strip .as-div{width:1px;height:13px;background:rgba(252,212,53,0.3)}
+.alert-strip .as-div{width:1px;height:13px;background:rgba(10,22,40,0.3)}
 
 .hero-h1{
   font-family:'Outfit',sans-serif;font-weight:900;
@@ -179,7 +182,7 @@ nav{
 }
 .trust-pill{
   display:flex;align-items:center;gap:6px;
-  background:rgba(252,212,53,0.05);border:1px solid rgba(0,0,0,0.07);
+  background:rgba(10,22,40,0.05);border:1px solid rgba(0,0,0,0.07);
   border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:600;color:var(--muted);
 }
 .trust-pill svg{width:13px;height:13px;color:var(--green);flex-shrink:0}
@@ -195,7 +198,7 @@ nav{
   font-size:2rem;letter-spacing:-0.04em;color:var(--cyan);line-height:1;
 }
 .stat-num.gold{color:var(--gold)}
-.stat-sep{color:rgba(252,212,53,0.3);font-size:1.8rem;display:flex;align-items:center}
+.stat-sep{color:rgba(10,22,40,0.3);font-size:1.8rem;display:flex;align-items:center}
 .stat-label{font-size:0.68rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.09em;margin-top:3px}
 
 @keyframes fadeSlideUp{
@@ -214,16 +217,16 @@ nav{
   border:1px solid var(--border2);
   border-radius:22px;
   box-shadow:
-    0 0 0 1px rgba(252,212,53,0.05),
+    0 0 0 1px rgba(10,22,40,0.05),
     0 28px 70px rgba(0,0,0,0.55),
-    0 0 100px rgba(252,212,53,0.04);
+    0 0 100px rgba(10,22,40,0.04);
   overflow:hidden;
 }
 
 .card-topbar{
   display:flex;align-items:center;gap:8px;
   padding:14px 20px;
-  background:rgba(252,212,53,0.04);
+  background:rgba(10,22,40,0.04);
   border-bottom:1px solid var(--border);
 }
 .tb-dot{width:10px;height:10px;border-radius:50%}
@@ -236,7 +239,7 @@ nav{
 .tb-right svg{width:12px;height:12px;color:var(--green)}
 
 /* PROGRESS */
-.prog-outer{height:3px;background:rgba(252,212,53,0.06)}
+.prog-outer{height:3px;background:rgba(10,22,40,0.06)}
 .prog-inner{
   height:100%;width:0%;
   background:linear-gradient(90deg,var(--cyan),var(--gold));
@@ -249,7 +252,7 @@ nav{
   width:7px;height:7px;border-radius:50%;
   background:rgba(0,0,0,0.07);transition:all 0.3s ease;
 }
-.sdot.active{background:var(--cyan);transform:scale(1.35);box-shadow:0 0 8px rgba(252,212,53,0.5)}
+.sdot.active{background:var(--cyan);transform:scale(1.35);box-shadow:0 0 8px rgba(10,22,40,0.5)}
 .sdot.done{background:var(--green)}
 
 /* CARD BODY */
@@ -279,19 +282,19 @@ nav{
   border:1.5px solid rgba(0,0,0,0.07);
   border-radius:14px;padding:20px 16px;
   cursor:pointer;transition:all 0.2s ease;
-  background:rgba(252,212,53,0.04);
+  background:rgba(10,22,40,0.04);
   position:relative;overflow:hidden;user-select:none;
 }
 .choice-card::before{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg, rgba(252,212,53,0.06), rgba(252,212,53,0.02));
+  background:linear-gradient(135deg, rgba(10,22,40,0.06), rgba(10,22,40,0.02));
   opacity:0;transition:opacity 0.2s;
 }
-.choice-card:hover{border-color:rgba(252,212,53,0.4);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.choice-card:hover{border-color:rgba(10,22,40,0.4);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
 .choice-card:hover::before{opacity:1}
 .choice-card.selected{
-  border-color:var(--cyan);background:rgba(252,212,53,0.08);
-  box-shadow:0 0 0 1px rgba(252,212,53,0.2), 0 8px 28px rgba(0,0,0,0.3);
+  border-color:var(--cyan);background:rgba(10,22,40,0.08);
+  box-shadow:0 0 0 1px rgba(10,22,40,0.2), 0 8px 28px rgba(0,0,0,0.3);
 }
 .choice-card.selected::before{opacity:1}
 .choice-card.selected::after{
@@ -314,13 +317,13 @@ nav{
   border:1.5px solid rgba(0,0,0,0.07);
   border-radius:14px;padding:15px 18px;
   cursor:pointer;transition:all 0.2s ease;
-  background:rgba(252,212,53,0.04);
+  background:rgba(10,22,40,0.04);
   position:relative;overflow:hidden;user-select:none;
 }
-.choice-h:hover{border-color:rgba(252,212,53,0.4);transform:translateY(-2px)}
+.choice-h:hover{border-color:rgba(10,22,40,0.4);transform:translateY(-2px)}
 .choice-h.selected{
-  border-color:var(--cyan);background:rgba(252,212,53,0.08);
-  box-shadow:0 0 0 1px rgba(252,212,53,0.2);
+  border-color:var(--cyan);background:rgba(10,22,40,0.08);
+  box-shadow:0 0 0 1px rgba(10,22,40,0.2);
 }
 .choice-h.selected::after{
   content:'✓';position:absolute;top:50%;right:14px;transform:translateY(-50%);
@@ -333,7 +336,7 @@ nav{
 .ch-title{font-weight:700;font-size:0.92rem;color:var(--white)}
 .ch-sub{font-size:0.72rem;color:var(--muted);margin-top:2px}
 .ch-badge{
-  background:rgba(252,212,53,0.12);border:1px solid rgba(252,212,53,0.25);
+  background:rgba(10,22,40,0.12);border:1px solid rgba(10,22,40,0.25);
   border-radius:50px;padding:3px 10px;font-size:0.63rem;font-weight:700;
   color:var(--gold);white-space:nowrap;flex-shrink:0;margin-right:28px;
 }
@@ -341,7 +344,7 @@ nav{
 /* INSIGHT BOX */
 .insight{
   display:flex;gap:11px;align-items:flex-start;
-  background:rgba(252,212,53,0.05);border:1px solid rgba(252,212,53,0.12);
+  background:rgba(10,22,40,0.05);border:1px solid rgba(10,22,40,0.12);
   border-radius:12px;padding:13px 15px;margin-bottom:20px;
 }
 .insight-icon{font-size:1.2rem;flex-shrink:0;line-height:1.2}
@@ -352,7 +355,7 @@ nav{
 #disq-msg{display:none;text-align:center;padding:16px 0 8px}
 .disq-icon{font-size:3rem;margin-bottom:14px}
 .disq-msg-title{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.1rem;color:var(--white);margin-bottom:10px;letter-spacing:-0.02em}
-.disq-box{background:rgba(252,212,53,0.05);border:1px solid var(--border);border-radius:12px;padding:14px;margin-top:16px;font-size:0.78rem;color:var(--muted);line-height:1.6}
+.disq-box{background:rgba(10,22,40,0.05);border:1px solid var(--border);border-radius:12px;padding:14px;margin-top:16px;font-size:0.78rem;color:var(--muted);line-height:1.6}
 
 /* MATCH NOTICE */
 .match-notice{
@@ -368,14 +371,14 @@ nav{
 .field-wrap{margin-bottom:14px}
 .field-wrap label{display:block;font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
 .field-wrap input{
-  width:100%;background:rgba(252,212,53,0.05);
+  width:100%;background:rgba(10,22,40,0.05);
   border:1.5px solid rgba(0,0,0,0.07);
   border-radius:10px;padding:12px 14px;
   font-family:'Outfit',sans-serif;font-size:0.92rem;color:var(--white);
   outline:none;transition:border-color 0.2s,box-shadow 0.2s;
 }
 .field-wrap input::placeholder{color:var(--muted2)}
-.field-wrap input:focus{border-color:rgba(252,212,53,0.5);box-shadow:0 0 0 3px rgba(252,212,53,0.08)}
+.field-wrap input:focus{border-color:rgba(10,22,40,0.5);box-shadow:0 0 0 3px rgba(10,22,40,0.08)}
 .field-wrap input.err-field{border-color:rgba(255,71,87,0.6)}
 .err-msg{color:var(--red);font-size:0.7rem;margin-top:4px;display:none}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -388,7 +391,7 @@ nav{
   font-size:1rem;font-weight:800;cursor:pointer;
   background:linear-gradient(135deg, var(--cyan), var(--cyan-dark));
   color:#0b2738;letter-spacing:-0.01em;
-  box-shadow:0 6px 28px rgba(252,212,53,0.3);
+  box-shadow:0 6px 28px rgba(10,22,40,0.3);
   transition:all 0.25s ease;position:relative;overflow:hidden;
 }
 .btn-next::before{
@@ -396,9 +399,9 @@ nav{
   background:linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
   opacity:0;transition:opacity 0.2s;
 }
-.btn-next:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(252,212,53,0.42)}
+.btn-next:hover{transform:translateY(-2px);box-shadow:0 10px 36px rgba(10,22,40,0.42)}
 .btn-next:hover::before{opacity:1}
-.btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:0 4px 18px rgba(252,212,53,0.15)}
+.btn-next:disabled{opacity:0.4;cursor:not-allowed;transform:none;box-shadow:0 4px 18px rgba(10,22,40,0.15)}
 
 .btn-back{
   display:flex;align-items:center;gap:5px;margin-top:11px;
@@ -444,14 +447,14 @@ nav{
 .hiw-card:hover::before{transform:scaleX(1)}
 .hiw-num{
   font-family:'Outfit',sans-serif;font-size:3rem;font-weight:900;
-  color:rgba(252,212,53,0.08);line-height:1;margin-bottom:14px;letter-spacing:-0.06em;
+  color:rgba(10,22,40,0.08);line-height:1;margin-bottom:14px;letter-spacing:-0.06em;
 }
 .hiw-card h4{font-family:'Outfit',sans-serif;font-weight:800;font-size:0.97rem;color:var(--white);margin-bottom:8px}
 .hiw-card p{font-size:0.8rem;color:var(--muted);line-height:1.6}
 
 /* FACTS */
 .facts-section{
-  background:linear-gradient(180deg, rgba(252,212,53,0.03) 0%, transparent 100%);
+  background:linear-gradient(180deg, rgba(10,22,40,0.03) 0%, transparent 100%);
   border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   padding:80px 6vw;position:relative;z-index:1;
 }
@@ -493,20 +496,20 @@ nav{
 .reviewer-loc{font-size:0.7rem;color:var(--muted2)}
 .review-biz{
   display:inline-block;margin-top:5px;
-  background:rgba(252,212,53,0.07);border:1px solid rgba(252,212,53,0.15);
+  background:rgba(10,22,40,0.07);border:1px solid rgba(10,22,40,0.15);
   border-radius:50px;padding:2px 9px;font-size:0.66rem;font-weight:700;color:var(--cyan);
 }
 
 /* CTA STRIP */
 .cta-strip{
-  background:linear-gradient(135deg, rgba(252,212,53,0.08), rgba(11,39,56,0.05));
+  background:linear-gradient(135deg, rgba(10,22,40,0.08), rgba(11,39,56,0.05));
   border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   padding:56px 20px;text-align:center;position:relative;z-index:1;overflow:hidden;
 }
 .cta-strip::before{
   content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
   width:600px;height:200px;
-  background:radial-gradient(ellipse, rgba(252,212,53,0.07) 0%, transparent 70%);
+  background:radial-gradient(ellipse, rgba(10,22,40,0.07) 0%, transparent 70%);
   pointer-events:none;
 }
 .cta-strip h3{
@@ -519,9 +522,9 @@ nav{
   background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));
   color:#0b2738;font-family:'Outfit',sans-serif;font-weight:800;
   font-size:0.95rem;padding:15px 38px;border-radius:50px;text-decoration:none;
-  box-shadow:0 6px 28px rgba(252,212,53,0.3);transition:all 0.2s;letter-spacing:-0.01em;
+  box-shadow:0 6px 28px rgba(10,22,40,0.3);transition:all 0.2s;letter-spacing:-0.01em;
 }
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(252,212,53,0.42)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(10,22,40,0.42)}
 
 /* FAQ */
 .faq-section{padding:60px 20px 80px;max-width:700px;margin:0 auto;position:relative;z-index:1}
@@ -564,12 +567,12 @@ footer{
 .overlay.show{display:flex}
 .spinner{
   width:44px;height:44px;
-  border:3px solid rgba(252,212,53,0.15);
+  border:3px solid rgba(10,22,40,0.15);
   border-top-color:var(--cyan);
   border-radius:50%;animation:spin 0.75s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
-.overlay p{font-family:'Outfit',sans-serif;font-weight:700;color:#EFF6FF;font-size:0.95rem;letter-spacing:-0.01em}
+.overlay p{font-family:'Outfit',sans-serif;font-weight:700;color:#F9F7F4;font-size:0.95rem;letter-spacing:-0.01em}
 
 /* HAMBURGER */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:6px}
@@ -603,6 +606,51 @@ footer .footer-brand p{color:rgba(255,255,255,0.38)}
 footer .footer-col h5{color:rgba(255,255,255,0.35)}
 footer .footer-bottom{color:rgba(255,255,255,0.3)}
 .footer-inner{border-bottom-color:rgba(255,255,255,0.1)}
+
+/* ===== ClearWatt premium brand alignment ===== */
+body{font-family:var(--sans)!important;color:var(--white);background:var(--bg);-webkit-font-smoothing:antialiased}
+body::before{display:none!important}
+.hero-lines{display:none!important}
+h1,h2,h3,h4,.hero-h1,.section-h2,.step h3,.cta-strip h3,.faq-q,.section-h1{font-family:var(--serif)!important;font-weight:500!important;letter-spacing:-0.01em}
+.hero-h1{font-weight:600!important}
+.hero-h1 .line1{color:var(--white)!important}
+.hero-h1 .line2,.section-h2 .line2{background:none!important;-webkit-text-fill-color:initial!important;background-clip:initial!important;-webkit-background-clip:initial!important;color:var(--white)!important;font-family:var(--serif)!important;font-style:italic;font-weight:600!important}
+.logo-mark{width:30px;height:30px;flex-shrink:0;color:var(--navy)}
+.logo-mark .ray{stroke:var(--navy)}
+.logo-mark .core{fill:var(--gold)}
+.logo-text{font-family:var(--serif)!important;font-weight:600!important;font-size:1.32rem!important;color:var(--white)!important;letter-spacing:-0.01em}
+.logo-text span{color:var(--white)!important}
+.logo-sun{background:var(--navy)!important;box-shadow:none!important;animation:none!important}
+/* key CTAs in ClearWatt yellow; everything else stays navy */
+.nav-cta,.btn-next,.cta-btn,.mob-cta a{background:var(--gold)!important;background-image:none!important;color:#0A1628!important;border:none!important;box-shadow:0 1px 2px rgba(10,22,40,0.16)!important;border-radius:999px!important;font-family:var(--sans)!important;text-shadow:none!important}
+.nav-cta:hover,.btn-next:hover,.cta-btn:hover,.mob-cta a:hover{background:#FFD11A!important}
+#postcodeBtn{background:var(--navy)!important;color:#fff!important}
+#postcodeBtn:hover{background:#11233B!important}
+.btn-next:disabled{opacity:0.45!important;box-shadow:none!important}
+.survey-card::before{display:none!important}
+.prog-inner{background:var(--navy)!important;background-image:none!important}
+.review-stars{color:var(--gold)!important}
+/* footer */
+footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
+.footer-inner{display:flex!important;justify-content:space-between;flex-wrap:wrap;gap:48px;max-width:1080px;margin:0 auto;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.12)!important}
+.footer-brand{max-width:300px}
+.footer-brand .logo-text,.footer-brand .logo-text span{color:#fff!important}
+.footer-brand .logo-mark{color:#fff}
+.footer-brand .logo-mark .ray{stroke:#fff}
+.footer-brand .logo-mark .core{fill:var(--gold)}
+.footer-brand p{color:rgba(255,255,255,0.55)!important;margin-top:16px}
+.footer-cols{display:flex;gap:64px;flex-wrap:wrap}
+.footer-col h5{color:rgba(255,255,255,0.45)!important}
+.footer-col a{color:rgba(255,255,255,0.7)!important}
+.footer-col a:hover{color:#fff!important}
+.footer-bottom{color:rgba(255,255,255,0.4)!important;max-width:1080px;margin:28px auto 0}
+.footer-disclaimer{margin-top:12px;font-size:0.72rem;color:rgba(255,255,255,0.32);max-width:840px;line-height:1.7}
+.cec-badge{display:inline-flex;align-items:center;gap:11px;margin-top:22px;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px 16px}
+.cec-badge svg{width:24px;height:24px;color:var(--gold);flex-shrink:0}
+.cec-badge-txt{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);line-height:1.45}
+.overlay{background:rgba(10,22,40,0.94)!important}
+.spinner{border-top-color:var(--gold)!important}
+.overlay p{color:#fff!important;font-family:var(--sans)!important}
 </style>
 </head>
 <body>
@@ -616,20 +664,11 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 <!-- ═══ NAV ═══ -->
 <nav>
   <a href="/" class="logo">
-    <div class="logo-sun">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
-        <circle cx="12" cy="12" r="4.5"/>
-        <line x1="12" y1="1.5" x2="12" y2="3.5"/><line x1="12" y1="20.5" x2="12" y2="22.5"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1.5" y1="12" x2="3.5" y2="12"/><line x1="20.5" y1="12" x2="22.5" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-    </div>
-    <span class="logo-text">Clear<span>Watt</span> Solar</span>
+    <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle class="core" cx="12" cy="12" r="3.4"/><g class="ray" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.4" y1="5.4" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="18.6" y2="18.6"/><line x1="5.4" y1="18.6" x2="7.1" y2="16.9"/><line x1="16.9" y1="7.1" x2="18.6" y2="5.4"/></g></svg>
+    <span class="logo-text">ClearWatt</span>
   </a>
   <div class="nav-right">
-    <div class="nav-badge">Commercial Solar Specialists</div>
-    <a href="#quote" class="nav-cta">Free Assessment →</a>
+    <a href="#quote" class="nav-cta">Get Your Free Quote</a>
     <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMob()">
       <span></span><span></span><span></span>
     </button>
@@ -652,7 +691,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
   <div class="hero-lines" aria-hidden="true"></div>
 
   <div class="alert-strip">
-    <span class="as-icon">⚡</span>
+    <span class="as-icon"></span>
     <span>NSW Businesses</span>
     <div class="as-div"></div>
     <span>2026 Rebate Rate - Lock It In Now</span>
@@ -662,7 +701,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 
   <h1 class="hero-h1">
     <span class="line1">NSW Businesses:</span>
-    <span class="line2">Cut Power Bills by Up to 80%.</span>
+    <span class="line2">Trusted Commercial Solar Quotes</span>
   </h1>
 
   <p class="hero-sub">
@@ -739,29 +778,29 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
             <h3>Are You the Business Owner or Decision Maker?</h3>
             <div class="choice-grid">
               <div class="choice-card" onclick="pickDecision(true, this)">
-                <span class="cc-icon">🏢</span>
+                
                 <div class="cc-title">Yes, I'm the Owner</div>
                 <div class="cc-sub">Director, Owner, Sole Trader</div>
               </div>
               <div class="choice-card" onclick="pickDecision(true, this)">
-                <span class="cc-icon">📋</span>
+                
                 <div class="cc-title">Yes, I'm the Decision Maker</div>
                 <div class="cc-sub">CFO, Operations, Facilities Manager</div>
               </div>
             </div>
             <div class="choice-grid" style="grid-template-columns:1fr">
               <div class="choice-card disq-card" onclick="pickDecision(false, this)">
-                <span class="cc-icon">👤</span>
+                
                 <div class="cc-title">No, I'm Not the Decision Maker</div>
                 <div class="cc-sub">Someone else approves spending decisions</div>
               </div>
             </div>
           </div>
           <div id="disq-msg">
-            <div class="disq-icon">👋</div>
+            <div class="disq-icon"></div>
             <div class="disq-msg-title">No Problem - Pass This Along</div>
             <p style="font-size:0.82rem;color:var(--muted);line-height:1.65;margin-bottom:8px">Our free commercial assessment is best completed by the person who can approve the decision. Forward this page to your owner or decision maker - it only takes 60 seconds.</p>
-            <div class="disq-box">💡 <strong style="color:var(--cyan)">Tip:</strong> Share this URL with your business owner or CFO - they can complete the assessment and our team will call them directly within 15 minutes.</div>
+            <div class="disq-box"> <strong style="color:var(--cyan)">Tip:</strong> Share this URL with your business owner or CFO - they can complete the assessment and our team will call them directly within 15 minutes.</div>
           </div>
         </div>
 
@@ -771,14 +810,14 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
           <h3>What Is Your Business's Approximate Monthly Electricity Bill?</h3>
           <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
             <div class="choice-h" onclick="pickBill(this,'$1,000–$3,000/month')">
-              <span class="ch-icon">⚡</span>
+              
               <div class="ch-body">
                 <div class="ch-title">$1,000 – $3,000 / month</div>
                 <div class="ch-sub">Small commercial premises</div>
               </div>
             </div>
             <div class="choice-h" onclick="pickBill(this,'$3,000–$5,000/month')">
-              <span class="ch-icon">📈</span>
+              
               <div class="ch-body">
                 <div class="ch-title">$3,000 – $5,000 / month</div>
                 <div class="ch-sub">Medium business, warehouse or retail</div>
@@ -786,7 +825,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
               <span class="ch-badge">High ROI</span>
             </div>
             <div class="choice-h" onclick="pickBill(this,'$5,000–$9,000/month')">
-              <span class="ch-icon">🏭</span>
+              
               <div class="ch-body">
                 <div class="ch-title">$5,000 – $9,000 / month</div>
                 <div class="ch-sub">Factory, large warehouse or multi-site</div>
@@ -794,7 +833,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
               <span class="ch-badge">Best ROI</span>
             </div>
             <div class="choice-h" onclick="pickBill(this,'$9,000+/month')">
-              <span class="ch-icon">🔋</span>
+              
               <div class="ch-body">
                 <div class="ch-title">$9,000+ / month</div>
                 <div class="ch-sub">Large commercial or industrial</div>
@@ -803,7 +842,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
             </div>
           </div>
           <div class="insight">
-            <span class="insight-icon">💡</span>
+            
             <p>Businesses spending $3,000+/month typically see <strong>full payback within 3–5 years</strong> and can access the instant asset write-off on the full system cost.</p>
           </div>
           <button class="btn-back" onclick="goToStep(2,1)">
@@ -818,7 +857,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
           <h3>Where Should We Send Your Free Assessment?</h3>
 
           <div class="match-notice">
-            <span class="mn-icon">🎯</span>
+            
             <p>Our team will call you within <strong>15 minutes</strong> to book your free commercial solar site assessment. Zero pressure - just clear numbers for your business.</p>
           </div>
 
@@ -854,7 +893,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
           </div>
 
           <button class="btn-next" id="submitBtn" disabled onclick="submitForm()">
-            ⚡ Book My Free Commercial Assessment →
+             Book My Free Commercial Assessment →
           </button>
 
           <div class="priv-note">
@@ -912,34 +951,34 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
   </div>
   <div class="facts-grid">
     <div class="fact-card">
-      <span class="fact-icon">📉</span>
+      
       <h4>Rebates Decrease Every Year</h4>
       <p>The federal STC scheme reduces the rebate value annually until 2030. Locking in the 2026 rate now means more off your upfront cost than waiting until next year.</p>
       <span class="fact-asterisk">*Subject to eligibility at time of installation.</span>
     </div>
     <div class="fact-card">
-      <span class="fact-icon">🧾</span>
+      
       <h4>Instant Asset Write-Off</h4>
       <p>Eligible businesses can deduct the full cost of a commercial solar system from taxable income in the year of installation - a significant tax advantage, especially before June 30.</p>
       <span class="fact-asterisk">*Consult your accountant. Subject to ATO eligibility.</span>
     </div>
     <div class="fact-card">
-      <span class="fact-icon">⚡</span>
+      
       <h4>Peak Tariff Protection</h4>
       <p>Commercial electricity rates across NSW are among the highest in the country. Solar generates during your peak trading hours, directly offsetting your most expensive power.</p>
     </div>
     <div class="fact-card">
-      <span class="fact-icon">🏭</span>
+      
       <h4>Built for Commercial Roofs</h4>
       <p>Flat roofs, large sheds, warehouses, and factories are ideal solar installations. More roof space means bigger systems and bigger savings.</p>
     </div>
     <div class="fact-card">
-      <span class="fact-icon">📊</span>
+      
       <h4>3–5 Year ROI Payback</h4>
       <p>Most NSW SMEs recoup the full investment in 3–5 years. After payback, the savings are pure bottom-line benefit for the remaining 20+ year panel lifespan.</p>
     </div>
     <div class="fact-card">
-      <span class="fact-icon">🔒</span>
+      
       <h4>One Installer. No Cowboys.</h4>
       <p>We match you with a single pre-vetted, CEC-accredited commercial specialist - not five companies cold-calling you. You get one expert, one quote, one honest assessment.</p>
     </div>
@@ -997,7 +1036,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 
 <!-- ═══ CTA STRIP ═══ -->
 <section class="cta-strip">
-  <h3>Every month you wait is another full power bill.</h3>
+  <h3>Join NSW businesses going solar with confidence</h3>
   <a href="#quote" class="cta-btn" onclick="document.querySelector('.survey-card').scrollIntoView({behavior:'smooth'});return false;">
     Book My Free Commercial Assessment →
   </a>
@@ -1039,39 +1078,39 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <a href="/" class="logo">
-        <div class="logo-sun">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
-        <circle cx="12" cy="12" r="4.5"/>
-        <line x1="12" y1="1.5" x2="12" y2="3.5"/><line x1="12" y1="20.5" x2="12" y2="22.5"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1.5" y1="12" x2="3.5" y2="12"/><line x1="20.5" y1="12" x2="22.5" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-    </div>
-        <span class="logo-text">Clear<span>Watt</span> Solar</span>
+      <a href="/" class="logo" style="text-decoration:none">
+        <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle class="core" cx="12" cy="12" r="3.4"/><g class="ray" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.4" y1="5.4" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="18.6" y2="18.6"/><line x1="5.4" y1="18.6" x2="7.1" y2="16.9"/><line x1="16.9" y1="7.1" x2="18.6" y2="5.4"/></g></svg>
+        <span class="logo-text">ClearWatt</span>
       </a>
-      <p>Australia's trusted commercial solar matching service - connecting NSW businesses with the best CEC-accredited installers.</p>
+      <p>Australia's trusted solar quote matching service — connecting homeowners with CEC-accredited local installers.</p>
+      <div class="cec-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z"/><polyline points="9 12 11 14 15 9.5"/></svg>
+        <span class="cec-badge-txt">CEC Accredited<br>Installer Network</span>
+      </div>
     </div>
-    <div class="footer-col">
-      <h5>Resources</h5>
-      <ul>
-        <li><a href="/rebate-guide">Rebate Guide</a></li>
-        <li><a href="/savings-calculator">Savings Calculator</a></li>
-        <li><a href="/faq">Full FAQ</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Legal</h5>
-      <ul>
-        <li><a href="/privacy-policy">Privacy Policy</a></li>
-        <li><a href="/terms">Terms of Use</a></li>
-      </ul>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="/rebate-guide">Rebate Guide</a></li>
+          <li><a href="/savings-calculator">Savings Calculator</a></li>
+          <li><a href="/faq">Full FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 ClearWatt Solar · clearwattsolar.com.au · Australian-owned &amp; operated<br>
-    *Rebate availability and tax incentives subject to federal government eligibility criteria and scheme availability at time of installation. Instant asset write-off subject to ATO eligibility - consult your accountant. ClearWatt Solar is a referral matching service and does not provide installation services directly. All installers are independently licensed, insured and CEC-accredited. Not all businesses will qualify for all incentives.
+    © 2026 ClearWatt Solar · clearwattsolar.com.au · Australian-owned &amp; operated
+    <div class="footer-disclaimer">
+      Rebate availability is subject to federal and state government eligibility criteria and scheme availability at the time of installation. Not all homeowners will qualify. ClearWatt Solar is a referral matching service and does not provide installation services directly. All installers are independently licensed and insured.
+    </div>
   </div>
 </footer>
 

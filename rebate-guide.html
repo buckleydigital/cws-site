@@ -12,7 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Google Tag (replace G-XXXXXXXX) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
@@ -46,24 +46,27 @@ fbq('init','1692791048547338'); fbq('track','PageView');
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:        #EFF6FF;
-  --surface:   #FFFFFF;
-  --surface2:  #E0EDF8;
-  --border:    rgba(11,39,56,0.12);
-  --border2:   rgba(11,39,56,0.22);
-  --cyan:      #fcd435;
-  --cyan-dark: #d4aa00;
-  --cyan-glow: rgba(252,212,53,0.18);
-  --cyan-pale: rgba(252,212,53,0.1);
-  --gold:      #fcd435;
-  --gold-dark: #0b2738;
-  --white:     #0b2738;
-  --muted:     #2d5270;
-  --muted2:    #6288a0;
-  --green:     #22d47a;
-  --red:       #ff4757;
-  --orange:    #fcd435;
-  --radius:    20px;
+  --bg:#F9F7F4;
+  --surface:#FFFFFF;
+  --surface2:#F3EFE8;
+  --border:rgba(10,22,40,0.10);
+  --border2:rgba(10,22,40,0.16);
+  --cyan:#0A1628;
+  --cyan-dark:#0A1628;
+  --cyan-glow:rgba(10,22,40,0.06);
+  --cyan-pale:rgba(10,22,40,0.04);
+  --gold:#F5C400;
+  --gold-dark:#0A1628;
+  --white:#0A1628;
+  --muted:#54606E;
+  --muted2:#8A93A0;
+  --green:#1E9E5A;
+  --red:#C0392B;
+  --orange:#F5C400;
+  --radius:16px;
+  --navy:#0A1628;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
 }
 
 html{scroll-behavior:smooth}
@@ -72,26 +75,26 @@ body{font-family:'Outfit',sans-serif;color:var(--white);background:var(--bg);ove
 body::before{
   content:'';position:fixed;inset:0;
   background:
-    radial-gradient(ellipse 80% 60% at 70% -10%, rgba(252,212,53,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 80% 60% at 70% -10%, rgba(10,22,40,0.07) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at -10% 80%, rgba(11,39,56,0.05) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 50% 110%, rgba(252,212,53,0.04) 0%, transparent 60%);
+    radial-gradient(ellipse 40% 30% at 50% 110%, rgba(10,22,40,0.04) 0%, transparent 60%);
   pointer-events:none;z-index:0;
 }
 body::after{content:'';display:none}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;background:rgba(239,246,255,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 6vw;background:rgba(249,247,244,0.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-sun{width:38px;height:38px;background:linear-gradient(135deg,#fcd435,#0b2738);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px rgba(252,212,53,0.25),0 0 0 10px rgba(252,212,53,0.08);animation:pulse-sun 3s ease-in-out infinite;flex-shrink:0}
-.logo-sun svg{width:20px;height:20px}@keyframes pulse-sun{0%,100%{box-shadow:0 0 0 5px rgba(252,212,53,0.25),0 0 0 10px rgba(252,212,53,0.08)}50%{box-shadow:0 0 0 8px rgba(252,212,53,0.3),0 0 0 16px rgba(252,212,53,0.05)}}
+.logo-sun{width:38px;height:38px;background:linear-gradient(135deg,#0A1628,#0b2738);border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px rgba(10,22,40,0.25),0 0 0 10px rgba(10,22,40,0.08);animation:pulse-sun 3s ease-in-out infinite;flex-shrink:0}
+.logo-sun svg{width:20px;height:20px}@keyframes pulse-sun{0%,100%{box-shadow:0 0 0 5px rgba(10,22,40,0.25),0 0 0 10px rgba(10,22,40,0.08)}50%{box-shadow:0 0 0 8px rgba(10,22,40,0.3),0 0 0 16px rgba(10,22,40,0.05)}}
 .logo-text{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.2rem;color:var(--white);letter-spacing:-0.02em}
 .logo-text span{color:var(--cyan)}
 .nav-right{display:flex;align-items:center;gap:14px}
 .nav-badge{display:flex;align-items:center;gap:6px;background:rgba(34,212,122,0.1);border:1px solid rgba(34,212,122,0.25);border-radius:50px;padding:5px 13px;font-size:0.72rem;font-weight:700;color:#22d47a;letter-spacing:0.04em}
 .nav-badge::before{content:'';width:6px;height:6px;background:#22d47a;border-radius:50%;animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-.nav-cta{background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:#0b2738;font-weight:700;font-size:0.82rem;padding:9px 20px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(252,212,53,0.25);transition:transform 0.2s,box-shadow 0.2s}
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(252,212,53,0.38)}
+.nav-cta{background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:#0b2738;font-weight:700;font-size:0.82rem;padding:9px 20px;border-radius:50px;text-decoration:none;box-shadow:0 4px 20px rgba(10,22,40,0.25);transition:transform 0.2s,box-shadow 0.2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(10,22,40,0.38)}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;border:none;background:none;padding:6px}
 .hamburger span{display:block;width:22px;height:2px;background:var(--muted);border-radius:2px;transition:transform 0.3s,opacity 0.3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -170,7 +173,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* REBATE TABLE */
 .rebate-table-wrap{overflow-x:auto;margin:20px 0 24px;border-radius:12px;border:1px solid var(--border)}
 .rebate-table{width:100%;border-collapse:collapse;font-size:0.86rem}
-.rebate-table thead tr{background:rgba(252,212,53,0.06)}
+.rebate-table thead tr{background:rgba(10,22,40,0.06)}
 .rebate-table th{
   font-family:'Outfit',sans-serif;font-weight:700;font-size:0.72rem;
   color:var(--cyan);text-transform:uppercase;letter-spacing:0.08em;
@@ -178,11 +181,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 }
 .rebate-table td{padding:12px 16px;color:var(--muted);border-top:1px solid var(--border);line-height:1.5}
 .rebate-table td strong{color:var(--white);font-weight:600}
-.rebate-table tr:hover td{background:rgba(252,212,53,0.03)}
+.rebate-table tr:hover td{background:rgba(10,22,40,0.03)}
 
 /* CALLOUT BOX */
 .callout{
-  background:rgba(252,212,53,0.05);border:1px solid rgba(252,212,53,0.15);
+  background:rgba(10,22,40,0.05);border:1px solid rgba(10,22,40,0.15);
   border-left:4px solid var(--cyan);border-radius:12px;
   padding:18px 20px;margin:20px 0 24px;
 }
@@ -190,7 +193,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .callout p{font-size:0.84rem;color:var(--muted);line-height:1.65;margin:0}
 
 .callout.warn{
-  background:rgba(252,212,53,0.05);border-color:rgba(252,212,53,0.2);border-left-color:var(--gold);
+  background:rgba(10,22,40,0.05);border-color:rgba(10,22,40,0.2);border-left-color:var(--gold);
 }
 .callout.warn .callout-title{color:var(--gold)}
 
@@ -212,23 +215,23 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .state-card p{font-size:0.78rem;color:var(--muted);line-height:1.6}
 .state-badge{
   display:inline-block;margin-top:10px;
-  background:rgba(252,212,53,0.08);border:1px solid rgba(252,212,53,0.2);
+  background:rgba(10,22,40,0.08);border:1px solid rgba(10,22,40,0.2);
   border-radius:50px;padding:3px 11px;font-size:0.65rem;font-weight:700;
   color:var(--cyan);
 }
-.state-badge.gold{background:rgba(252,212,53,0.08);border-color:rgba(252,212,53,0.2);color:var(--gold)}
+.state-badge.gold{background:rgba(10,22,40,0.08);border-color:rgba(10,22,40,0.2);color:var(--gold)}
 
 /* CTA STRIP */
 .cta-strip{
-  background:linear-gradient(135deg, rgba(252,212,53,0.08), rgba(11,39,56,0.05));
+  background:linear-gradient(135deg, rgba(10,22,40,0.08), rgba(11,39,56,0.05));
   border-top:1px solid var(--border);border-bottom:1px solid var(--border);
   padding:56px 20px;text-align:center;position:relative;z-index:1;overflow:hidden;
 }
-.cta-strip::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:200px;background:radial-gradient(ellipse,rgba(252,212,53,0.07) 0%,transparent 70%);pointer-events:none}
+.cta-strip::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:200px;background:radial-gradient(ellipse,rgba(10,22,40,0.07) 0%,transparent 70%);pointer-events:none}
 .cta-strip h3{font-family:'Outfit',sans-serif;font-weight:900;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--white);letter-spacing:-0.04em;margin-bottom:10px;position:relative;z-index:1}
 .cta-strip p{font-size:0.9rem;color:var(--muted);margin-bottom:24px;position:relative;z-index:1}
-.cta-btn{display:inline-block;position:relative;z-index:1;background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:#0b2738;font-family:'Outfit',sans-serif;font-weight:800;font-size:0.95rem;padding:15px 38px;border-radius:50px;text-decoration:none;box-shadow:0 6px 28px rgba(252,212,53,0.3);transition:all 0.2s;letter-spacing:-0.01em}
-.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(252,212,53,0.42)}
+.cta-btn{display:inline-block;position:relative;z-index:1;background:linear-gradient(135deg,var(--cyan),var(--cyan-dark));color:#0b2738;font-family:'Outfit',sans-serif;font-weight:800;font-size:0.95rem;padding:15px 38px;border-radius:50px;text-decoration:none;box-shadow:0 6px 28px rgba(10,22,40,0.3);transition:all 0.2s;letter-spacing:-0.01em}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 10px 38px rgba(10,22,40,0.42)}
 
 /* FAQ */
 .faq-section{max-width:700px;margin:0 auto;padding:60px 20px 80px;position:relative;z-index:1}
@@ -263,6 +266,51 @@ footer .footer-brand p{color:rgba(255,255,255,0.38)}
 footer .footer-col h5{color:rgba(255,255,255,0.35)}
 footer .footer-bottom{color:rgba(255,255,255,0.3)}
 .footer-inner{border-bottom-color:rgba(255,255,255,0.1)}
+
+/* ===== ClearWatt premium brand alignment ===== */
+body{font-family:var(--sans)!important;color:var(--white);background:var(--bg);-webkit-font-smoothing:antialiased}
+body::before{display:none!important}
+.hero-lines{display:none!important}
+h1,h2,h3,h4,.hero-h1,.section-h2,.step h3,.cta-strip h3,.faq-q,.section-h1{font-family:var(--serif)!important;font-weight:500!important;letter-spacing:-0.01em}
+.hero-h1{font-weight:600!important}
+.hero-h1 .line1{color:var(--white)!important}
+.hero-h1 .line2,.section-h2 .line2{background:none!important;-webkit-text-fill-color:initial!important;background-clip:initial!important;-webkit-background-clip:initial!important;color:var(--white)!important;font-family:var(--serif)!important;font-style:italic;font-weight:600!important}
+.logo-mark{width:30px;height:30px;flex-shrink:0;color:var(--navy)}
+.logo-mark .ray{stroke:var(--navy)}
+.logo-mark .core{fill:var(--gold)}
+.logo-text{font-family:var(--serif)!important;font-weight:600!important;font-size:1.32rem!important;color:var(--white)!important;letter-spacing:-0.01em}
+.logo-text span{color:var(--white)!important}
+.logo-sun{background:var(--navy)!important;box-shadow:none!important;animation:none!important}
+/* key CTAs in ClearWatt yellow; everything else stays navy */
+.nav-cta,.btn-next,.cta-btn,.mob-cta a{background:var(--gold)!important;background-image:none!important;color:#0A1628!important;border:none!important;box-shadow:0 1px 2px rgba(10,22,40,0.16)!important;border-radius:999px!important;font-family:var(--sans)!important;text-shadow:none!important}
+.nav-cta:hover,.btn-next:hover,.cta-btn:hover,.mob-cta a:hover{background:#FFD11A!important}
+#postcodeBtn{background:var(--navy)!important;color:#fff!important}
+#postcodeBtn:hover{background:#11233B!important}
+.btn-next:disabled{opacity:0.45!important;box-shadow:none!important}
+.survey-card::before{display:none!important}
+.prog-inner{background:var(--navy)!important;background-image:none!important}
+.review-stars{color:var(--gold)!important}
+/* footer */
+footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
+.footer-inner{display:flex!important;justify-content:space-between;flex-wrap:wrap;gap:48px;max-width:1080px;margin:0 auto;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,0.12)!important}
+.footer-brand{max-width:300px}
+.footer-brand .logo-text,.footer-brand .logo-text span{color:#fff!important}
+.footer-brand .logo-mark{color:#fff}
+.footer-brand .logo-mark .ray{stroke:#fff}
+.footer-brand .logo-mark .core{fill:var(--gold)}
+.footer-brand p{color:rgba(255,255,255,0.55)!important;margin-top:16px}
+.footer-cols{display:flex;gap:64px;flex-wrap:wrap}
+.footer-col h5{color:rgba(255,255,255,0.45)!important}
+.footer-col a{color:rgba(255,255,255,0.7)!important}
+.footer-col a:hover{color:#fff!important}
+.footer-bottom{color:rgba(255,255,255,0.4)!important;max-width:1080px;margin:28px auto 0}
+.footer-disclaimer{margin-top:12px;font-size:0.72rem;color:rgba(255,255,255,0.32);max-width:840px;line-height:1.7}
+.cec-badge{display:inline-flex;align-items:center;gap:11px;margin-top:22px;border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:12px 16px}
+.cec-badge svg{width:24px;height:24px;color:var(--gold);flex-shrink:0}
+.cec-badge-txt{font-size:0.7rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.78);line-height:1.45}
+.overlay{background:rgba(10,22,40,0.94)!important}
+.spinner{border-top-color:var(--gold)!important}
+.overlay p{color:#fff!important;font-family:var(--sans)!important}
 </style>
 </head>
 <body>
@@ -270,20 +318,11 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 <!-- ═══ NAV ═══ -->
 <nav>
   <a href="/" class="logo">
-    <div class="logo-sun">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
-        <circle cx="12" cy="12" r="4.5"/>
-        <line x1="12" y1="1.5" x2="12" y2="3.5"/><line x1="12" y1="20.5" x2="12" y2="22.5"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1.5" y1="12" x2="3.5" y2="12"/><line x1="20.5" y1="12" x2="22.5" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-    </div>
-    <span class="logo-text">Clear<span>Watt</span> Solar</span>
+    <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle class="core" cx="12" cy="12" r="3.4"/><g class="ray" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.4" y1="5.4" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="18.6" y2="18.6"/><line x1="5.4" y1="18.6" x2="7.1" y2="16.9"/><line x1="16.9" y1="7.1" x2="18.6" y2="5.4"/></g></svg>
+    <span class="logo-text">ClearWatt</span>
   </a>
   <div class="nav-right">
-    <div class="nav-badge">Updated April 2026</div>
-    <a href="/" class="nav-cta">Get Free Quote →</a>
+    <a href="/#quote" class="nav-cta">Get Your Free Quote</a>
     <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMob()">
       <span></span><span></span><span></span>
     </button>
@@ -303,7 +342,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 
 <!-- ═══ PAGE HERO ═══ -->
 <div class="page-hero">
-  <div class="page-eyebrow">🇦🇺 Australia-Wide · Updated April 2026</div>
+  <div class="page-eyebrow"> Australia-Wide · Updated April 2026</div>
   <h1 class="page-h1">Australian Solar <span>Rebate Guide</span> 2026</h1>
   <p class="page-sub">Everything you need to know about federal and state solar incentives - explained clearly, without the jargon.</p>
 </div>
@@ -364,7 +403,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
     </div>
 
     <div class="callout warn">
-      <div class="callout-title">⚠️ Important: STC scheme ends 2030</div>
+      <div class="callout-title"> Important: STC scheme ends 2030</div>
       <p>The number of STCs - and therefore the discount - reduces by one year each January 1st until the scheme closes on 31 December 2030. The discount is larger the sooner you act.</p>
     </div>
 
@@ -384,37 +423,37 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
 
     <div class="state-grid">
       <div class="state-card">
-        <span class="state-flag">🟦 VIC</span>
+        <span class="state-flag"> VIC</span>
         <h4>Victorian Solar Homes Program</h4>
         <p>Eligible Victorian homeowners can access a <strong>rebate of up to $1,400</strong> off a solar PV system, plus interest-free loans. Income-tested - households earning under $210,000/yr may qualify.</p>
         <span class="state-badge gold">Up to $1,400 rebate</span>
       </div>
       <div class="state-card">
-        <span class="state-flag">🟨 NSW</span>
+        <span class="state-flag"> NSW</span>
         <h4>NSW Empowering Homes</h4>
         <p>The NSW Empowering Homes program offers <strong>interest-free loans</strong> for solar and battery installations. Check current availability as the program has run in tranches.</p>
         <span class="state-badge">Interest-free loans</span>
       </div>
       <div class="state-card">
-        <span class="state-flag">🟥 QLD</span>
+        <span class="state-flag"> QLD</span>
         <h4>QLD Battery Booster</h4>
         <p>Queensland's rebate focuses on <strong>battery storage</strong> rather than solar panels. Eligible households can claim up to <strong>$3,000</strong> toward an approved battery system.</p>
         <span class="state-badge gold">Up to $3,000</span>
       </div>
       <div class="state-card">
-        <span class="state-flag">⬛ SA</span>
+        <span class="state-flag"> SA</span>
         <h4>SA Home Battery Scheme</h4>
         <p>South Australia offers a <strong>$2,000 subsidy</strong> for eligible battery installations through the SA Home Battery Scheme, alongside the federal STC benefit on the solar component.</p>
         <span class="state-badge gold">Up to $2,000</span>
       </div>
       <div class="state-card">
-        <span class="state-flag">🟧 WA</span>
+        <span class="state-flag"> WA</span>
         <h4>Distributed Energy Buyback Scheme</h4>
         <p>Western Australia's DEBS provides <strong>feed-in tariff credits</strong> for surplus solar power exported to the grid - varying rates apply depending on time of export.</p>
         <span class="state-badge">Feed-in tariff</span>
       </div>
       <div class="state-card">
-        <span class="state-flag">🟩 ACT</span>
+        <span class="state-flag"> ACT</span>
         <h4>ACT Sustainable Household Scheme</h4>
         <p>ACT residents may access <strong>interest-free loans up to $15,000</strong> for solar, batteries, and energy-efficient appliances through the Sustainable Household Scheme.</p>
         <span class="state-badge gold">Up to $15,000 loan</span>
@@ -422,7 +461,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
     </div>
 
     <div class="callout">
-      <div class="callout-title">💡 State programs change frequently</div>
+      <div class="callout-title"> State programs change frequently</div>
       <p>State government solar programs open, close, and change their criteria regularly. Your matched ClearWatt installer will confirm exactly what's currently available in your state and postcode at the time of your quote.</p>
     </div>
   </div>
@@ -469,7 +508,7 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
     </ul>
 
     <div class="callout warn">
-      <div class="callout-title">⚠️ Watch out for cowboy installers</div>
+      <div class="callout-title"> Watch out for cowboy installers</div>
       <p>Only systems installed by <strong>CEC-accredited</strong> installers qualify for federal STCs. Unlicensed or uncertified installers may offer lower prices but leave you unable to claim the rebate - costing you far more in the long run. Every installer in the ClearWatt network is CEC-accredited.</p>
     </div>
   </div>
@@ -528,38 +567,38 @@ footer .footer-bottom{color:rgba(255,255,255,0.3)}
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="/" class="logo" style="text-decoration:none">
-        <div class="logo-sun">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
-        <circle cx="12" cy="12" r="4.5"/>
-        <line x1="12" y1="1.5" x2="12" y2="3.5"/><line x1="12" y1="20.5" x2="12" y2="22.5"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1.5" y1="12" x2="3.5" y2="12"/><line x1="20.5" y1="12" x2="22.5" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-      </svg>
-    </div>
-        <span class="logo-text">Clear<span>Watt</span> Solar</span>
+        <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle class="core" cx="12" cy="12" r="3.4"/><g class="ray" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.4" y1="5.4" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="18.6" y2="18.6"/><line x1="5.4" y1="18.6" x2="7.1" y2="16.9"/><line x1="16.9" y1="7.1" x2="18.6" y2="5.4"/></g></svg>
+        <span class="logo-text">ClearWatt</span>
       </a>
-      <p>Australia's trusted solar quote matching service - connecting homeowners with the best local installers since 2020.</p>
+      <p>Australia's trusted solar quote matching service — connecting homeowners with CEC-accredited local installers.</p>
+      <div class="cec-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z"/><polyline points="9 12 11 14 15 9.5"/></svg>
+        <span class="cec-badge-txt">CEC Accredited<br>Installer Network</span>
+      </div>
     </div>
-    <div class="footer-col">
-      <h5>Resources</h5>
-      <ul>
-        <li><a href="/rebate-guide">Rebate Guide</a></li>
-        <li><a href="/savings-calculator">Savings Calculator</a></li>
-        <li><a href="/faq">Full FAQ</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Legal</h5>
-      <ul>
-        <li><a href="/privacy-policy">Privacy Policy</a></li>
-        <li><a href="/terms">Terms of Use</a></li>
-      </ul>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="/rebate-guide">Rebate Guide</a></li>
+          <li><a href="/savings-calculator">Savings Calculator</a></li>
+          <li><a href="/faq">Full FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Use</a></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 ClearWatt Solar · clearwattsolar.com.au · Australian-owned &amp; operated<br>
-    *Rebate availability subject to federal and state government eligibility criteria and scheme availability at time of installation. Not all homeowners will qualify. ClearWatt Solar is a referral matching service and does not provide installation services directly. All installers are independently licensed and insured.
+    © 2026 ClearWatt Solar · clearwattsolar.com.au · Australian-owned &amp; operated
+    <div class="footer-disclaimer">
+      Rebate availability is subject to federal and state government eligibility criteria and scheme availability at the time of installation. Not all homeowners will qualify. ClearWatt Solar is a referral matching service and does not provide installation services directly. All installers are independently licensed and insured.
+    </div>
   </div>
 </footer>
 
