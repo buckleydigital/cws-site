@@ -12,7 +12,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
 
 <!-- Google Tag (replace G-XXXXXXXX) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
@@ -541,6 +541,16 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
 .overlay{background:rgba(10,22,40,0.94)!important}
 .spinner{border-top-color:var(--gold)!important}
 .overlay p{color:#fff!important;font-family:var(--sans)!important}
+
+/* ===== original ClearWatt logo restored ===== */
+.logo-mark{display:none!important}
+.logo-sun{width:38px!important;height:38px!important;background:linear-gradient(135deg,#fcd435,#0b2738)!important;border-radius:50%!important;display:flex!important;align-items:center!important;justify-content:center!important;box-shadow:0 0 0 5px rgba(252,212,53,0.25),0 0 0 10px rgba(252,212,53,0.08)!important;animation:pulse-sun 3s ease-in-out infinite!important;flex-shrink:0!important;padding:0!important}
+.logo-sun svg{width:20px!important;height:20px!important;display:block!important}
+@keyframes pulse-sun{0%,100%{box-shadow:0 0 0 5px rgba(252,212,53,0.25),0 0 0 10px rgba(252,212,53,0.08)}50%{box-shadow:0 0 0 8px rgba(252,212,53,0.3),0 0 0 16px rgba(252,212,53,0.05)}}
+.logo-text{font-family:'Outfit',sans-serif!important;font-weight:800!important;font-size:1.2rem!important;color:#0A1628!important;letter-spacing:-0.02em!important}
+.logo-text span{color:#fcd435!important}
+footer .logo-text,.footer-brand .logo-text{color:#ffffff!important}
+footer .logo-text span,.footer-brand .logo-text span{color:#fcd435!important}
 </style>
 </head>
 <body>
@@ -554,8 +564,16 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
 <!-- ═══ NAV ═══ -->
 <nav>
   <a href="/" class="logo">
-    <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle class="core" cx="12" cy="12" r="3.4"/><g class="ray" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.4" y1="5.4" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="18.6" y2="18.6"/><line x1="5.4" y1="18.6" x2="7.1" y2="16.9"/><line x1="16.9" y1="7.1" x2="18.6" y2="5.4"/></g></svg>
-    <span class="logo-text">ClearWatt</span>
+    <div class="logo-sun">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+        <circle cx="12" cy="12" r="4.5"/>
+        <line x1="12" y1="1.5" x2="12" y2="3.5"/><line x1="12" y1="20.5" x2="12" y2="22.5"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1.5" y1="12" x2="3.5" y2="12"/><line x1="20.5" y1="12" x2="22.5" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </div>
+    <span class="logo-text">Clear<span>Watt</span> Solar</span>
   </a>
   <div class="nav-right">
     <a href="#quote" class="nav-cta">Get Your Free Quote</a>
@@ -595,7 +613,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
   </h1>
 
   <p class="hero-sub">
-    We match Darling Downs homeowners with their <strong>#1 local CEC-accredited installer</strong> for an obligation-free quote — no cowboys, no call centres, no pressure. Ever.
+    We match Darling Downs homeowners with their <strong>#1 local CEC-accredited installer</strong> for an obligation-free quote - no cowboys, no call centres, no pressure. Ever.
   </p>
 
   <div class="trust-row">
@@ -687,7 +705,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
             
             <div class="renter-msg-title">Sorry, We Can't Help Right Now</div>
             <p style="font-size:0.82rem;color:var(--muted);line-height:1.65;margin-bottom:8px">Solar quotes are only available to homeowners. If your situation changes, we'd love to help you in the future!</p>
-            <div class="renter-box"> <strong style="color:var(--cyan)">Buying soon?</strong> Bookmark this page — solar is one of the best first upgrades for new homeowners in the Darling Downs.</div>
+            <div class="renter-box"> <strong style="color:var(--cyan)">Buying soon?</strong> Bookmark this page - solar is one of the best first upgrades for new homeowners in the Darling Downs.</div>
           </div>
         </div>
 
@@ -722,7 +740,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
               
               <div class="ch-body">
                 <div class="ch-title">$800+ / quarter</div>
-                <div class="ch-sub">Very high usage — EV, pool, ducted A/C</div>
+                <div class="ch-sub">Very high usage - EV, pool, ducted A/C</div>
               </div>
               <span class="ch-badge">Best savings</span>
             </div>
@@ -730,7 +748,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
 
           <div class="insight">
             
-            <p>The Darling Downs averages over 5 peak sun hours per day — among QLD's best. At $500/qtr, most homeowners see <strong>full payback in under 4 years</strong> — then 20+ years of effectively free power.</p>
+            <p>The Darling Downs averages over 5 peak sun hours per day - among QLD's best. At $500/qtr, most homeowners see <strong>full payback in under 4 years</strong> - then 20+ years of effectively free power.</p>
           </div>
 
           <button class="btn-back" onclick="goToStep(2,1)">
@@ -768,7 +786,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
 
           <div class="insight">
             
-            <p>No pressure — whether ready tomorrow or in 6 months, <strong>getting a quote now locks in today's STC rebate levels</strong> before they step down further.</p>
+            <p>No pressure - whether ready tomorrow or in 6 months, <strong>getting a quote now locks in today's STC rebate levels</strong> before they step down further.</p>
           </div>
 
           <button class="btn-back" onclick="goToStep(3,2)">
@@ -784,7 +802,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
 
           <div class="match-notice">
             
-            <p>We use your postcode to <strong>match you with your nearest pre-vetted local installer</strong> — someone who knows your area, your grid, and Queensland's rebates.</p>
+            <p>We use your postcode to <strong>match you with your nearest pre-vetted local installer</strong> - someone who knows your area, your grid, and Queensland's rebates.</p>
           </div>
 
           <div class="field-wrap">
@@ -807,7 +825,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
 
         <!-- STEP 5: CONTACT -->
         <div class="step" id="step5">
-          <div class="step-label">Step 5 of 5 — Almost There!</div>
+          <div class="step-label">Step 5 of 5 - Almost There!</div>
           <h3>Where Should We Send Your Quote?</h3>
 
           <div class="match-notice" id="matchNotice">
@@ -878,12 +896,12 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
     <div class="hiw-card">
       <div class="hiw-num">01</div>
       <h4>Answer 5 Quick Questions</h4>
-      <p>Takes under 60 seconds. No lengthy forms, no jargon — just what we need to match you accurately to your best local installer.</p>
+      <p>Takes under 60 seconds. No lengthy forms, no jargon - just what we need to match you accurately to your best local installer.</p>
     </div>
     <div class="hiw-card">
       <div class="hiw-num">02</div>
       <h4>Get Instantly Matched</h4>
-      <p>We find your top-rated, CEC-accredited Darling Downs installer — vetted, insured, and reviewed by homeowners like you.</p>
+      <p>We find your top-rated, CEC-accredited Darling Downs installer - vetted, insured, and reviewed by homeowners like you.</p>
     </div>
     <div class="hiw-card">
       <div class="hiw-num">03</div>
@@ -893,7 +911,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
     <div class="hiw-card">
       <div class="hiw-num">04</div>
       <h4>Start Saving</h4>
-      <p>Say yes (or don't — zero obligation). If you go ahead, your savings start from day one of installation.</p>
+      <p>Say yes (or don't - zero obligation). If you go ahead, your savings start from day one of installation.</p>
     </div>
   </div>
 </section>
@@ -908,7 +926,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
     <div class="fact-card">
       
       <h4>Outstanding Solar Resource</h4>
-      <p>The Darling Downs averages over 5 peak sun hours per day — one of Queensland's best regions — delivering exceptional returns on a quality solar system year-round.</p>
+      <p>The Darling Downs averages over 5 peak sun hours per day - one of Queensland's best regions - delivering exceptional returns on a quality solar system year-round.</p>
     </div>
     <div class="fact-card">
       
@@ -929,12 +947,12 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
     <div class="fact-card">
       
       <h4>Battery = True Independence</h4>
-      <p>Add a home battery and power your home at night — slashing peak tariff costs and significantly reducing dependence on the grid.</p>
+      <p>Add a home battery and power your home at night - slashing peak tariff costs and significantly reducing dependence on the grid.</p>
     </div>
     <div class="fact-card">
       
       <h4>Boost Your Property Value</h4>
-      <p>Studies show solar can add $20,000–$40,000 to resale value — a major advantage in the Darling Downs' growing property market.</p>
+      <p>Studies show solar can add $20,000–$40,000 to resale value - a major advantage in the Darling Downs' growing property market.</p>
     </div>
   </div>
 </section>
@@ -961,7 +979,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
     </div>
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text">"The installer ClearWatt matched us with was brilliant — explained every detail, zero hard sell, and came in significantly cheaper than the two quotes we'd already collected ourselves."</p>
+      <p class="review-text">"The installer ClearWatt matched us with was brilliant - explained every detail, zero hard sell, and came in significantly cheaper than the two quotes we'd already collected ourselves."</p>
       <div class="reviewer">
         <div class="reviewer-av">JW</div>
         <div>
@@ -997,7 +1015,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
     </div>
     <div class="review-card">
       <div class="review-stars">★★★★★</div>
-      <p class="review-text">"One call, one honest quote — done. The installer answered every question without any sales pressure whatsoever. Installed a 10kW system at our Pittsworth place. Start to finish was impressive."</p>
+      <p class="review-text">"One call, one honest quote - done. The installer answered every question without any sales pressure whatsoever. Installed a 10kW system at our Pittsworth place. Start to finish was impressive."</p>
       <div class="reviewer">
         <div class="reviewer-av">SM</div>
         <div>
@@ -1026,7 +1044,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
 <section class="cta-strip">
   <h3>Join thousands of Darling Downs homeowners who went solar with confidence</h3>
   <a href="#quote" class="cta-btn" onclick="document.querySelector('.survey-card').scrollIntoView({behavior:'smooth'});return false;">
-    Get My Free Quote — No Obligation →
+    Get My Free Quote - No Obligation →
   </a>
 </section>
 
@@ -1042,7 +1060,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">Is solar worth it in the Darling Downs in 2026?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-    <div class="faq-a">Absolutely. The Darling Downs' outstanding solar irradiance and Queensland's electricity tariffs make solar one of the best financial decisions for homeowners in the region. The average payback on a quality 6.6kW system is 3–5 years, with annual savings of $2,200–$3,100 depending on usage and roof orientation. Panel warranties run 25 years — meaning 20+ years of effectively free electricity after payback.</div>
+    <div class="faq-a">Absolutely. The Darling Downs' outstanding solar irradiance and Queensland's electricity tariffs make solar one of the best financial decisions for homeowners in the region. The average payback on a quality 6.6kW system is 3–5 years, with annual savings of $2,200–$3,100 depending on usage and roof orientation. Panel warranties run 25 years - meaning 20+ years of effectively free electricity after payback.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">What is a CEC-accredited solar installer?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
@@ -1050,7 +1068,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">Is this service really free? What's the catch?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-    <div class="faq-a">Genuinely free. We may earn a referral fee from the installer if and when you choose to proceed with an installation — but only then, and it never affects your quoted price. The matching service is completely free with zero obligation, ever.</div>
+    <div class="faq-a">Genuinely free. We may earn a referral fee from the installer if and when you choose to proceed with an installation - but only then, and it never affects your quoted price. The matching service is completely free with zero obligation, ever.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">How are your Darling Downs installers vetted?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
@@ -1058,7 +1076,7 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">Will I be hassled by sales calls?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-    <div class="faq-a">No. Your matched installer contacts you once to deliver a quote. If you're not interested, say so — our network guidelines require them to respect that immediately with no follow-ups. We take this seriously and will remove installers who don't comply.</div>
+    <div class="faq-a">No. Your matched installer contacts you once to deliver a quote. If you're not interested, say so - our network guidelines require them to respect that immediately with no follow-ups. We take this seriously and will remove installers who don't comply.</div>
   </div>
   <div class="faq-item">
     <div class="faq-q" onclick="toggleFaq(this)">What size solar system do I need in the Darling Downs?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
@@ -1071,10 +1089,18 @@ footer{background:var(--navy)!important;padding:72px 6vw 40px!important}
   <div class="footer-inner">
     <div class="footer-brand">
       <a href="/" class="logo" style="text-decoration:none">
-        <svg class="logo-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle class="core" cx="12" cy="12" r="3.4"/><g class="ray" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="21.5"/><line x1="2.5" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="21.5" y2="12"/><line x1="5.4" y1="5.4" x2="7.1" y2="7.1"/><line x1="16.9" y1="16.9" x2="18.6" y2="18.6"/><line x1="5.4" y1="18.6" x2="7.1" y2="16.9"/><line x1="16.9" y1="7.1" x2="18.6" y2="5.4"/></g></svg>
-        <span class="logo-text">ClearWatt</span>
+        <div class="logo-sun">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+        <circle cx="12" cy="12" r="4.5"/>
+        <line x1="12" y1="1.5" x2="12" y2="3.5"/><line x1="12" y1="20.5" x2="12" y2="22.5"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1.5" y1="12" x2="3.5" y2="12"/><line x1="20.5" y1="12" x2="22.5" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </div>
+    <span class="logo-text">Clear<span>Watt</span> Solar</span>
       </a>
-      <p>Australia's trusted solar quote matching service — connecting homeowners with CEC-accredited local installers.</p>
+      <p>Australia's trusted solar quote matching service - connecting homeowners with CEC-accredited local installers.</p>
       <div class="cec-badge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.4 8.5-8 11-4.6-2.5-8-6-8-11V5l8-3z"/><polyline points="9 12 11 14 15 9.5"/></svg>
         <span class="cec-badge-txt">CEC Accredited<br>Installer Network</span>
@@ -1249,13 +1275,13 @@ window.submitPostcode = async function() {
       chip.className = 'suburb-chip no-coverage';
       document.getElementById('suburb-text').textContent = 'No installer found for this postcode';
       pcEl.classList.add('err-field');
-      errEl.textContent   = "We don’t have an installer covering that postcode yet — try a neighbouring postcode.";
+      errEl.textContent   = "We don’t have an installer covering that postcode yet - try a neighbouring postcode.";
       errEl.style.display = 'block';
       btn.textContent     = 'Find My Local Installer →';
       btn.disabled        = false;
     }
   } catch(e) {
-    /* Network error — fall back silently so no lead is lost */
+    /* Network error - fall back silently so no lead is lost */
     console.warn('Postcode lookup error:', e);
     chip.style.display = 'none';
     formData.postcode      = pc;
@@ -1304,7 +1330,7 @@ function fv(id, test) {
   return ok;
 }
 
-/* ══ SUBMIT — triple dispatch (submit-lead + Make webhook + direct Supabase insert) ══ */
+/* ══ SUBMIT - triple dispatch (submit-lead + Make webhook + direct Supabase insert) ══ */
 window.submitForm = async function() {
   var ok = true;
   ok = fv('firstName', function(v){ return v.length > 1; }) && ok;
@@ -1358,7 +1384,7 @@ window.submitForm = async function() {
   try {
     await Promise.all([
 
-      /* PRIMARY — handles dedup, insert into ppl_leads, client match, and delivery */
+      /* PRIMARY - handles dedup, insert into ppl_leads, client match, and delivery */
       fetch(SUBMIT_LEAD_URL, {
         method:  'POST',
         headers: {
@@ -1369,14 +1395,14 @@ window.submitForm = async function() {
         body: JSON.stringify(leadPayload)
       }).catch(function(e) { console.warn('submit-lead error:', e); }),
 
-      /* NOTIFICATION — Make scenario for operator alerts */
+      /* NOTIFICATION - Make scenario for operator alerts */
       fetch(MAKE_WEBHOOK, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(leadPayload)
       }).catch(function(e) { console.warn('Make webhook error:', e); }),
 
-      /* DIRECT INSERT — backup record in ClearWatt's leads table */
+      /* DIRECT INSERT - backup record in ClearWatt's leads table */
       fetch(SUPABASE_URL + '/rest/v1/leads', {
         method:  'POST',
         headers: {
@@ -1406,7 +1432,7 @@ window.submitForm = async function() {
 
     ]);
   } catch(e) { console.warn('Submit error:', e); }
-  /* Always show success — never block UX on a network hiccup */
+  /* Always show success - never block UX on a network hiccup */
 
   document.getElementById('overlay').classList.remove('show');
 
@@ -1421,7 +1447,7 @@ window.submitForm = async function() {
     '<div style="font-size:3.2rem;margin-bottom:18px">⚡</div>',
     '<h3 style="font-family:Outfit,sans-serif;font-weight:900;font-size:1.3rem;color:var(--white);letter-spacing:-0.03em;margin-bottom:10px">You\'re matched! Quote incoming.</h3>',
     '<p style="font-size:0.84rem;color:var(--muted);line-height:1.65;max-width:320px;margin:0 auto 24px">',
-      'Expect a call or email from <strong>' + (leadPayload.matched_buyer || 'your matched installer') + '</strong> within 1 business day. Zero pressure — just a clear, honest quote.',
+      'Expect a call or email from <strong>' + (leadPayload.matched_buyer || 'your matched installer') + '</strong> within 1 business day. Zero pressure - just a clear, honest quote.',
     '</p>',
     '<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">',
       '<span style="background:rgba(252,212,53,0.08);border:1px solid rgba(252,212,53,0.22);border-radius:50px;padding:6px 14px;font-size:0.73rem;font-weight:700;color:var(--cyan)">✓ CEC Verified</span>',
