@@ -266,12 +266,25 @@
     var body = $('svSheetBody');
     var fig = $('svFigure');
     if (!body || !fig) return;
-    body.innerHTML =
-      '<div class="sv-eyebrow"><span class="sv-dot"></span>Live Savings Estimate</div>' +
-      fig.outerHTML.replace('hidden=""', '').replace(/id="[^"]*"/g, '') +
-      '<div class="sv-disclaimer">Estimates based on typical Australian households. Your installer will confirm exact figures.</div>';
-    var clone = body.querySelector('.sv-figure');
-    if (clone) clone.hidden = false;
+
+    // Deep-clone the live figure, then DROP any still-hidden children (e.g. the
+    // STC or feed-in lines that haven't been revealed yet) so they can't show up
+    // as blank check rows. Strip ids to avoid duplicates in the document.
+    var clone = fig.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.hidden = false;
+    clone.querySelectorAll('[hidden]').forEach(function (el) {
+      if (el.parentNode) el.parentNode.removeChild(el);
+    });
+    clone.querySelectorAll('[id]').forEach(function (el) { el.removeAttribute('id'); });
+
+    body.innerHTML = '<div class="sv-eyebrow"><span class="sv-dot"></span>Live Savings Estimate</div>';
+    body.appendChild(clone);
+    var disc = document.createElement('div');
+    disc.className = 'sv-disclaimer';
+    disc.textContent = 'Estimates based on typical Australian households. Your installer will confirm exact figures.';
+    body.appendChild(disc);
+
     $('svSheet').classList.add('sv-open');
     document.body.style.overflow = 'hidden';
   }
