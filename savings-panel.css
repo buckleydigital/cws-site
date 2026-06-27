@@ -1,0 +1,179 @@
+/* =====================================================================
+   SAVINGS ESTIMATE PANEL — NEW, ADDITIVE STYLES ONLY
+   ---------------------------------------------------------------------
+   This file is entirely new. It does NOT override or modify any existing
+   rule. All selectors are namespaced with the `sv-` prefix to avoid any
+   collision with the existing survey/quiz styles. It reuses the site's
+   own CSS custom properties (--surface, --line, --green, --serif, etc.)
+   so the panel matches the existing brand exactly.
+   ===================================================================== */
+
+/* ── Desktop panel (lives in the survey right column, below the card) ── */
+.sv-panel{
+  width:100%;
+  margin-top:20px;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:20px;
+  box-shadow:0 30px 70px rgba(10,22,40,0.07),0 2px 6px rgba(10,22,40,0.04);
+  padding:26px 28px 22px;
+  font-family:var(--sans);
+}
+
+.sv-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:0.66rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--green);
+}
+.sv-dot{
+  width:7px;height:7px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 0 rgba(30,158,90,0.5);
+  animation:svPulse 2s infinite;
+}
+@keyframes svPulse{
+  0%{box-shadow:0 0 0 0 rgba(30,158,90,0.45)}
+  70%{box-shadow:0 0 0 7px rgba(30,158,90,0)}
+  100%{box-shadow:0 0 0 0 rgba(30,158,90,0)}
+}
+
+.sv-teaser{
+  margin-top:14px;
+  font-family:var(--serif);font-weight:500;
+  font-size:1.18rem;line-height:1.35;color:var(--ink);letter-spacing:-0.01em;
+}
+
+/* ── Figure (revealed once a bill tier is known) ── */
+.sv-figure{margin-top:16px;animation:svReveal 0.45s ease}
+@keyframes svReveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.sv-saving-label{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.06em;
+  color:var(--ink-45);text-transform:uppercase;
+}
+.sv-saving-range{
+  margin-top:6px;display:flex;align-items:baseline;flex-wrap:wrap;gap:2px;
+  font-family:var(--serif);font-weight:600;letter-spacing:-0.02em;
+  color:var(--green);font-size:2.1rem;line-height:1.05;
+}
+.sv-saving-range .sv-dash{margin:0 4px;color:var(--green);font-weight:500}
+.sv-saving-range .sv-per{
+  font-family:var(--sans);font-size:0.95rem;font-weight:600;
+  color:var(--ink-60);margin-left:6px;align-self:flex-end;
+}
+
+.sv-stats{
+  margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+}
+.sv-stat{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:14px 12px;text-align:center;
+}
+.sv-stat-v{
+  font-family:var(--sans);font-weight:700;font-size:1.02rem;color:var(--ink);
+  letter-spacing:-0.01em;
+}
+.sv-stat-l{
+  margin-top:4px;font-size:0.68rem;font-weight:600;letter-spacing:0.04em;
+  color:var(--ink-45);text-transform:uppercase;line-height:1.3;
+}
+
+/* ── Appended fact lines (STC, feed-in tariff) ── */
+.sv-extra{
+  margin-top:12px;display:flex;gap:9px;align-items:flex-start;
+  font-size:0.84rem;line-height:1.5;color:var(--ink-80);
+  background:rgba(30,158,90,0.06);
+  border:1px solid rgba(30,158,90,0.16);
+  border-radius:12px;padding:11px 13px;
+  animation:svReveal 0.4s ease;
+}
+.sv-extra svg{width:16px;height:16px;flex-shrink:0;margin-top:2px;color:var(--green)}
+.sv-extra strong{color:var(--ink);font-weight:600}
+
+.sv-disclaimer{
+  margin-top:16px;
+  font-size:0.72rem;line-height:1.5;color:var(--ink-45);
+}
+
+/* ── Step 5 in-form summary (prepended above the contact form) ── */
+.sv-step5{
+  margin-bottom:24px;
+  background:var(--bg);
+  border:1px solid rgba(30,158,90,0.18);
+  border-radius:14px;
+  padding:18px 20px;
+  animation:svReveal 0.4s ease;
+}
+.sv-step5-head{
+  font-family:var(--serif);font-weight:500;font-size:1.16rem;line-height:1.3;
+  color:var(--ink);letter-spacing:-0.01em;margin-bottom:14px;
+}
+.sv-step5-grid{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:baseline}
+.sv-s5-item{display:flex;flex-direction:column;gap:2px}
+.sv-s5-v{font-family:var(--sans);font-weight:700;font-size:1rem;color:var(--ink)}
+.sv-s5-v.sv-s5-accent{color:var(--green)}
+.sv-s5-l{font-size:0.66rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-45)}
+.sv-step5-extra{
+  margin-top:12px;font-size:0.8rem;line-height:1.5;color:var(--ink-60);
+}
+.sv-step5-extra div{margin-top:5px}
+.sv-step5-extra strong{color:var(--ink);font-weight:600}
+
+/* ── Mobile sticky banner + sheet ── */
+.sv-mbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:13px 18px;padding-bottom:calc(13px + env(safe-area-inset-bottom,0));
+  background:var(--surface);
+  border-top:1px solid var(--line);
+  box-shadow:0 -8px 30px rgba(10,22,40,0.12);
+  font-family:var(--sans);
+  animation:svBarIn 0.4s ease;
+}
+@keyframes svBarIn{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.sv-mbar-text{font-size:0.92rem;color:var(--ink-80);font-weight:500}
+.sv-mbar-text strong{color:var(--green);font-weight:700;font-size:1.02rem}
+.sv-mbar-btn{
+  flex-shrink:0;
+  border:none;cursor:pointer;
+  background:var(--green);color:#fff;
+  font-family:var(--sans);font-weight:600;font-size:0.82rem;
+  padding:10px 16px;border-radius:999px;
+}
+
+.sv-sheet{position:fixed;inset:0;z-index:100;display:none}
+.sv-sheet.sv-open{display:block}
+.sv-sheet-backdrop{
+  position:absolute;inset:0;background:rgba(10,22,40,0.5);
+  animation:svFade 0.25s ease;
+}
+@keyframes svFade{from{opacity:0}to{opacity:1}}
+.sv-sheet-card{
+  position:absolute;left:0;right:0;bottom:0;
+  background:var(--surface);
+  border-radius:22px 22px 0 0;
+  padding:24px 22px calc(28px + env(safe-area-inset-bottom,0));
+  max-height:88vh;overflow-y:auto;
+  animation:svSheetUp 0.32s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes svSheetUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.sv-sheet-grab{width:38px;height:4px;border-radius:100px;background:var(--line-2);margin:0 auto 18px}
+.sv-sheet-close{
+  position:absolute;top:16px;right:16px;
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--line);background:var(--bg);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;color:var(--ink-60);
+}
+.sv-sheet-close svg{width:16px;height:16px}
+
+/* The sheet hosts a clone of the desktop figure, so reuse its styling */
+.sv-sheet-card .sv-eyebrow{margin-bottom:4px}
+
+/* ── Responsive visibility ──
+   Desktop panel shows from 901px up; mobile banner/sheet show at 900px down. */
+.sv-mbar{display:none}
+@media(max-width:900px){
+  .sv-panel{display:none}
+  .sv-mbar.sv-active{display:flex}
+}
