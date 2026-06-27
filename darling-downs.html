@@ -13,6 +13,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+<!-- Live savings estimate panel (additive, new file) -->
+<link rel="stylesheet" href="/savings-panel.css">
+
 
 <!-- Google Tag (replace G-XXXXXXXX) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
@@ -576,7 +579,7 @@ footer .logo-text span,.footer-brand .logo-text span{color:#fcd435!important}
     <span class="logo-text">Clear<span>Watt</span> Solar</span>
   </a>
   <div class="nav-right">
-    <a href="#quote" class="nav-cta">Get Your Free Quote</a>
+    <a href="#quote" class="nav-cta">Get My Free Quote</a>
     <button class="hamburger" id="hamburger" aria-label="Menu" onclick="toggleMob()">
       <span></span><span></span><span></span>
     </button>
@@ -654,235 +657,200 @@ footer .logo-text span,.footer-brand .logo-text span{color:#fcd435!important}
 
   <!-- ═══ SURVEY CARD ═══ -->
   <div class="survey-wrap">
-    <div class="survey-card">
+      <div class="survey-card">
 
-      <div class="survey-progress">
-        <div class="progress-meta">
-          <span class="progress-label">Your Progress</span>
-          <span class="progress-count" id="progressCount">Step 1 of 5</span>
-        </div>
-        <div class="prog-outer"><div class="prog-inner" id="progFill"></div></div>
-      </div>
-
-      <div style="padding:0 32px 4px;display:flex;justify-content:center">
-        <div class="dot-row">
-          <div class="sdot active" id="dot1"></div>
-          <div class="sdot" id="dot2"></div>
-          <div class="sdot" id="dot3"></div>
-          <div class="sdot" id="dot4"></div>
-          <div class="sdot" id="dot5"></div>
-        </div>
-      </div>
-
-      <div class="card-body">
-
-        <!-- STEP 1: OWNERSHIP -->
-        <div class="step active" id="step1">
-          <div id="step1-inner">
-            <div class="step-label">Step 1 of 5</div>
-            <h3>Do You Own Your Home?</h3>
-            <div class="choice-grid">
-              <div class="choice-card" onclick="pickOwner(true, 'own', this)">
-                
-                <div class="cc-title">Yes, I Own It</div>
-                <div class="cc-sub">Freehold or mortgage</div>
-              </div>
-              <div class="choice-card" onclick="pickOwner(true, 'invest', this)">
-                
-                <div class="cc-title">Investment Property</div>
-                <div class="cc-sub">Landlord wanting solar</div>
-              </div>
-            </div>
-            <div class="choice-grid one-col">
-              <div class="choice-card disq-card" onclick="pickOwner(false, 'rent', this)">
-                
-                <div class="cc-title">No, I Rent</div>
-                <div class="cc-sub">The owner would need to apply</div>
-              </div>
-            </div>
+        <div class="survey-progress">
+          <div class="progress-meta">
+            <span class="progress-label">Your Progress</span>
+            <span class="progress-count" id="progressCount">Step 1 of 5</span>
           </div>
-          <div id="renter-msg">
-            
-            <div class="renter-msg-title">Sorry, We Can't Help Right Now</div>
-            <p style="font-size:0.82rem;color:var(--muted);line-height:1.65;margin-bottom:8px">Solar quotes are only available to homeowners. If your situation changes, we'd love to help you in the future!</p>
-            <div class="renter-box"> <strong style="color:var(--cyan)">Buying soon?</strong> Bookmark this page - solar is one of the best first upgrades for new homeowners in the Darling Downs.</div>
-          </div>
+          <div class="prog-outer"><div class="prog-inner" id="progFill"></div></div>
         </div>
 
-        <!-- STEP 2: BILL -->
-        <div class="step" id="step2">
-          <div class="step-label">Step 2 of 5</div>
-          <h3>What's Your Average Quarterly Electricity Bill?</h3>
-          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:16px">
-            <div class="choice-h" onclick="pickBill(this,'Under $300/quarter')">
-              
-              <div class="ch-body">
-                <div class="ch-title">Under $300 / quarter</div>
-                <div class="ch-sub">Small home or low usage</div>
+        <div class="card-body">
+
+          <!-- STEP 1: OWNERSHIP -->
+          <div class="step active" id="step1">
+            <div id="step1-inner">
+              <div class="step-label">Step 1 of 5</div>
+              <h3>Do you own your home?</h3>
+              <div class="choice-grid">
+                <div class="choice-card" onclick="pickOwner(true, 'own', this)">
+                  <div class="cc-title">Yes, I own it</div>
+                  <div class="cc-sub">Freehold or mortgage</div>
+                </div>
+                <div class="choice-card disq-card" onclick="pickOwner(false, 'rent', this)">
+                  <div class="cc-title">No, I rent</div>
+                  <div class="cc-sub">Tenant or other</div>
+                </div>
               </div>
             </div>
-            <div class="choice-h" onclick="pickBill(this,'$300–$500/quarter')">
-              
-              <div class="ch-body">
-                <div class="ch-title">$300 – $500 / quarter</div>
-                <div class="ch-sub">Average household</div>
+            <div id="renter-msg">
+              <div class="renter-msg-title">Solar quotes are for homeowners</div>
+              <p style="font-size:0.92rem;color:var(--ink-60);line-height:1.7">Our service is currently available to homeowners only. If your situation changes, we'd be glad to help in future.</p>
+              <div class="renter-box"><strong>Buying soon?</strong> Bookmark this page - solar is one of the most rewarding first upgrades for new homeowners in Australia.</div>
+            </div>
+          </div>
+
+          <!-- STEP 2: BILL -->
+          <div class="step" id="step2">
+            <div class="step-label">Step 2 of 5</div>
+            <h3>What's your average quarterly electricity bill?</h3>
+            <div class="choice-stack">
+              <div class="choice-h" onclick="pickBill(this,'Under $300')">
+                <div class="ch-body">
+                  <div class="ch-title">Under $300</div>
+                  <div class="ch-sub">Low usage</div>
+                </div>
+              </div>
+              <div class="choice-h" onclick="pickBill(this,'$300–$500')">
+                <div class="ch-body">
+                  <div class="ch-title">$300 – $500</div>
+                  <div class="ch-sub">Average household</div>
+                </div>
+              </div>
+              <div class="choice-h" onclick="pickBill(this,'$500–$800')">
+                <div class="ch-body">
+                  <div class="ch-title">$500 – $800</div>
+                  <div class="ch-sub">High usage</div>
+                </div>
+              </div>
+              <div class="choice-h" onclick="pickBill(this,'$800+')">
+                <div class="ch-body">
+                  <div class="ch-title">$800+</div>
+                  <div class="ch-sub">Very high usage</div>
+                </div>
               </div>
             </div>
-            <div class="choice-h" onclick="pickBill(this,'$500–$800/quarter')">
-              
-              <div class="ch-body">
-                <div class="ch-title">$500 – $800 / quarter</div>
-                <div class="ch-sub">High usage</div>
+            <div class="note">
+              <p>The higher your bill, the faster solar pays for itself. At $500 a quarter, most Australian homeowners reach <strong>full payback in under four years.</strong></p>
+            </div>
+            <button class="btn-back" onclick="goToStep(2,1)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+          </div>
+
+          <!-- STEP 3: TIMELINE -->
+          <div class="step" id="step3">
+            <div class="step-label">Step 3 of 5</div>
+            <h3>When are you looking to go solar?</h3>
+            <div class="choice-stack">
+              <div class="choice-h" onclick="pickTimeline(this,'ASAP')">
+                <div class="ch-body">
+                  <div class="ch-title">As soon as possible</div>
+                  <div class="ch-sub">Within 1 month</div>
+                </div>
               </div>
-              <span class="ch-badge">High savings</span>
-            </div>
-            <div class="choice-h" onclick="pickBill(this,'$800+/quarter')">
-              
-              <div class="ch-body">
-                <div class="ch-title">$800+ / quarter</div>
-                <div class="ch-sub">Very high usage - EV, pool, ducted A/C</div>
+              <div class="choice-h" onclick="pickTimeline(this,'1-3 Months')">
+                <div class="ch-body">
+                  <div class="ch-title">1 – 3 months</div>
+                  <div class="ch-sub">Planning ahead</div>
+                </div>
               </div>
-              <span class="ch-badge">Best savings</span>
+              <div class="choice-h" onclick="pickTimeline(this,'3-6 Months')">
+                <div class="ch-body">
+                  <div class="ch-title">3 – 6 months</div>
+                  <div class="ch-sub">Researching options</div>
+                </div>
+              </div>
+              <div class="choice-h" onclick="pickTimeline(this,'Just Exploring')">
+                <div class="ch-body">
+                  <div class="ch-title">Just exploring</div>
+                  <div class="ch-sub">No rush yet</div>
+                </div>
+              </div>
             </div>
-          </div>
-
-          <div class="insight">
-            
-            <p>The Darling Downs averages over 5 peak sun hours per day - among QLD's best. At $500/qtr, most homeowners see <strong>full payback in under 4 years</strong> - then 20+ years of effectively free power.</p>
-          </div>
-
-          <button class="btn-back" onclick="goToStep(2,1)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            Back
-          </button>
-        </div>
-
-        <!-- STEP 3: TIMELINE -->
-        <div class="step" id="step3">
-          <div class="step-label">Step 3 of 5</div>
-          <h3>When Are You Looking to Get Solar?</h3>
-          <div class="choice-grid" style="margin-bottom:16px">
-            <div class="choice-card" onclick="pickTimeline(this,'ASAP')">
-              
-              <div class="cc-title">ASAP</div>
-              <div class="cc-sub">Within 1 month</div>
+            <div class="note">
+              <p>No pressure either way. Whether you're ready now or in six months, <strong>requesting a quote today locks in current rebate levels.</strong></p>
             </div>
-            <div class="choice-card" onclick="pickTimeline(this,'1–3 Months')">
-              
-              <div class="cc-title">1–3 Months</div>
-              <div class="cc-sub">Planning ahead</div>
+            <button class="btn-back" onclick="goToStep(3,2)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button>
+          </div>
+
+          <!-- STEP 4: POSTCODE -->
+          <div class="step" id="step4">
+            <div class="step-label">Step 4 of 5</div>
+            <h3>What's your postcode?</h3>
+
+            <div class="match-notice">
+              <p>We use your postcode to <strong>match you with your nearest pre-vetted local installer.</strong></p>
             </div>
-            <div class="choice-card" onclick="pickTimeline(this,'3–6 Months')">
-              
-              <div class="cc-title">3–6 Months</div>
-              <div class="cc-sub">Just researching</div>
-            </div>
-            <div class="choice-card" onclick="pickTimeline(this,'Exploring')">
-              
-              <div class="cc-title">Exploring</div>
-              <div class="cc-sub">No rush yet</div>
-            </div>
-          </div>
 
-          <div class="insight">
-            
-            <p>No pressure - whether ready tomorrow or in 6 months, <strong>getting a quote now locks in today's STC rebate levels</strong> before they step down further.</p>
-          </div>
-
-          <button class="btn-back" onclick="goToStep(3,2)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            Back
-          </button>
-        </div>
-
-        <!-- STEP 4: POSTCODE -->
-        <div class="step" id="step4">
-          <div class="step-label">Step 4 of 5</div>
-          <h3>What's Your Home's Postcode?</h3>
-
-          <div class="match-notice">
-            
-            <p>We use your postcode to <strong>match you with your nearest pre-vetted local installer</strong> - someone who knows your area, your grid, and Queensland's rebates.</p>
-          </div>
-
-          <div class="field-wrap">
-            <label>Postcode</label>
-            <input type="text" id="postcode" placeholder="e.g. 4350" maxlength="4" inputmode="numeric"
-              oninput="this.value=this.value.replace(/\D/g,'').slice(0,4);onPostcodeTyping()">
-            <div class="suburb-chip" id="suburb-chip" style="display:none">
-              <span id="suburb-text"></span>
-            </div>
-            <div class="err-msg" id="err-postcode">Please enter a valid 4-digit postcode</div>
-          </div>
-
-          <button class="btn-next" id="postcodeBtn" onclick="submitPostcode()">Find My Local Installer →</button>
-
-          <button class="btn-back" style="margin-top:11px" onclick="goToStep(4,3)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            Back
-          </button>
-        </div>
-
-        <!-- STEP 5: CONTACT -->
-        <div class="step" id="step5">
-          <div class="step-label">Step 5 of 5 - Almost There!</div>
-          <h3>Where Should We Send Your Quote?</h3>
-
-          <div class="match-notice" id="matchNotice">
-            
-            <p>Great news! We've matched you with <strong id="buyerName">a pre-vetted local installer</strong> covering your area. Enter your details for your free, obligation-free solar quote.</p>
-          </div>
-
-          <div class="field-row">
             <div class="field-wrap">
-              <label>First Name</label>
-              <input type="text" id="firstName" placeholder="e.g. Sarah" autocomplete="given-name" oninput="validateContact()">
-              <div class="err-msg" id="err-firstName">Required</div>
+              <label>Postcode</label>
+              <input type="text" id="postcode" placeholder="e.g. 2000" maxlength="4" inputmode="numeric" oninput="this.value=this.value.replace(/\D/g,'').slice(0,4);onPostcodeTyping()">
+              <div class="suburb-chip" id="suburb-chip" style="display:none">
+                <span id="suburb-text"></span>
+              </div>
+              <div class="err-msg" id="err-postcode">Please enter a valid 4-digit postcode</div>
             </div>
+
+            <button class="btn-next secondary" id="postcodeBtn" onclick="submitPostcode()">Find My Installer</button>
+            <div style="text-align:left"><button class="btn-back" onclick="goToStep(4,3)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button></div>
+          </div>
+
+          <!-- STEP 5: CONTACT -->
+          <div class="step" id="step5">
+            <div class="step-label">Step 5 of 5 - Almost there</div>
+            <h3>Where should we send your quote?</h3>
+
+            <div class="match-notice" id="matchNotice">
+              <p>We've matched you with <strong id="buyerName">a pre-vetted local installer</strong> covering your area. Enter your details for your free, obligation-free solar quote.</p>
+            </div>
+
+            <div class="field-row">
+              <div class="field-wrap">
+                <label>First Name</label>
+                <input type="text" id="firstName" placeholder="e.g. Sarah" autocomplete="given-name" oninput="validateContact()">
+                <div class="err-msg" id="err-firstName">Required</div>
+              </div>
+              <div class="field-wrap">
+                <label>Last Name</label>
+                <input type="text" id="lastName" placeholder="e.g. Johnson" autocomplete="family-name" oninput="validateContact()">
+                <div class="err-msg" id="err-lastName">Required</div>
+              </div>
+            </div>
+
             <div class="field-wrap">
-              <label>Last Name</label>
-              <input type="text" id="lastName" placeholder="e.g. Johnson" autocomplete="family-name" oninput="validateContact()">
-              <div class="err-msg" id="err-lastName">Required</div>
+              <label>Mobile Number</label>
+              <input type="tel" id="phone" placeholder="04XX XXX XXX" inputmode="numeric" autocomplete="tel" oninput="validateContact()">
+              <div class="err-msg" id="err-phone">Enter a valid Australian mobile</div>
             </div>
+
+            <div class="field-wrap">
+              <label>Email Address</label>
+              <input type="email" id="email" placeholder="you@example.com" autocomplete="email" oninput="validateContact()">
+              <div class="err-msg" id="err-email">Enter a valid email</div>
+            </div>
+
+            <div class="consent-wrap">
+              <input type="checkbox" id="consent" onchange="validateContact()">
+              <label for="consent">
+                I agree to be contacted by <strong id="consentBuyerName">a pre-vetted CEC-accredited installer</strong> regarding my obligation-free solar quote. My details will be shared only with my matched installer. I've read the <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.
+              </label>
+            </div>
+            <button class="btn-next" id="submitBtn" disabled onclick="submitForm()">
+              Get Your Free Quote
+            </button>
+            <div class="priv-note">
+              Your details are shared only with your matched installer - never sold to a call centre or third parties.
+            </div>
+            <div style="text-align:left"><button class="btn-back" style="margin-top:16px" onclick="goToStep(5,4)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Back
+            </button></div>
           </div>
 
-          <div class="field-wrap">
-            <label>Mobile Number</label>
-            <input type="tel" id="phone" placeholder="04XX XXX XXX" inputmode="numeric" autocomplete="tel" oninput="validateContact()">
-            <div class="err-msg" id="err-phone">Enter a valid Australian mobile</div>
-          </div>
-
-          <div class="field-wrap">
-            <label>Email Address</label>
-            <input type="email" id="email" placeholder="you@example.com" autocomplete="email" oninput="validateContact()">
-            <div class="err-msg" id="err-email">Enter a valid email</div>
-          </div>
-
-          <div class="consent-wrap">
-            <input type="checkbox" id="consent" onchange="validateContact()">
-            <label for="consent">
-              I agree to be contacted by <strong id="consentBuyerName">a pre-vetted CEC-accredited installer</strong> regarding my obligation-free solar quote. My details will be shared only with my matched installer. I've read the <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.
-            </label>
-          </div>
-
-          <button class="btn-next" id="submitBtn" disabled onclick="submitForm()">
-             Get My Free Matched Quote →
-          </button>
-
-          <div class="priv-note">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span>100% secure · Your details stay with your matched installer only</span>
-          </div>
-
-          <button class="btn-back" style="margin-top:14px" onclick="goToStep(5,4)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-            Back
-          </button>
         </div>
-
-      </div><!-- /card-body -->
-    </div><!-- /survey-card -->
-  </div><!-- /survey-wrap -->
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- ═══ HOW IT WORKS ═══ -->
@@ -1134,9 +1102,7 @@ footer .logo-text span,.footer-brand .logo-text span{color:#fcd435!important}
 
 <!-- ═══ JAVASCRIPT ═══ -->
 <script>
-'use strict';
-
-/* ══ CONFIG ══ */
+/* ── CONFIG ── */
 var MAKE_WEBHOOK        = 'https://hook.eu2.make.com/6b7th8q12xdjkej49lw5tlsqesou4o21';
 var SUPABASE_URL        = 'https://wmegoygrancfwxagqskh.supabase.co';
 var SUPABASE_ANON_KEY   = 'sb_publishable_UHQNxVCjHJnFjssYwTiwcQ_3FYovX8I';
@@ -1147,7 +1113,7 @@ var POSTCODE_LOOKUP_URL = SUPABASE_URL + '/functions/v1/postcode-lookup';
 var TOTAL_STEPS         = 5;
 var formData            = { source: SURVEY_SOURCE };
 
-/* ══ PROGRESS ══ */
+/* ── PROGRESS ── */
 function updateProgress(step) {
   var pct = ((step - 1) / TOTAL_STEPS) * 100;
   document.getElementById('progFill').style.width = pct + '%';
@@ -1162,7 +1128,7 @@ function updateProgress(step) {
   }
 }
 
-/* ══ STEP NAVIGATION ══ */
+/* ── STEP NAVIGATION ── */
 function goToStep(from, to) {
   document.getElementById('step' + from).classList.remove('active');
   document.getElementById('step' + to).classList.add('active');
@@ -1173,34 +1139,33 @@ function goToStep(from, to) {
   }
 }
 
-/* ══ STEP 1: OWNERSHIP ══ */
+/* ── STEP 1: OWNERSHIP ── */
 window.pickOwner = function(owns, type, el) {
   document.querySelectorAll('#step1-inner .choice-card').forEach(function(c) { c.classList.remove('selected'); });
   el.classList.add('selected');
   formData.is_decision_maker = owns;
   formData.ownership_type    = type;
-
   if (!owns) {
     setTimeout(function() {
       document.getElementById('step1-inner').style.display = 'none';
-      document.getElementById('renter-msg').style.display  = 'block';
+      document.getElementById('renter-msg').style.display = 'block';
     }, 300);
     return;
   }
   setTimeout(function() { goToStep(1, 2); }, 300);
 };
 
-/* ══ STEP 2: BILL ══ */
+/* ── STEP 2: BILL ── */
 window.pickBill = function(el, val) {
   document.querySelectorAll('#step2 .choice-h').forEach(function(b) { b.classList.remove('selected'); });
   el.classList.add('selected');
-  formData.quarterly_electricity_bill = val;
+  formData.avg_quarterly_bill = val;
   setTimeout(function() { goToStep(2, 3); }, 280);
 };
 
-/* ══ STEP 3: TIMELINE ══ */
+/* ── STEP 3: TIMELINE ── */
 window.pickTimeline = function(el, val) {
-  document.querySelectorAll('#step3 .choice-card').forEach(function(c) { c.classList.remove('selected'); });
+  document.querySelectorAll('#step3 .choice-h').forEach(function(b) { b.classList.remove('selected'); });
   el.classList.add('selected');
   formData.purchase_timeline = val;
   setTimeout(function() { goToStep(3, 4); }, 280);
@@ -1212,13 +1177,12 @@ window.onPostcodeTyping = function() {
   var err = document.getElementById('err-postcode');
   if (err) err.style.display = 'none';
   document.getElementById('postcode').classList.remove('err-field');
-  /* Hide chip if postcode is cleared */
   if (pc.length < 4) {
     document.getElementById('suburb-chip').style.display = 'none';
   }
 };
 
-/* ══ STEP 4: POSTCODE SUBMIT (dedicated button, SunDone-style) ══ */
+/* ══ STEP 4: POSTCODE SUBMIT ══ */
 window.submitPostcode = async function() {
   var pcEl  = document.getElementById('postcode');
   var errEl = document.getElementById('err-postcode');
@@ -1235,7 +1199,6 @@ window.submitPostcode = async function() {
   pcEl.classList.remove('err-field');
   errEl.style.display = 'none';
 
-  /* Loading state */
   btn.textContent = 'Finding your installer…';
   btn.disabled    = true;
   chip.className  = 'suburb-chip loading';
@@ -1255,14 +1218,13 @@ window.submitPostcode = async function() {
     var data = resp.ok ? await resp.json() : {};
 
     if (data.buyer_name) {
-      /* Match found */
       chip.className = 'suburb-chip found';
       document.getElementById('suburb-text').textContent = '✓ Installer available in your area';
 
       formData.postcode      = pc;
       formData.matched_buyer = data.buyer_name;
 
-      document.getElementById('buyerName').textContent      = data.buyer_name;
+      document.getElementById('buyerName').textContent        = data.buyer_name;
       document.getElementById('consentBuyerName').textContent = data.buyer_name;
 
       var mn = document.getElementById('matchNotice');
@@ -1271,24 +1233,21 @@ window.submitPostcode = async function() {
 
       setTimeout(function() { goToStep(4, 5); }, 400);
     } else {
-      /* No coverage for this postcode */
       chip.className = 'suburb-chip no-coverage';
       document.getElementById('suburb-text').textContent = 'No installer found for this postcode';
       pcEl.classList.add('err-field');
-      errEl.textContent   = "We don’t have an installer covering that postcode yet - try a neighbouring postcode.";
+      errEl.textContent   = "We don't have an installer covering that postcode yet - try a neighbouring postcode.";
       errEl.style.display = 'block';
       btn.textContent     = 'Find My Local Installer →';
       btn.disabled        = false;
     }
   } catch(e) {
-    /* Network error - fall back silently so no lead is lost */
     console.warn('Postcode lookup error:', e);
     chip.style.display = 'none';
     formData.postcode      = pc;
     formData.matched_buyer = null;
 
-    /* Generic fallback text */
-    document.getElementById('buyerName').textContent      = 'a pre-vetted local installer';
+    document.getElementById('buyerName').textContent        = 'a pre-vetted local installer';
     document.getElementById('consentBuyerName').textContent = 'a pre-vetted CEC-accredited installer';
 
     setTimeout(function() { goToStep(4, 5); }, 280);
@@ -1297,17 +1256,16 @@ window.submitPostcode = async function() {
   }
 };
 
-/* ══ AU MOBILE NORMALISER ══ */
+/* ── AU mobile normalizer ── */
 function normalizeAuMobile(raw) {
-  var s = (raw || '').replace(/[\s\-().]/g, '');
-  if (s.startsWith('+')) s = s.substring(1);
+  var s = (raw || '').replace(/[\s\-().]/g, '').replace(/\+/g, '');
   if (!/^\d+$/.test(s)) return null;
   if (/^04\d{8}$/.test(s))  return '+61' + s.substring(1);
   if (/^614\d{8}$/.test(s)) return '+' + s;
   return null;
 }
 
-/* ══ STEP 5: CONTACT VALIDATION ══ */
+/* ── STEP 5: VALIDATION ── */
 function validateContact() {
   var fn  = document.getElementById('firstName');
   var ln  = document.getElementById('lastName');
@@ -1330,6 +1288,7 @@ function fv(id, test) {
   return ok;
 }
 
+/* ── SUBMIT - now actually sends to Make ── */
 /* ══ SUBMIT - triple dispatch (submit-lead + Make webhook + direct Supabase insert) ══ */
 window.submitForm = async function() {
   var ok = true;
@@ -1340,12 +1299,12 @@ window.submitForm = async function() {
   if (!ok) return;
   if (!document.getElementById('consent').checked) return;
 
-  var fn   = document.getElementById('firstName').value.trim();
-  var ln   = document.getElementById('lastName').value.trim();
-  var em   = document.getElementById('email').value.trim();
-  var ph   = normalizeAuMobile(document.getElementById('phone').value);
-  var pc   = formData.postcode || document.getElementById('postcode').value.trim();
-  var now  = new Date().toISOString();
+  var fn  = document.getElementById('firstName').value.trim();
+  var ln  = document.getElementById('lastName').value.trim();
+  var em  = document.getElementById('email').value.trim();
+  var ph  = normalizeAuMobile(document.getElementById('phone').value);
+  var pc  = formData.postcode || document.getElementById('postcode').value.trim();
+  var now = new Date().toISOString();
 
   var consentText = 'I agree to be contacted by ' +
     (formData.matched_buyer || 'a pre-vetted CEC-accredited installer') +
@@ -1363,17 +1322,16 @@ window.submitForm = async function() {
     is_decision_maker:           formData.is_decision_maker,
     ownership_type:              formData.ownership_type || null,
     purchase_timeline:           formData.purchase_timeline || null,
-    bill_range:                  formData.quarterly_electricity_bill || null,
+    bill_range:                  formData.avg_quarterly_bill || null,
     matched_buyer:               formData.matched_buyer || null,
     consent_text:                consentText
   };
 
-  /* Tracking */
   if (typeof fbq !== 'undefined') {
-    fbq('track', 'Lead', { content_name:'Solar Quote Darling Downs', content_category:'Solar', value:0, currency:'AUD' });
+    fbq('track', 'Lead', { content_name:'Solar Quote ClearWatt', content_category:'Solar', value:0, currency:'AUD' });
   }
   if (typeof gtag !== 'undefined') {
-    gtag('event', 'generate_lead', { event_category:'quote_form', event_label:'darling_downs_submitted' });
+    gtag('event', 'generate_lead', { event_category:'quote_form', event_label:'clearwatt_submitted' });
   }
 
   var btn = document.getElementById('submitBtn');
@@ -1384,7 +1342,6 @@ window.submitForm = async function() {
   try {
     await Promise.all([
 
-      /* PRIMARY - handles dedup, insert into ppl_leads, client match, and delivery */
       fetch(SUBMIT_LEAD_URL, {
         method:  'POST',
         headers: {
@@ -1395,14 +1352,12 @@ window.submitForm = async function() {
         body: JSON.stringify(leadPayload)
       }).catch(function(e) { console.warn('submit-lead error:', e); }),
 
-      /* NOTIFICATION - Make scenario for operator alerts */
       fetch(MAKE_WEBHOOK, {
         method:  'POST',
         headers: { 'Content-Type': 'application/json' },
         body:    JSON.stringify(leadPayload)
       }).catch(function(e) { console.warn('Make webhook error:', e); }),
 
-      /* DIRECT INSERT - backup record in ClearWatt's leads table */
       fetch(SUPABASE_URL + '/rest/v1/leads', {
         method:  'POST',
         headers: {
@@ -1432,14 +1387,11 @@ window.submitForm = async function() {
 
     ]);
   } catch(e) { console.warn('Submit error:', e); }
-  /* Always show success - never block UX on a network hiccup */
 
   document.getElementById('overlay').classList.remove('show');
 
-  /* Success screen */
   document.getElementById('step5').classList.remove('active');
   document.querySelector('.survey-progress').style.display = 'none';
-  document.querySelector('.dot-row').parentElement.style.display = 'none';
 
   var successEl = document.createElement('div');
   successEl.style.cssText = 'text-align:center;padding:34px 8px 24px;animation:stepIn 0.4s ease';
@@ -1458,7 +1410,7 @@ window.submitForm = async function() {
   document.querySelector('.card-body').appendChild(successEl);
 };
 
-/* ══ FAQ ══ */
+/* ── FAQ ── */
 function toggleFaq(el) {
   var item   = el.parentElement;
   var isOpen = item.classList.contains('open');
@@ -1466,7 +1418,7 @@ function toggleFaq(el) {
   if (!isOpen) item.classList.add('open');
 }
 
-/* ══ HAMBURGER ══ */
+/* ── HAMBURGER ── */
 function toggleMob() {
   var h = document.getElementById('hamburger');
   var m = document.getElementById('mobNav');
@@ -1480,17 +1432,15 @@ function closeMob() {
   document.body.style.overflow = '';
 }
 
-/* ══ INIT ══ */
+/* ── INIT ── */
 document.addEventListener('DOMContentLoaded', function() {
-  /* Phone input sanitiser */
   var ph = document.getElementById('phone');
   if (ph) ph.addEventListener('input', function(){
-    var v = this.value.replace(/[^\d+\s]/g, '');
-    v = (v.charAt(0) === '+' ? '+' : '') + v.replace(/\+/g, '');
+    var v = this.value.replace(/[^\d+\s]/g,'');
+    v = (v.charAt(0) === '+' ? '+' : '') + v.replace(/\+/g,'');
     this.value = v;
   });
 
-  /* Scroll reveal */
   var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) {
@@ -1510,5 +1460,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 </script>
+
+<!-- Live savings estimate panel (additive, new file — observes the survey, never modifies it) -->
+<script src="/savings-panel.js" defer></script>
 </body>
 </html>
