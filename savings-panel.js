@@ -1,5 +1,5 @@
 /* =====================================================================
-   SAVINGS ESTIMATE PANEL — NEW, ADDITIVE LOGIC ONLY
+   SAVINGS ESTIMATE PANEL - NEW, ADDITIVE LOGIC ONLY
    ---------------------------------------------------------------------
    This file is entirely new and self-contained. It does NOT modify,
    wrap, or re-implement any existing survey function (goToStep,
@@ -40,7 +40,7 @@
   /* Map the survey's bill value to a tier. Tolerant of suffixes (e.g.
      "/quarter") so it stays correct; returns null for anything that is
      not one of the four quarterly residential tiers (e.g. business
-     monthly bills) — in which case the panel simply stays a teaser. */
+     monthly bills) - in which case the panel simply stays a teaser. */
   function tierFromBill(bill) {
     if (!bill) return null;
     var b = String(bill);
@@ -96,7 +96,7 @@
           '<div class="sv-stat"><div class="sv-stat-v" id="svTenYr">$0</div><div class="sv-stat-l">10-year return</div></div>' +
         '</div>' +
         '<div class="sv-extra" id="svStc" hidden>' + CHECK_SVG +
-          '<span><strong>STC rebates currently available</strong> — your installer will confirm your eligibility</span>' +
+          '<span><strong>STC rebates currently available</strong> - your installer will confirm your eligibility</span>' +
         '</div>' +
         '<div class="sv-extra" id="svFit" hidden>' + CHECK_SVG + '<span></span></div>' +
       '</div>' +
@@ -157,7 +157,7 @@
     }
   }
 
-  /* Inject the savings summary above the Step 5 contact form (additive —
+  /* Inject the savings summary above the Step 5 contact form (additive -
      it is prepended as a new first child of #step5 and never touches the
      existing fields or the submit button). */
   function ensureStep5Summary(tier) {
@@ -169,7 +169,7 @@
       box.className = 'sv-step5';
       box.id = 'svStep5';
       box.innerHTML =
-        '<div class="sv-step5-head">Your estimate is ready — get a real quote to confirm it</div>' +
+        '<div class="sv-step5-head">Your estimate is ready - get a real quote to confirm it</div>' +
         '<div class="sv-step5-grid">' +
           '<div class="sv-s5-item"><span class="sv-s5-v sv-s5-accent" id="svS5Saving"></span><span class="sv-s5-l">Annual saving</span></div>' +
           '<div class="sv-s5-item"><span class="sv-s5-v" id="svS5System"></span><span class="sv-s5-l">System size</span></div>' +
@@ -177,7 +177,7 @@
           '<div class="sv-s5-item"><span class="sv-s5-v" id="svS5TenYr"></span><span class="sv-s5-l">10-yr return</span></div>' +
         '</div>' +
         '<div class="sv-step5-extra">' +
-          '<div id="svS5Stc"><strong>STC rebates currently available</strong> — your installer will confirm your eligibility</div>' +
+          '<div id="svS5Stc"><strong>STC rebates currently available</strong> - your installer will confirm your eligibility</div>' +
           '<div id="svS5Fit" hidden></div>' +
         '</div>';
       step5.insertBefore(box, step5.firstChild);
@@ -314,7 +314,7 @@
     $('svSheetClose').addEventListener('click', closeSheet);
     $('svSheetBackdrop').addEventListener('click', closeSheet);
 
-    // Observe step activation (read-only) — fires after the survey's own
+    // Observe step activation (read-only) - fires after the survey's own
     // navigation + updateProgress() have run synchronously.
     var observer = new MutationObserver(function () { render(); });
     for (var i = 1; i <= 5; i++) {
